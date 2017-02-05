@@ -1,0 +1,79 @@
+/**
+* @section icon
+*/
+
+.b-icon {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  color: $color-3;
+  font-size: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &.-type {
+    &_fixed {
+      width: 16px;
+      height: 20px;
+      overflow: hidden;
+
+      .fa {
+        vertical-align: top;
+      }
+    }
+
+    &_sortorder {
+      width: 12px;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: -3px;
+
+      .fa {
+        vertical-align: bottom;
+      }
+
+      .fa-sort-desc {
+        display: none;
+        vertical-align: top;
+      }
+
+      &.-order_reverse {
+        .fa-sort-asc {
+          display: none;
+        }
+        .fa-sort-desc {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &__index {
+    position: absolute;
+    top: -30px;
+  }
+
+  &.-color {
+    &_white {
+      color: $color-2;
+    }
+  }
+
+  &.-fSize {
+
+    &_14 {
+      font-size: 14px;
+    }
+
+    &_16 {
+      font-size: 16px;
+    }
+  }
+
+  .b-button & {
+    margin-right: 5px;
+  }
+}
+
+ 

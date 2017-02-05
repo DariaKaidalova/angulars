@@ -1,0 +1,72 @@
+/**
+* @section l-table
+*/
+
+.l-table {
+  margin: 30px 0;
+}
+
+.b-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &__columnName {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 20px 0 0;
+    cursor: pointer;
+  }
+
+  thead {
+    border-bottom: 1px solid #000;
+
+    th {
+      padding-bottom: 12px;
+    }
+  }
+  tbody {
+    tr {
+      &:first-child {
+        td {
+          padding-top: 12px;
+        }
+      }
+    }
+  }
+  tr {
+      &.ng-enter {
+        @extend .b-animaiton;
+      }
+
+      &.ng-leave {
+         @extend .b-animaiton.-type_delete;
+      }
+
+      &.-type_even {
+        background: rgba(152, 152, 152, 0.23);
+      }
+  }
+  td, th {
+    padding: 5px 10px;
+    text-align: left;
+
+    &.-type_description {
+      width: 380px;
+    }
+  }
+  th {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  td {
+
+    &.-type_icon {
+      text-align: right;
+    }
+
+    &.-type_description {
+      font-size: 13px;
+    }
+  }
+}
+

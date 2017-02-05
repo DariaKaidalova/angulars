@@ -1,0 +1,62 @@
+/**
+* @section buttons
+*/
+
+.l-button {
+  margin: 10px 0;
+
+  &.-align {
+
+    &_right {
+      text-align: right;
+    }
+    &_center {
+      text-align: center;
+    }
+    &_left {
+      text-align: left;
+    }
+  } 
+}
+
+.b-button {
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 140px;
+  min-height: 48px;
+  padding: 12px 20px 10px;
+  border: 0;
+  border-radius: 6px;
+  outline: 0;
+  background: $bg-controls-3;
+  color: $color-2;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+
+  &__text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:hover, &:focus, &:active, &:visited {
+    outline: 0;
+    color: $color-2;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: rgba(0, 104, 139, .9);
+  }
+
+  &.-size {
+
+    &_min {
+      min-width: 100px;
+    }
+  }
+}
+
+
+ 

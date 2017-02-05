@@ -1,0 +1,81 @@
+/**
+* @section Settings
+*/
+$site-width: 1024px;
+$site-width-tablet: 1024px;
+$site-width-mobile: 640px;
+
+$site-min-width: 640px;
+
+$breakpoint-desktop: 'min-width: #{$site-width}';
+$breakpoint-tablet:  'min-width: #{$site-width-tablet}) and (max-width: #{$site-width - 1px}';
+$breakpoint-mobile:  'max-width: #{$site-width-tablet - 1px}';
+
+$color-black: #000;
+$color-white: #fff;
+$color-blue: #207f9e;
+$color-red: #A52A2A;
+
+$color-main: $color-black;
+$color-2: $color-white;
+$color-3: $color-blue;
+$color-4: $color-red;
+
+$bg-white: #fff;
+$bg-white-transparent: rgba(255, 255, 255, .8);
+$bg-deepskyblue: #00688B;
+$bg-deepskyblue-transparent: rgba(0, 104, 139, .4);
+$bg-gray: #acacac;
+$bg-gray-transparent: rgba(172, 172, 172, .4);
+
+
+$bg-controls-1: $bg-white;
+$bg-controls-2: $bg-white-transparent;
+$bg-controls-3: $bg-deepskyblue;
+$bg-controls-4: $bg-deepskyblue-transparent;
+$bg-controls-5: $bg-gray;
+$bg-controls-6: $bg-gray-transparent;
+$bg-controls-7: $color-red;
+
+/*animation*/
+.b-animaiton {
+	animation: tableAdding 1.5s;
+	-webkit-animation: tableAdding 1.5s;
+
+  &.-type_delete {
+    animation: tableDelete 1.5s;
+    -webkit-animation: tableDelete 1.5s;
+  }
+}
+
+@keyframes tableAdding {
+  0%   {opacity: 0;}
+  25%  {opacity: 25%;}
+  50%  {opacity: 50%;}
+  75%  {opacity: 75%;}
+  100% {opacity: 100%;}
+}
+
+@-webkit-keyframes tableAdding {
+  0%   {opacity: 0;}
+  25%  {opacity: 25%;}
+  50%  {opacity: 50%;}
+  75%  {opacity: 75%;}
+  100% {opacity: 100%;}
+}
+
+@keyframes tableDelete {
+  0%   {opacity: 100%;}
+  25%  {opacity: 75%;}
+  50%  {opacity: 50%;}
+  75%  {opacity: 25%;}
+  100% {opacity: 0;}
+}
+
+@-webkit-keyframes tableDelete {
+  0%   {opacity: 100%;}
+  25%  {opacity: 75%;}
+  50%  {opacity: 50%;}
+  75%  {opacity: 25%;}
+  100% {opacity: 0;}
+}

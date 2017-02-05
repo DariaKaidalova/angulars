@@ -1,0 +1,23 @@
+/**
+* @section Main Site Header
+*/
+.l-siteHeader {
+  position: relative;
+  padding: 0 20px;
+  background: #000;
+  background: rgba(0, 0, 0, .8);
+}
+.b-siteHeader {
+  @include clearfix;
+  margin: 0 auto;
+  padding: 15px 0;
+  max-width: $site-width;
+  min-width: $site-min-width;
+	color: #fff;
+  text-align: center;
+
+  &__logout {
+    float: right;
+    text-align: right;
+  }
+}

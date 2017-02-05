@@ -1,0 +1,41 @@
+/**
+* @subsection Main Site Nav
+*/
+.l-siteNavigation {
+  display: inline-block;
+  margin: 15px 0 0 140px;
+  clear: both;
+  text-align: center;
+}
+.b-mainNavigation {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  list-style: none;
+
+  &__item {
+    position: relative;
+    float: left;
+    margin: 0 10px 0 0;
+    padding: 0;
+    color: $color-2;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.-state_current {
+
+    }
+  }
+
+  &__link {
+    @include hover-underline;
+    display: block;
+    color: inherit;
+  }
+}

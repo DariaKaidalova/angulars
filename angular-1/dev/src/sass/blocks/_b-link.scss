@@ -1,0 +1,22 @@
+/**
+* @section b-text
+*/
+.b-link {
+  color: $color-3;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+
+  &:hover, &:focus, &:active, &:visited {
+    color: $color-3;
+    font-size: inherit;
+    font-weight: inherit;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+ 

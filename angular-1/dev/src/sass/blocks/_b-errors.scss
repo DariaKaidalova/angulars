@@ -1,0 +1,15 @@
+/**
+* @section b-errors
+*/
+.b-errors {
+  margin: 0 20px;
+  color: $color-4;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+
+  &.ng-binding {
+  	@extend .b-animaiton;
+  }
+}
+ 
