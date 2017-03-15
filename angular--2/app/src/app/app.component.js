@@ -20,10 +20,16 @@ var AppComponent = (function () {
             new frameworks_1.Framework(4, 'Vou')
         ];
     }
+    AppComponent.prototype.addFramework = function (newFramework) {
+        if (newFramework) {
+            console.log(this.frameworks.length);
+            this.frameworks.push(this.frameworks.length, new frameworks_1.Framework(newFramework));
+        }
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <ul>\n       <li *ngFor=\"let framework of frameworks\"> {{framework.name}} </li>\n     </ul>"
+            template: "\n    <h1>{{title}}</h1>\n    <div #newFramework>\n      <input (keyup.enter)=\"addFramework(newFramework.value)\"\n      (blur)=\"addFramework(newFramework.value); newFramework.value=''\">\n      <button (click)=\"addFramework(newFramework.value)\">Add</button>\n    </div>\n    <ul>\n       <li *ngFor=\"let framework of frameworks\"> {{framework.name}} </li>\n     </ul>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
