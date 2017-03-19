@@ -8,14 +8,14 @@ import { exerciseYoga }  from './exercises.yoga';
 })
 export class YogaExercisesFormComponent {
 
-    //model = new exerciseYoga(0, 'Баддха Конасана', 'test', 'http://yogasecrets.ru/praktika/asany-yogi/baddha-konasana');
-    // submitted = false;
-    // onSubmit() { 
-    //     this.submitted = true; 
-    // }
+    model = new exerciseYoga(0, 'Баддха Конасана', 'test', 'http://yogasecrets.ru/praktika/asany-yogi/baddha-konasana');
+    submitted = false;
+    onSubmit() { 
+        this.submitted = true; 
+    }
     // TODO: Remove this when we're done
-    // get diagnostic() { 
-    //     return JSON.stringify(this.model); 
-    // }
+    get diagnostic() { 
+        return JSON.stringify(this.model); 
+    }
 
 }

@@ -9,9 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var exercises_yoga_1 = require('./exercises.yoga');
 var YogaExercisesFormComponent = (function () {
     function YogaExercisesFormComponent() {
+        this.model = new exercises_yoga_1.exerciseYoga(0, 'Баддха Конасана', 'test', 'http://yogasecrets.ru/praktika/asany-yogi/baddha-konasana');
+        this.submitted = false;
     }
+    YogaExercisesFormComponent.prototype.onSubmit = function () {
+        this.submitted = true;
+    };
+    Object.defineProperty(YogaExercisesFormComponent.prototype, "diagnostic", {
+        // TODO: Remove this when we're done
+        get: function () {
+            return JSON.stringify(this.model);
+        },
+        enumerable: true,
+        configurable: true
+    });
     YogaExercisesFormComponent = __decorate([
         core_1.Component({
             selector: 'yoga-exercises-form',

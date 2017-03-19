@@ -1,10 +1,10 @@
 "use strict";
 var exerciseYoga = (function () {
-    function exerciseYoga(id, name, description //,
-        ) {
+    function exerciseYoga(id, name, description, link) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.link = link;
     }
     return exerciseYoga;
 }());
