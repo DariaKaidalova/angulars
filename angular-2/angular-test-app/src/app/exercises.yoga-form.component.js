@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var YogaExercisesFormComponent = (function () {
+    function YogaExercisesFormComponent() {
     }
-    AppComponent = __decorate([
+    YogaExercisesFormComponent = __decorate([
         core_1.Component({
-            selector: 'app',
-            template: "<yoga-exercises-form></yoga-exercises-form>"
+            selector: 'yoga-exercises-form',
+            templateUrl: './yoga.exercises-form.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], YogaExercisesFormComponent);
+    return YogaExercisesFormComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.YogaExercisesFormComponent = YogaExercisesFormComponent;
+//# sourceMappingURL=exercises.yoga-form.component.js.map
