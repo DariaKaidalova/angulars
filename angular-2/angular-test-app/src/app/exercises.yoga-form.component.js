@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var exercises_yoga_1 = require('./exercises.yoga');
 var YogaExercisesFormComponent = (function () {
     function YogaExercisesFormComponent() {
-        this.model = new exercises_yoga_1.exerciseYoga(0, 'Баддха Конасана', 'test', 'http://yogasecrets.ru/praktika/asany-yogi/baddha-konasana');
+        this.model = new exercises_yoga_1.exerciseYoga(0, 'Баддха Конасана', 'test', 'test');
         this.submitted = false;
     }
     YogaExercisesFormComponent.prototype.onSubmit = function () {
@@ -28,8 +28,9 @@ var YogaExercisesFormComponent = (function () {
     });
     YogaExercisesFormComponent = __decorate([
         core_1.Component({
-            selector: 'yoga-exercises-form',
-            templateUrl: './yoga.exercises-form.component.html'
+            selector: 'yoga-form',
+            //templateUrl: './yoga.exercises-form.component.html'
+            template: "\n        <div class=\"container\">\n            <form>\n                <div class=\"form-group\">\n                    <label for=\"name\">Name</label>\n                    <input type=\"text\" class=\"form-control\" id=\"name\" required>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"name\">Description</label>\n                    <textarea class=\"form-control\" id=\"description\" required></textarea>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"alterEgo\">Link</label>\n                    <input type=\"text\" class=\"form-control\" id=\"link\">\n                </div>\n                <button type=\"submit\" class=\"btn btn-success\">Add</button>\n            </form>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], YogaExercisesFormComponent);

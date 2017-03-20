@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app',
-  template: `<yoga-exercises-form></yoga-exercises-form>`
+  template: `<yoga-form></yoga-form>`
 })
 export class AppComponent {  }
