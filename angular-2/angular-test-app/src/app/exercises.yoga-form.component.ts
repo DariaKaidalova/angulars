@@ -26,7 +26,7 @@ import { exerciseYoga }  from './exercises.yoga';
     `
 })
 export class YogaExercisesFormComponent {
-    debugger;
+    //debugger;
     model = new exerciseYoga(0, 'Баддха Конасана', 'test', 'test');
     submitted = false;
     onSubmit() { 

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var exercises_yoga_1 = require('./exercises.yoga');
 var YogaExercisesFormComponent = (function () {
     function YogaExercisesFormComponent() {
+        //debugger;
         this.model = new exercises_yoga_1.exerciseYoga(0, 'Баддха Конасана', 'test', 'test');
         this.submitted = false;
     }
