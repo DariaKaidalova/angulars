@@ -14,8 +14,8 @@ var AppComponent = (function () {
     }
     AppComponent = __decorate([
         core_1.Component({
-            selector: 'app',
-            template: "<yoga-form></yoga-form>"
+            selector: 'my-app',
+            template: '<yoga-form></yoga-form>'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

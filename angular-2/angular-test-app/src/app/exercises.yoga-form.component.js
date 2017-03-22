@@ -12,26 +12,17 @@ var core_1 = require('@angular/core');
 var exercises_yoga_1 = require('./exercises.yoga');
 var YogaExercisesFormComponent = (function () {
     function YogaExercisesFormComponent() {
-        //debugger;
-        this.model = new exercises_yoga_1.exerciseYoga(0, 'Баддха Конасана', 'test', 'test');
+        this.model = new exercises_yoga_1.exerciseYoga(1, 'test', 'test', 'test');
         this.submitted = false;
     }
-    YogaExercisesFormComponent.prototype.onSubmit = function () {
-        this.submitted = true;
+    YogaExercisesFormComponent.prototype.onSubmit = function () { this.submitted = true; };
+    YogaExercisesFormComponent.prototype.newExerciseYoga = function () {
+        this.model = new exercises_yoga_1.exerciseYoga(2, '', '', '');
     };
-    Object.defineProperty(YogaExercisesFormComponent.prototype, "diagnostic", {
-        // TODO: Remove this when we're done
-        get: function () {
-            return JSON.stringify(this.model);
-        },
-        enumerable: true,
-        configurable: true
-    });
     YogaExercisesFormComponent = __decorate([
         core_1.Component({
             selector: 'yoga-form',
-            //templateUrl: './yoga.exercises-form.component.html'
-            template: "\n        <div class=\"container\">\n            <form>\n                <div class=\"form-group\">\n                    <label for=\"name\">Name</label>\n                    <input type=\"text\" class=\"form-control\" id=\"name\" required>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"name\">Description</label>\n                    <textarea class=\"form-control\" id=\"description\" required></textarea>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"alterEgo\">Link</label>\n                    <input type=\"text\" class=\"form-control\" id=\"link\">\n                </div>\n                <button type=\"submit\" class=\"btn btn-success\">Add</button>\n            </form>\n        </div>\n    "
+            templateUrl: './yoga.exercises-form.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], YogaExercisesFormComponent);
