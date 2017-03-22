@@ -10,4 +10,5 @@ import { YogaExercisesFormComponent } from './exercises.yoga-form.component';
   declarations: [ AppComponent , YogaExercisesFormComponent],
   bootstrap:    [ AppComponent ]
 })
+
 export class AppModule { }
