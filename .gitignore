@@ -1,3 +1,5 @@
 angular-2/angular-test-app/node_modules
 angular-2-cli/angular-app/node_modules
+angular-2-cli/angular-app/grunt/node_modules
+angular-2-cli/angular-app/grunt/.sass-cache
 npm-debug.log
