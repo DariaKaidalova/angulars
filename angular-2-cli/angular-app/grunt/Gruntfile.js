@@ -3,10 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     sass: {
-      dist: {
-        options: {
-          style: 'compressed'
-        },
+      dev: {
         files: {
           '../src/styles.css' : 'styles.scss'
         }
@@ -15,40 +12,26 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: '**/*.scss',
-        tasks: [ 'sass', 'cssmin' ],
+        tasks: "sass:dev"
+      }
+    },
+    browserSync: {
+      default_options: {
+        bsFiles: {
+          src: [
+            "../src/style.css"
+          ]
+        },
         options: {
-          spawn: false,
+          watchTask: true,
+          proxy: "localhost:4200"
         }
       }
-    },
-    compass: {
-      dist: {
-        options: {
-        sassDir: '/',
-        cssDir: '../src/',
-        environment: 'development',
-        outputStyle: 'compressed'
-      }
-      }
-    },
-    updateTrue: {
-      options: {
-        update: true
-      },
-      files: [{
-        expand: true,
-        cwd: '../src/',
-        src: [
-          'styles.scss'
-        ],
-        dest: '/',
-        ext: '.css'
-      }]
     }
   });
-  grunt.loadNpmTasks('grunt-contrib-sass');
+
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.registerTask('default',['sass','watch', 'compass']);
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.registerTask('default', ['sass','browserSync', 'watch']);
 }
