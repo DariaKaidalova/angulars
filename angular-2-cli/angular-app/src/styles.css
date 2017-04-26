@@ -1,4 +1,26 @@
-body {
-  color: green; }
+/*plugins*/
+/*blocks*/
+/*reset css*/
+body, p {
+  margin: 0; }
+
+ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+/*variables*/
+/*content*/
+.g-block__center, .b-header__inner, .b-content__inner, .b-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+/*header*/
+/*content*/
+.b-content {
+  background: #75c9dd; }
+
+/*footer*/
 
 /*# sourceMappingURL=styles.css.map */

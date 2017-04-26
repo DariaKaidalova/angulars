@@ -1,0 +1,10 @@
+/*content*/
+
+.b-content {
+	background: $color-blue-1;
+	
+	&__inner {
+		@extend .g-block__center;
+	}
+}
+

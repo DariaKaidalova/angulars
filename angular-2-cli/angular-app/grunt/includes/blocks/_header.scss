@@ -1,0 +1,9 @@
+/*header*/
+
+.b-header {
+
+	&__inner {
+		@extend .g-block__center;
+	}
+}
+

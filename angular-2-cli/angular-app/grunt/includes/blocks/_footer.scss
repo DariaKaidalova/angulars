@@ -1,0 +1,8 @@
+/*footer*/
+
+.b-footer {
+	&__inner {
+		@extend .g-block__center;
+	}
+}
+
