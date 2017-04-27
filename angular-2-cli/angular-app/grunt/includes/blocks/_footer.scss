@@ -1,6 +1,9 @@
 /*footer*/
 
 .b-footer {
+	height: 60px;
+	box-sizing: border-box;
+
 	&__inner {
 		@extend .g-block__center;
 	}

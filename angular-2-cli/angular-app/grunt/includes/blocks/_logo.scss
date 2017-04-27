@@ -1,18 +1,19 @@
 /*logo*/
 
 .b-logo {
-	float: left;
+	
+	&__link {
+		display: block;
+		height: 100%;
+	    padding: 5px 0 5px;
+	}
 
-	&-inner {
+	&__imageWrapper {
+		display: block;
 		width: 60px;
 		height: 60px;
 		border-radius: 50%;
 		overflow: hidden;
-	}
-
-	&__link {
-		display: block;
-		height: 100%;
 	}
 
 	&__image {

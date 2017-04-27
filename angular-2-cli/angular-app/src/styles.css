@@ -1,5 +1,6 @@
 /*plugins*/
-/*blocks*/
+/*styles*/
+/*common styles*/
 /*reset css*/
 body, p {
   margin: 0; }
@@ -16,46 +17,75 @@ ul {
   max-width: 1200px;
   margin: 0 auto; }
 
-.g-clearfix:after, .b-header__inner:after, .b-menu__inner:after {
+.g-clearfix:after, .b-header__block:after, .b-menu:after {
   content: "";
   display: table;
   clear: both; }
 
+/*styles of top blocks*/
+.l-body {
+  color: #222;
+  font: normal 14px/1.3 'Droid Sans', sans-serif; }
+
+.l-wrapper {
+  min-height: calc(100vh - 60px);
+  background: #fde8ea; }
+
+/*styles of blocks*/
 /*header*/
 .b-header {
-  background: #e6e6e6; }
+  background: #fff;
+  box-shadow: 1px -7px 26px #ccc; }
+  .b-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; }
 
 /*content*/
 .b-content {
-  background: #75c9dd; }
+  padding: 0 7px 0; }
+  .b-content__inner {
+    min-height: calc(100vh - 60px - 70px - 30px);
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 7px;
+    background: #fff; }
 
 /*footer*/
+.b-footer {
+  height: 60px;
+  box-sizing: border-box; }
+
 /*logo*/
-.b-logo {
-  float: left; }
-  .b-logo-inner {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden; }
-  .b-logo__link {
-    display: block;
-    height: 100%; }
-  .b-logo__image {
-    display: block;
-    height: 100%; }
+.b-logo__link {
+  display: block;
+  height: 100%;
+  padding: 5px 0 5px; }
+.b-logo__imageWrapper {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden; }
+.b-logo__image {
+  display: block;
+  height: 100%; }
 
 /*menu*/
 .b-menu {
-  float: right;
-  height: 100%; }
-  .b-menu__inner {
-    height: inherit; }
+  height: 100%;
+  font: 20px/2 'Lobster', cursive; }
   .b-menu__item {
     float: left;
-    height: inherit; }
-    .b-menu__item:last-child .b-menu__link {
-      padding-right: 0; }
+    height: inherit;
+    		/*&:last-child {
+    
+    			.b-menu__link {
+    				padding-right: 0;
+    			}
+    		}*/ }
   .b-menu__link {
     height: inherit;
     box-sizing: border-box;

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="l-html">
 	<head>
 		<meta charset="utf-8">
 		<title>AngularApp</title>
@@ -7,40 +7,46 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lobster&amp;subset=cyrillic,latin-ext,vietnamese" rel="stylesheet">
 	</head>
-	<body>
+	<body class="l-body">
 		<!-- <app-root>Loading...</app-root> -->
-		<header class="b-header">
-			<div class="b-header__inner">
-				<div class="b-logo">
-					<div class="b-logo-inner">
-						<a href="#" class="b-logo__link">
-							<img src="assets/images/logo-image-hand.jpg" alt="" class="b-logo__image">
-						</a>
+		<div class="l-wrapper">
+			<header class="b-header">
+				<div class="b-header__inner">
+					<div class="b-header__block -type_left">
+						<div class="b-logo">
+							<a href="#" class="b-logo__link">
+								<span class="b-logo__imageWrapper">
+									<img src="assets/images/logo-image-hand.jpg" alt="" class="b-logo__image">
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="b-header__block -type_right">
+						<ul class="b-menu">
+							<li class="b-menu__item">
+								<a href="" class="b-menu__link">Виды йоги</a>
+							</li>
+							<li class="b-menu__item">
+								<a href="" class="b-menu__link">Хатха йога</a>
+							</li>
+						</ul>
 					</div>
 				</div>
-				<div class="b-menu">
-					<ul class="b-menu__inner">
-						<li class="b-menu__item">
-							<a href="" class="b-menu__link">Виды йоги</a>
-						</li>
-						<li class="b-menu__item">
-							<a href="" class="b-menu__link">Хатха йога</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</header>
+			</header>
 
-		<main class="b-content">
-			<div class="b-content__inner">
-				test
-			</div>
+			<main class="b-content">
+				<div class="b-content__inner">
+					
+				</div>
 		</main>
+		</div>
 
 		<footer class="b-footer">
 			<div class="b-footer__inner">
-				test
+				
 			</div>
 		</footer>
 	</body>

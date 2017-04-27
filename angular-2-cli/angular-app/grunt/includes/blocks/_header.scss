@@ -1,11 +1,18 @@
 /*header*/
 
 .b-header {
-	background: $color-gray-1;
+	background: $color-white-1;
+	box-shadow: 1px -7px 26px #ccc;
 
 	&__inner {
-		@extend .g-clearfix;
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
 		@extend .g-block__center;
+	}
+
+	&__block {
+		@extend .g-clearfix;
 	}
 }
 
