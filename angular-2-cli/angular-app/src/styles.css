@@ -16,11 +16,53 @@ ul {
   max-width: 1200px;
   margin: 0 auto; }
 
+.g-clearfix:after, .b-header__inner:after, .b-menu__inner:after {
+  content: "";
+  display: table;
+  clear: both; }
+
 /*header*/
+.b-header {
+  background: #e6e6e6; }
+
 /*content*/
 .b-content {
   background: #75c9dd; }
 
 /*footer*/
+/*logo*/
+.b-logo {
+  float: left; }
+  .b-logo-inner {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden; }
+  .b-logo__link {
+    display: block;
+    height: 100%; }
+  .b-logo__image {
+    display: block;
+    height: 100%; }
+
+/*menu*/
+.b-menu {
+  float: right;
+  height: 100%; }
+  .b-menu__inner {
+    height: inherit; }
+  .b-menu__item {
+    float: left;
+    height: inherit; }
+    .b-menu__item:last-child .b-menu__link {
+      padding-right: 0; }
+  .b-menu__link {
+    height: inherit;
+    box-sizing: border-box;
+    display: block;
+    padding: 15px 10px 13px;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer; }
 
 /*# sourceMappingURL=styles.css.map */

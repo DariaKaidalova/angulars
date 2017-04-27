@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,WAAW;AAGX,UAAU;ACHV,aAAa;AAEb,OAAQ;EACP,MAAM,EAAE,CAAC;;AAGV,EAAG;EACF,OAAO,EAAE,KAAK;EACd,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;;ACVjB,aAAa;ACAb,WAAW;AAIV,uEAAU;EACT,SAAS,EDHE,MAAM;ECIjB,MAAM,EAAE,MAAM;;ACNhB,UAAU;ACAV,WAAW;AAEX,UAAW;EACV,UAAU,EHKI,OAAO;;AIRtB,UAAU",
-"sources": ["../grunt/styles.scss","../grunt/includes/blocks/_reset.scss","../grunt/includes/blocks/_variables.scss","../grunt/includes/blocks/_global.scss","../grunt/includes/blocks/_header.scss","../grunt/includes/blocks/_content.scss","../grunt/includes/blocks/_footer.scss"],
+"mappings": "AAAA,WAAW;AAGX,UAAU;ACHV,aAAa;AAEb,OAAQ;EACP,MAAM,EAAE,CAAC;;AAGV,EAAG;EACF,OAAO,EAAE,KAAK;EACd,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;;ACVjB,aAAa;ACAb,WAAW;AAIV,uEAAU;EACT,SAAS,EDHE,MAAM;ECIjB,MAAM,EAAE,MAAM;;AAOf,+DAAQ;EACP,OAAO,EAAE,EAAE;EACX,OAAO,EAAE,KAAK;EACd,KAAK,EAAE,IAAI;;AChBb,UAAU;AAEV,SAAU;EACT,UAAU,EFOI,OAAO;;AGVtB,WAAW;AAEX,UAAW;EACV,UAAU,EHKI,OAAO;;AIRtB,UAAU;ACAV,QAAQ;AAER,OAAQ;EACP,KAAK,EAAE,IAAI;EAEX,aAAQ;IACP,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,IAAI;IACZ,aAAa,EAAE,GAAG;IAClB,QAAQ,EAAE,MAAM;EAGjB,aAAQ;IACP,OAAO,EAAE,KAAK;IACd,MAAM,EAAE,IAAI;EAGb,cAAS;IACR,OAAO,EAAE,KAAK;IACd,MAAM,EAAE,IAAI;;ACnBd,QAAQ;AAER,OAAQ;EACP,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EAEZ,cAAS;IAER,MAAM,EAAE,OAAO;EAGhB,aAAQ;IACP,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,OAAO;IAId,sCAAc;MACb,aAAa,EAAE,CAAC;EAKnB,aAAQ;IACP,MAAM,EAAE,OAAO;IACf,UAAU,EAAE,UAAU;IACtB,OAAO,EAAE,KAAK;IACd,OAAO,EAAE,cAAc;IACvB,KAAK,EAAE,OAAO;IACd,eAAe,EAAE,IAAI;IACrB,MAAM,EAAE,OAAO",
+"sources": ["../grunt/styles.scss","../grunt/includes/blocks/_reset.scss","../grunt/includes/blocks/_variables.scss","../grunt/includes/blocks/_global.scss","../grunt/includes/blocks/_header.scss","../grunt/includes/blocks/_content.scss","../grunt/includes/blocks/_footer.scss","../grunt/includes/blocks/_logo.scss","../grunt/includes/blocks/_menu.scss"],
 "names": [],
 "file": "styles.css"
 }

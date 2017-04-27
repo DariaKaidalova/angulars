@@ -1,8 +1,10 @@
 /*header*/
 
 .b-header {
+	background: $color-gray-1;
 
 	&__inner {
+		@extend .g-clearfix;
 		@extend .g-block__center;
 	}
 }
