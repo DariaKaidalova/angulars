@@ -2,10 +2,11 @@
 
 .b-content {
 	padding: 0 7px 0;
-	
+	//min-height: calc(100vh - 60px - 70px);
+
 	&__inner {
 		@extend .g-block__center;
-		min-height: calc(100vh - 60px - 70px - 30px);
+		//min-height: calc(100vh - 30px);
 		box-sizing: border-box;
 		margin-top: 15px;
 		margin-bottom: 15px;

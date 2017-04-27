@@ -45,7 +45,6 @@ ul {
 .b-content {
   padding: 0 7px 0; }
   .b-content__inner {
-    min-height: calc(100vh - 60px - 70px - 30px);
     box-sizing: border-box;
     margin-top: 15px;
     margin-bottom: 15px;
