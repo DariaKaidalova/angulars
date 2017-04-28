@@ -34,6 +34,8 @@ ul {
 /*styles of blocks*/
 /*header*/
 .b-header {
+  min-height: 70px;
+  padding: 0 7px 0;
   background: #fff;
   box-shadow: 1px -7px 26px #ccc; }
   .b-header__inner {
@@ -43,11 +45,10 @@ ul {
 
 /*content*/
 .b-content {
-  padding: 0 7px 0; }
+  padding: 15px 7px; }
   .b-content__inner {
+    min-height: calc(100vh - 60px - 70px - 30px);
     box-sizing: border-box;
-    margin-top: 15px;
-    margin-bottom: 15px;
     padding: 15px 20px;
     border-radius: 7px;
     background: #fff; }
