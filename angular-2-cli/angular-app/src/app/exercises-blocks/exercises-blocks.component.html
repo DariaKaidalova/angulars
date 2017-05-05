@@ -1,0 +1,28 @@
+<form action="" class="b-form">
+	<div class="b-form__row">
+		<div class="b-form__item">
+			<label for="" class="b-form__title"></label>
+			<input type="text" class="b-field" placeholder="Упражнение"  #newEx>
+		</div>
+		<div class="b-form__item">
+			<label for="" class="b-form__title"></label>
+			<input type="text" class="b-field" placeholder="Описание">
+		</div>
+		<div class="b-form__item -type_button">
+			<button class="b-button" (click)="addNewExBlock(newEx.value)">Добавить упражнение</button>
+		</div>
+	</div>
+</form>
+<ul class="b-blocks">
+	<li class="b-blocks__item" *ngFor="let exercise of exercises">
+		<div class="b-blocks__imageWrap">
+			<a href="" class="b-blocks__link">
+				<img src="" alt="" class="b-blocks__image">
+			</a>
+		</div>
+		<div class="b-blocks__titleWrap">
+			<h3 class="b-blocks__title"><a href="" class="b-blocks__link">{{exercise}}</a></h3>
+		</div>
+		<div class="b-blocks__text"></div>
+	</li>
+</ul>
