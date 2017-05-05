@@ -11,6 +11,7 @@ export class ExercisesBlocksComponent implements OnInit {
 		{title: 'test', text: 'test test'}, 
 		{title: 'test', text: 'test test test test'}
 	];
+	
 	addNewExBlock(newExTitle, newExText) {
 		let newEx = {title: newExTitle, text: newExText}
 		if(newEx) {
@@ -19,8 +20,5 @@ export class ExercisesBlocksComponent implements OnInit {
 	}
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
