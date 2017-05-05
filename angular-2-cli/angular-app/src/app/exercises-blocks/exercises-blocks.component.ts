@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExercisesBlocksComponent implements OnInit {
 
-	exercises = ['jjhjhh', 'kjkjkjkj'];
-	addNewExBlock(newEx: string) {
+	exercises = [ 
+		{title: 'test', text: 'test test'}, 
+		{title: 'test', text: 'test test test test'}
+	];
+	addNewExBlock(newExTitle, newExText) {
+		let newEx = {title: newExTitle, text: newExText}
 		if(newEx) {
 			this.exercises.push(newEx);
 		}
