@@ -126,7 +126,7 @@ ul {
 
 /*form*/
 .b-form {
-  margin: 0 0 15px; }
+  margin: 0 0 20px; }
   .b-form__row {
     display: flex;
     justify-content: start;
@@ -145,7 +145,7 @@ ul {
 .b-button {
   min-width: 70px;
   min-height: 32px;
-  padding: 8px 7px;
+  padding: 8px 10px;
   outline: 0;
   border: 0;
   border-radius: 7px;
