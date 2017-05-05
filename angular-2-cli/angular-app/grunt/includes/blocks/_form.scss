@@ -1,15 +1,31 @@
 /*form*/
 
 .b-form {
+	margin: 0 0 15px;
 	
-	&__inner {
+	&__row {
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		margin: 0 0 10px;
 
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	&__item {
+		margin: 0 10px 0 0;
+
+		&:last-child {
+			margin-right: 0;
+		}
 
 		&.-type {
-			&_button {}
+
+			&_button {
+				margin-right: 0;
+			}
 		}
 	}
 }

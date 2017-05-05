@@ -2,6 +2,7 @@
 
 .b-blocks {
 	@extend .g-clearfix;
+	margin: 0 -0.5%;
 
 	&__item {
 		width: 24%;
@@ -22,7 +23,7 @@
 
 	&__title {
 		margin: 0 0 5px;
-    	font: 19px/1.3 'Lobster', cursive;
+  	font: 19px/1.3 'Lobster', cursive;
 	}
 
 	&__text {

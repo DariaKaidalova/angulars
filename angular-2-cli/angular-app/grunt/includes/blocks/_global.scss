@@ -1,9 +1,11 @@
 /*content*/
 
+/*global classes*/
 .g-block {
 	
 	&__center {
 		max-width: $main-width;
+		min-width: $min-width;
 		margin: 0 auto;
 	}
 }
@@ -16,4 +18,13 @@
 		display: table;
 		clear: both;
 	}
+}
+
+
+/*mixins*/
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder           { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-ms-input-placeholder      { @content; }  
 }
