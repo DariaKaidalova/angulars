@@ -22,7 +22,7 @@
 
 .l-wrapper {
 	min-height: calc(100vh - 60px);
-	background: $color-pink-1;
+	background: $color-gray-2;
 }
 
 /*styles of blocks*/
@@ -32,4 +32,8 @@
 @import "includes/blocks/footer.scss";
 @import "includes/blocks/logo.scss";
 @import "includes/blocks/menu.scss";
-@import "includes/blocks/exercises.scss";
+@import "includes/blocks/blocks.scss";
+@import "includes/blocks/form.scss";
+@import "includes/blocks/button.scss";
+@import "includes/blocks/field.scss";
+

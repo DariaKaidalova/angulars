@@ -1,6 +1,6 @@
 /*footer*/
 
-.b-exercises {
+.b-blocks {
 	@extend .g-clearfix;
 
 	&__item {
@@ -10,8 +10,8 @@
 		float: left;
 		margin: 0 0.5% 15px;
 		padding: 10px;
-		border-radius: 7px;
-		background: $color-gray-1;
+		border-radius: 5px;
+		background: $color-pink-2;
 	}
 
 	&__imageWrap {}
@@ -21,10 +21,13 @@
 	&__titleWrap {}
 
 	&__title {
-		margin: 0;
+		margin: 0 0 5px;
+    	font: 19px/1.3 'Lobster', cursive;
 	}
 
-	&__text {}
+	&__text {
+	    line-height: 1.5;
+	}
 
 	&__link {
 		color: inherit;

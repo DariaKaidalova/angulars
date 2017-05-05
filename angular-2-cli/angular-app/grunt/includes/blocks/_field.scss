@@ -1,0 +1,14 @@
+/*field*/
+
+.b-field {
+	display: inline-block;
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: 0;
+    border-radius: 7px;
+    border: 1px solid $color-gray-3;
+}
+
