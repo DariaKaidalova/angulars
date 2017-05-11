@@ -1,29 +1,32 @@
-<form action="" class="b-form">
+<form (ngSubmit)="onSubmit()" #exForm="ngForm" class="b-form">
 	<div class="b-form__row">
 		<div class="b-form__item">
 			<label for="" class="b-form__title"></label>
-			<input type="text" class="b-field" placeholder="Упражнение" #newExTitle>
+			<input type="text" class="b-field" placeholder="Упражнение"  [(ngModel)]="exercise.title" name="name" #newExTitle="ngModel" required>
+			{{ exercise.title }}
 		</div>
 		<div class="b-form__item">
 			<label for="" class="b-form__title"></label>
-			<input type="text" class="b-field" placeholder="Описание" #newExText>
+			<input type="text" class="b-field" placeholder="Описание" [(ngModel)]="exercise.text" name="name" #newExText="ngModel" required>
+			{{ exercise.text }}
 		</div>
 		<div class="b-form__item -type_button">
-			<button class="b-button" (click)="addNewExBlock(newExTitle.value, newExText.value)">Добавить упражнение</button>
+			<button class="b-button" [disabled]="!exForm.form.valid" (click)="addNewExBlock(exercise.title, exercise.text)">Добавить упражнение</button>
 		</div>
 	</div>
 </form>
+
 <ul class="b-blocks">
-	<li class="b-blocks__item" *ngFor="let exercise of exercises">
+	<li class="b-blocks__item" *ngFor="let exItem of exercises">
 		<div class="b-blocks__imageWrap">
 			<a href="" class="b-blocks__link">
 				<img src="" alt="" class="b-blocks__image">
 			</a>
 		</div>
 		<div class="b-blocks__titleWrap">
-			<h3 class="b-blocks__title"><a href="" class="b-blocks__link">{{exercise.title}}</a></h3>
+			<h3 class="b-blocks__title"><a href="" class="b-blocks__link">{{exItem.title}}</a></h3>
 		</div>
-		<div class="b-blocks__text">{{exercise.text}}</div>
+		<div class="b-blocks__text">{{exItem.text}}</div>
 		<div class="b-blocks__buttons">
 			<button class="b-button">Удалить упражнение</button>
 		</div>
