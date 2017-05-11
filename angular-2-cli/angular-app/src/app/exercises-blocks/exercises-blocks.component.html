@@ -1,14 +1,10 @@
 <form (ngSubmit)="onSubmit()" #exForm="ngForm" class="b-form">
 	<div class="b-form__row">
 		<div class="b-form__item">
-			<label for="" class="b-form__title"></label>
-			<input type="text" class="b-field" placeholder="Упражнение"  [(ngModel)]="exercise.title" name="name" #newExTitle="ngModel" required>
-			{{ exercise.title }}
+			<input type="text" class="b-field" placeholder="Упражнение *"  [(ngModel)]="exercise.title" name="newExTitle" #newExTitle="ngModel" required>
 		</div>
 		<div class="b-form__item">
-			<label for="" class="b-form__title"></label>
-			<input type="text" class="b-field" placeholder="Описание" [(ngModel)]="exercise.text" name="name" #newExText="ngModel" required>
-			{{ exercise.text }}
+			<input type="text" class="b-field" placeholder="Описание *" [(ngModel)]="exercise.text" name="newExText" #newExText="ngModel" required>
 		</div>
 		<div class="b-form__item -type_button">
 			<button class="b-button" [disabled]="!exForm.form.valid" (click)="addNewExBlock(exercise.title, exercise.text)">Добавить упражнение</button>

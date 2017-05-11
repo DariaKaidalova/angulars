@@ -6,28 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exercises-blocks.component.css']
 })
 export class ExercisesBlocksComponent implements OnInit {
-	// addNewExBlock(newExTitle, newExText) {
-	// 	let newEx = {title: newExTitle, text: newExText}
-	// 	if(newEx) {
-	// 		this.exercises.push(newEx);
-	// 	}
-	// }
 	exercise = new Exercise(0, '', '');
 
  	submitted = false;
-  onSubmit() { this.submitted = true; }
+  onSubmit() { 
+    this.submitted = true; 
+  }
 
-  exercises = [
-  	{title: 'test', text: 'test'}
-  ];
+  exercises = [];
 
   addNewExBlock(newExTitle, newExText) {
  		this.exercise = new Exercise(this.exercises.length+1, newExTitle, newExText);
     this.exercises.push(
-  		{title: this.exercise.title, text: this.exercise.text}
+  		{id: this.exercises.length+1, title: this.exercise.title, text: this.exercise.text}
 		);
-		this.exercise = new Exercise(1, '', '');
-		console.log('this.exercises.length:'+this.exercises.length);
+		this.exercise = new Exercise(0, '', '');
+    console.log(this.exercises);
   }
 
   constructor() {}
