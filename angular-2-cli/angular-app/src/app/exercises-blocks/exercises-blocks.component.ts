@@ -22,12 +22,12 @@ export class ExercisesBlocksComponent implements OnInit {
   ];
 
   addNewExBlock(newExTitle, newExText) {
-    this.exercise = new Exercise(1, '', '');
-    console.log(this.exercise.text);
-    //newEx = new Exercise(exercises.length, newExTitle, newExText);
+ 		this.exercise = new Exercise(this.exercises.length+1, newExTitle, newExText);
     this.exercises.push(
-  		{title: newExTitle, text: newExText}
+  		{title: this.exercise.title, text: this.exercise.text}
 		);
+		this.exercise = new Exercise(1, '', '');
+		console.log('this.exercises.length:'+this.exercises.length);
   }
 
   constructor() {}
