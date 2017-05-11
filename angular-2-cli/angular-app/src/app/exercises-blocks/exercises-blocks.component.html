@@ -1,13 +1,13 @@
 <form (ngSubmit)="onSubmit()" #exForm="ngForm" class="b-form">
 	<div class="b-form__row">
 		<div class="b-form__item">
-			<input type="text" class="b-field" placeholder="Упражнение *"  [(ngModel)]="exercise.title" name="newExTitle" #newExTitle="ngModel" required>
+			<input type="text" class="b-field" placeholder="Упражнение *"  [(ngModel)]="newTitle" name="newExTitle" required>
 		</div>
 		<div class="b-form__item">
-			<input type="text" class="b-field" placeholder="Описание *" [(ngModel)]="exercise.text" name="newExText" #newExText="ngModel" required>
+			<input type="text" class="b-field" placeholder="Описание *" [(ngModel)]="newText" name="newExText" required>
 		</div>
 		<div class="b-form__item -type_button">
-			<button class="b-button" [disabled]="!exForm.form.valid" (click)="addNewExBlock(exercise.title, exercise.text)">Добавить упражнение</button>
+			<button class="b-button" [disabled]="!exForm.form.valid" (click)="addNewExBlock()">Добавить упражнение</button>
 		</div>
 	</div>
 </form>

@@ -5,33 +5,32 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './exercises-blocks.component.html',
   styleUrls: ['./exercises-blocks.component.css']
 })
-export class ExercisesBlocksComponent implements OnInit {
-	exercise = new Exercise(0, '', '');
+export class ExercisesBlocksComponent {
+  newTitle: string;
+  newText: string;
+  newId: number = 0;
+  exercises: Array<Exercise> = [];
+  submitted: boolean = false;
 
- 	submitted = false;
+ 	constructor() {}
+
   onSubmit() { 
     this.submitted = true; 
   }
 
-  exercises = [];
-
-  addNewExBlock(newExTitle, newExText) {
- 		this.exercise = new Exercise(this.exercises.length+1, newExTitle, newExText);
+  addNewExBlock(): void {
+ 		const newExersices = {id: this.newId, title: this.newTitle, text: this.newText};
     this.exercises.push(
-  		{id: this.exercises.length+1, title: this.exercise.title, text: this.exercise.text}
+  		newExersices
 		);
-		this.exercise = new Exercise(0, '', '');
-    console.log(this.exercises);
+    //this.exersiceService.add(this.newTitle, this.newText)
+    console.log(this.exercises)
+    this.newId++;
   }
-
-  constructor() {}
-  ngOnInit() {}
 }
 
-export class Exercise {
-  constructor(
-    public id: number,
-    public title: string,
-    public text: string,
-  ) {  }
+export interface Exercise {
+  id: number;
+  title: string;
+  text: string;
 }
