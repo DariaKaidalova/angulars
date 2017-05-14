@@ -1,36 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { ExercisesService } from '../service/exercises-blocks-service.service';
+import { Exercise } from './exercise-interface';
+
 
 @Component({
   selector: 'app-exercises-blocks',
   templateUrl: './exercises-blocks.component.html',
-  styleUrls: ['./exercises-blocks.component.css']
+  styleUrls: ['./exercises-blocks.component.css'],
+  providers: [ExercisesService]
 })
 export class ExercisesBlocksComponent {
   newTitle: string;
   newText: string;
-  newId: number = 0;
-  exercises: Array<Exercise> = [];
+  exercises: Array<Exercise> = [
+    {id: 0, title: 'test test', text: 'ytyty'}
+  ];
   submitted: boolean = false;
 
- 	constructor() {}
+ 	constructor(private ExercisesService: ExercisesService) {}
 
   onSubmit() { 
     this.submitted = true; 
   }
 
   addNewExBlock(): void {
- 		const newExersices = {id: this.newId, title: this.newTitle, text: this.newText};
-    this.exercises.push(
-  		newExersices
-		);
-    //this.exersiceService.add(this.newTitle, this.newText)
-    console.log(this.exercises)
-    this.newId++;
+    this.ExercisesService.addExersice(this.newTitle, this.newText); 
   }
-}
-
-export interface Exercise {
-  id: number;
-  title: string;
-  text: string;
 }
