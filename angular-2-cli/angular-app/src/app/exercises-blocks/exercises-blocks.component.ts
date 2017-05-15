@@ -17,13 +17,13 @@ export class ExercisesBlocksComponent {
   ];
   submitted: boolean = false;
 
- 	constructor(private ExercisesService: ExercisesService) {}
+ 	constructor(private _exercisesService: ExercisesService) {}
 
   onSubmit() { 
     this.submitted = true; 
   }
 
   addNewExBlock(): void {
-    this.ExercisesService.addExersice(this.newTitle, this.newText); 
+    this._exercisesService.add(this.newTitle, this.newText); 
   }
 }
