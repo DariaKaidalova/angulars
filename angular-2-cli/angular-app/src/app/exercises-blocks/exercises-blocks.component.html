@@ -13,7 +13,7 @@
 </form>
 
 <ul class="b-blocks">
-	<li class="b-blocks__item" *ngFor="let exItem of exercises">
+	<li class="b-blocks__item" *ngFor="let exItem of _exercisesService.exercises">
 		<div class="b-blocks__imageWrap">
 			<a href="" class="b-blocks__link">
 				<img src="" alt="" class="b-blocks__image">
@@ -24,7 +24,8 @@
 		</div>
 		<div class="b-blocks__text">{{exItem.text}}</div>
 		<div class="b-blocks__buttons">
-			<button class="b-button">Удалить упражнение</button>
+			<button class="b-button" ng-click="removeExBlock(exItem.id)">Удалить упражнение</button>
+			{{ exItem.id }}
 		</div>
 	</li>
 </ul>
