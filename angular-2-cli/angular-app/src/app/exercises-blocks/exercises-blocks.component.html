@@ -24,7 +24,7 @@
 		</div>
 		<div class="b-blocks__text">{{exItem.text}}</div>
 		<div class="b-blocks__buttons">
-			<button class="b-button" ng-click="removeExBlock(exItem.id)">Удалить упражнение</button>
+			<button class="b-button" (click)="removeExBlock(exItem.id)">Удалить упражнение</button>
 			{{ exItem.id }}
 		</div>
 	</li>
