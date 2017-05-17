@@ -13,7 +13,8 @@ export class ExercisesBlocksComponent {
   newTitle: string;
   newText: string;
   submitted: boolean = false;
-  message: string = '';
+  messageError: string = '';
+  messageSuccess: string = '';
 
  	constructor(private _exercisesService: ExercisesService) {}
 
@@ -23,7 +24,8 @@ export class ExercisesBlocksComponent {
 
   addNewExBlock(): void {
     this._exercisesService.add(this.newTitle, this.newText);
-    this.message = this._exercisesService.currentMessage;
+    this.messageSuccess = this._exercisesService.messageSuccess;
+    this.messageError = this._exercisesService.messageError;
   }
 
   removeExBlock(id){

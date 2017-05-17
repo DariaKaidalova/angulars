@@ -134,11 +134,15 @@ ul {
 /*form*/
 .b-form {
   margin: 0 0 20px; }
+  .b-form__inner {
+    display: inline-block; }
   .b-form__row {
     display: flex;
     justify-content: start;
     align-items: center;
     margin: 0 0 10px; }
+    .b-form__row.-type_message {
+      justify-content: center; }
     .b-form__row:last-child {
       margin-bottom: 0; }
   .b-form__item {

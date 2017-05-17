@@ -7,7 +7,9 @@ export class ExercisesService {
  	exercises: Array<Exercise> = [];
  	newId: number = 0;
  	messageIsUsed: string = 'Это упражнение уже добавлено!';
- 	currentMessage: string = '';
+ 	messageAdded: string = 'Упражнение добавлено!';
+ 	messageSuccess: string = '';
+ 	messageError: string = ''; 
  	isUsed: boolean = false;
 	
 	add(title, text) {
@@ -20,14 +22,15 @@ export class ExercisesService {
 		}
 
 		if(!this.isUsed) {
-			this.currentMessage = '';
-
 			const newExersices = {id: this.newId, title: title, text: text};
 	  	this.exercises.push(newExersices);
 	  	this.newId++;
+	  	this.messageError = '';
+	  	this.messageSuccess = this.messageAdded;
   	}
   	else {
-  		this.currentMessage = this.messageIsUsed;
+  		this.messageSuccess = '';
+  		this.messageError = this.messageIsUsed;	
   	}
 
 	}
@@ -39,7 +42,7 @@ export class ExercisesService {
 				this.exercises.splice(i, 1);
 			}
 		}
-		
+
 	}
 
 	constructor() { }

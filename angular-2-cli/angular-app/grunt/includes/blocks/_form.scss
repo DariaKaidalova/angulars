@@ -2,12 +2,23 @@
 
 .b-form {
 	margin: 0 0 20px;
+
+	&__inner {
+		display: inline-block;
+	}
 	
 	&__row {
 		display: flex;
 		justify-content: start;
 		align-items: center;
 		margin: 0 0 10px;
+
+		&.-type {
+			
+			&_message {
+		    justify-content: center;
+			}
+		}
 
 		&:last-child {
 			margin-bottom: 0;
