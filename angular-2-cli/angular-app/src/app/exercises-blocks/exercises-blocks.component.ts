@@ -13,6 +13,7 @@ export class ExercisesBlocksComponent {
   newTitle: string;
   newText: string;
   submitted: boolean = false;
+  message: string = '';
 
  	constructor(private _exercisesService: ExercisesService) {}
 
@@ -22,6 +23,7 @@ export class ExercisesBlocksComponent {
 
   addNewExBlock(): void {
     this._exercisesService.add(this.newTitle, this.newText);
+    this.message = this._exercisesService.currentMessage;
   }
 
   removeExBlock(id){

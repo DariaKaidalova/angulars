@@ -15,7 +15,7 @@ ul {
 /*content*/
 /*global classes*/
 .g-block__center, .b-header__inner, .b-content__inner, .b-footer__inner {
-  max-width: 1200px;
+  max-width: 1400px;
   min-width: 600px;
   margin: 0 auto; }
 
@@ -102,14 +102,15 @@ ul {
 
 /*footer*/
 .b-blocks {
-  margin: 0 -0.5%; }
+  margin: 0 -1%; }
   .b-blocks__item {
-    width: 24%;
-    min-height: 200px;
+    position: relative;
+    width: 48%;
+    min-height: 300px;
     box-sizing: border-box;
     float: left;
-    margin: 0 0.5% 15px;
-    padding: 10px;
+    margin: 0 1% 15px;
+    padding: 10px 10px 60px 10px;
     border-radius: 5px;
     background: #edd8da; }
   .b-blocks__title {
@@ -123,6 +124,12 @@ ul {
     .b-blocks__link:hover {
       color: inherit;
       text-decoration: none; }
+  .b-blocks__buttons {
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    right: 10px;
+    text-align: right; }
 
 /*form*/
 .b-form {
@@ -143,6 +150,7 @@ ul {
 
 /*button*/
 .b-button {
+  display: inline-block;
   min-width: 70px;
   min-height: 32px;
   padding: 8px 10px;
@@ -176,5 +184,13 @@ ul {
     font-style: italic; }
   .b-field:-ms-input-placeholder {
     font-style: italic; }
+
+/*message css*/
+.b-message.-type_success {
+  color: #74A811; }
+.b-message.-type_warning {
+  color: #FF9900; }
+.b-message.-type_error {
+  color: #b9041f; }
 
 /*# sourceMappingURL=styles.css.map */

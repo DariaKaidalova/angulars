@@ -1,0 +1,22 @@
+/*message css*/
+
+.b-message {
+
+	&.-type {
+
+		&_success {
+			color: $color-green-1;
+		}
+
+		&_warning {
+			color: $color-orange-1;
+		}
+
+		&_error {
+			color: $color-red-2;
+		}
+
+	}
+	
+}
+

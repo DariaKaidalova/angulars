@@ -10,6 +10,9 @@
 			<button class="b-button" [disabled]="!exForm.form.valid" (click)="addNewExBlock()">Добавить упражнение</button>
 		</div>
 	</div>
+	<div class="b-form__row -type_message">
+		<div class="b-message -type_error" *ngIf="message">{{message}}</div>
+	</div>
 </form>
 
 <ul class="b-blocks">
@@ -24,7 +27,7 @@
 		</div>
 		<div class="b-blocks__text">{{exItem.text}}</div>
 		<div class="b-blocks__buttons">
-			<button class="b-button" (click)="removeExBlock(exItem.id)">Удалить упражнение</button>
+			<button class="b-button" (click)="removeExBlock(exItem.id)"><i class="fa fa-trash" aria-hidden="true"></i> Удалить упражнение</button>
 		</div>
 	</li>
 </ul>
