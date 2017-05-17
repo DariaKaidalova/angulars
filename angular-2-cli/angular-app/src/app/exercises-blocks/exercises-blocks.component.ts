@@ -26,6 +26,5 @@ export class ExercisesBlocksComponent {
 
   removeExBlock(id){
     this._exercisesService.remove(id);
-    console.log("id = ", id);
   }
 }

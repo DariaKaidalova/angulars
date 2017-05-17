@@ -4,8 +4,8 @@ import { Exercise } from '../exercises-blocks/exercise-interface';
 
 @Injectable()
 export class ExercisesService {
-	newId: number = 0;
  	exercises: Array<Exercise> = [];
+ 	newId: number = 0;
 	
 	add(title, text) {
 		const newExersices = {id: this.newId, title: title, text: text};
@@ -13,14 +13,13 @@ export class ExercisesService {
     	this.newId++;
 	}
 
-	remove(id) {
-		//this.exercises = this.exercises.filter(id => this.exercises.id !== id);
-		for(var i = 0; i <= this.exercises.length-1; i++) {
-			if(this.exercises[i] === id) {
-				//this.exercises.splice(i, 1, 0);
+	remove(id) {		
+		for(var i = 0; i < this.exercises.length; i++) {
+			if(this.exercises[i].id === id) {
+				this.exercises.splice(i, 1);
 			}
 		}
 	}
 
-  	constructor() { }
+	constructor() { }
 }
