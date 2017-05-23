@@ -7,6 +7,9 @@
 			<div class="b-form__item">
 				<input type="text" class="b-field" placeholder="Описание *" [(ngModel)]="newText" name="newExText" required>
 			</div>
+			<div class="b-form__item">
+				<file-uploader></file-uploader>
+			</div>
 			<div class="b-form__item -type_button">
 				<button class="b-button" [disabled]="!exForm.form.valid" (click)="addNewExBlock()">Добавить упражнение</button>
 			</div>

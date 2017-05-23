@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { Exercise } from './exercise-interface';
-//import { exercises } from './exercise-array';
 
 @Component({
   selector: 'app-exercises-blocks',
   templateUrl: './exercises-blocks.component.html',
-  styleUrls: ['./exercises-blocks.component.css']//,
-  //providers: [ExercisesService]
+  styleUrls: ['./exercises-blocks.component.css']
 })
 export class ExercisesBlocksComponent {
   newTitle: string;
