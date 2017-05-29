@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExercisesService } from '../service/exercises-blocks-service.service';
-import { Exercise } from './exercise-interface';
+import { Exercise } from './exercise.interface';
 
 @Component({
   selector: 'app-exercises-blocks',

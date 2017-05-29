@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Exercise } from '../exercises-blocks/exercise-interface';
+import { Exercise } from '../exercises-blocks/exercise.interface';
 
 @Injectable()
 export class ExercisesService {
