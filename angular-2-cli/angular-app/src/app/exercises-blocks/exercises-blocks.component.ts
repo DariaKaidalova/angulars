@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { Exercise } from './exercise.interface';
+import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
 
 @Component({
   selector: 'app-exercises-blocks',
@@ -14,14 +15,18 @@ export class ExercisesBlocksComponent {
   messageError: string = '';
   messageSuccess: string = '';
 
- 	constructor(private _exercisesService: ExercisesService) {}
+  constructor(private _exercisesService: ExercisesService) {}
 
+  @ViewChild(FileUploaderComponent)
+  private _fileUploaderComponent: FileUploaderComponent;
+  
   onSubmit() { 
     this.submitted = true; 
   }
 
   addNewExBlock(): void {
-    this._exercisesService.add(this.newTitle, this.newText);
+    console.log();
+    this._exercisesService.add(this.newTitle, this.newText, this._fileUploaderComponent.uploader.getNotUploadedItems().length);
     this.messageSuccess = this._exercisesService.messageSuccess;
     this.messageError = this._exercisesService.messageError;
   }

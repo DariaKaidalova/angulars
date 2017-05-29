@@ -10,9 +10,9 @@ const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 	styleUrls: ['./file-uploader.component.css']
 })
 export class FileUploaderComponent {
-	public uploader:FileUploader = new FileUploader({url: URL});
-	public hasBaseDropZoneOver:boolean = false;
-	public hasAnotherDropZoneOver:boolean = false;
+	public uploader: FileUploader = new FileUploader({url: URL});
+	public hasBaseDropZoneOver: boolean = false;
+	public hasAnotherDropZoneOver: boolean = false;
 
 	constructor() {}
 

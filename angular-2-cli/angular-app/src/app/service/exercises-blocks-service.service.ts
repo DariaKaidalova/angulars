@@ -6,12 +6,13 @@ export class ExercisesService {
  	exercises: Array<Exercise> = [];
  	newId: number = 0;
  	messageIsUsed: string = 'Это упражнение уже добавлено!';
+ 	messageNotUploaded: string = 'Пожалуйста загрузите картинку';
  	messageAdded: string = 'Упражнение добавлено!';
  	messageSuccess: string = '';
  	messageError: string = ''; 
  	isUsed: boolean = false;
 	
-	add(title, text) {
+	add(title, text, numabersImages) {
 
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].title === title) {
@@ -21,17 +22,26 @@ export class ExercisesService {
 		}
 
 		if(!this.isUsed) {
-			const newExersices = {id: this.newId, title: title, text: text};
-	  	this.exercises.push(newExersices);
-	  	this.newId++;
-	  	this.messageError = '';
-	  	this.messageSuccess = this.messageAdded;
+
+			if(!numabersImages) {
+				this.messageSuccess = '';
+  			this.messageError = this.messageNotUploaded;	
+  		}
+  		else {
+				const newExersices = {id: this.newId, title: title, text: text};
+		  	this.exercises.push(newExersices);
+		  	this.newId++;
+		  	this.messageError = '';
+		  	this.messageSuccess = this.messageAdded;
+	  	}
+
   	}
   	else {
   		this.messageSuccess = '';
   		this.messageError = this.messageIsUsed;	
   	}
 
+  	
 	}
 
 	remove(id) {		
@@ -44,5 +54,5 @@ export class ExercisesService {
 
 	}
 
-	constructor() { }
+	constructor() {}
 }
