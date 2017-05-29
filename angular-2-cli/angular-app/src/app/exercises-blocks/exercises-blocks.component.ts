@@ -9,8 +9,8 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
   styleUrls: ['./exercises-blocks.component.css']
 })
 export class ExercisesBlocksComponent {
-  newTitle: string;
-  newText: string;
+  newTitle: string = '';
+  newText: string = '';
   submitted: boolean = false;
   messageError: string = '';
   messageSuccess: string = '';
@@ -21,11 +21,13 @@ export class ExercisesBlocksComponent {
   private _fileUploaderComponent: FileUploaderComponent;
   
   onSubmit() { 
-    this.submitted = true; 
+    this.submitted = true;
+    this.newTitle = '';
+    this.newText = ''; 
   }
 
   addNewExBlock(): void {
-    console.log();
+    console.log(this._fileUploaderComponent.uploader);
     this._exercisesService.add(this.newTitle, this.newText, this._fileUploaderComponent.uploader.getNotUploadedItems().length);
     this.messageSuccess = this._exercisesService.messageSuccess;
     this.messageError = this._exercisesService.messageError;
