@@ -12,7 +12,7 @@ export class ExercisesService {
  	isUsed: boolean = false;
  	title: string = '';
   text: string = '';
-  imagesArray = [];
+  imagesArray: any = [];
 	
 	add(title, text, imagesArray) {
 		this.title = title.trim();
@@ -27,7 +27,8 @@ export class ExercisesService {
 		}
 
 		if(!this.isUsed) {
-			const newExersices = {id: this.newId, title: this.title, text: this.text};
+			console.log(this.imagesArray);
+			const newExersices = {id: this.newId, title: this.title, text: this.text, images: this.imagesArray};
 	  	this.exercises.push(newExersices);
 	  	this.newId++;
 	  	this.messageError = '';
