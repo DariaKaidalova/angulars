@@ -24,10 +24,14 @@ export class ExercisesBlocksComponent {
     this.submitted = true;
     this.newTitle = '';
     this.newText = ''; 
+    this._fileUploaderComponent.uploader.queue = [];
+    //console.log('onSubmit');
+    //console.log(this._fileUploaderComponent.uploader.queue);
   }
 
   addNewExBlock(): void {
-    console.log(this._fileUploaderComponent.uploader);
+    //console.log('addNewExBlock');
+    //console.log(this._fileUploaderComponent.uploader.queue);
     this._exercisesService.add(this.newTitle, this.newText, this._fileUploaderComponent.uploader.getNotUploadedItems().length);
     this.messageSuccess = this._exercisesService.messageSuccess;
     this.messageError = this._exercisesService.messageError;
