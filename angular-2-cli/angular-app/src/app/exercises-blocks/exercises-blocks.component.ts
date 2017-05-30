@@ -27,7 +27,7 @@ export class ExercisesBlocksComponent {
   addNewExBlock(): void {
     //console.log('addNewExBlock');
     //console.log(this._fileUploaderComponent.uploader.queue);
-    this._exercisesService.add(this.newTitle, this.newText, this._fileUploaderComponent.uploader.getNotUploadedItems().length, this._fileUploaderComponent.uploader.queue);
+    this._exercisesService.add(this.newTitle, this.newText, this._fileUploaderComponent.uploader.queue);
     this.messageSuccess = this._exercisesService.messageSuccess;
     this.messageError = this._exercisesService.messageError;
     this.newTitle = this._exercisesService.title;

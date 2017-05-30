@@ -5,8 +5,7 @@ import { Exercise } from '../exercises-blocks/exercise.interface';
 export class ExercisesService {
  	exercises: Array<Exercise> = [];
  	newId: number = 0;
- 	messageIsUsed: string = 'Это упражнение уже добавлено!';
- 	messageNotUploaded: string = 'Пожалуйста загрузите картинку';
+ 	messageIsUsed: string = 'Упражнение c данным названием уже добавлено!';
  	messageAdded: string = 'Упражнение добавлено!';
  	messageSuccess: string = '';
  	messageError: string = ''; 
@@ -15,35 +14,27 @@ export class ExercisesService {
   text: string = '';
   imagesArray = [];
 	
-	add(title, text, numabersImages, imagesArray) {
-		this.title = title;
+	add(title, text, imagesArray) {
+		this.title = title.trim();
 		this.text = text;
 		this.imagesArray = imagesArray;
 
 		for(var i = 0; i < this.exercises.length; i++) {
-			if(this.exercises[i].title === title) {
+			if(this.exercises[i].title === this.title) {
 				this.isUsed = true; break;
 			}
 			else this.isUsed = false;
 		}
 
 		if(!this.isUsed) {
-
-			if(!numabersImages) {
-				this.messageSuccess = '';
-  			this.messageError = this.messageNotUploaded;	
-  		}
-  		else {
-				const newExersices = {id: this.newId, title: title, text: text};
-		  	this.exercises.push(newExersices);
-		  	this.newId++;
-		  	this.messageError = '';
-		  	this.messageSuccess = this.messageAdded;
-		  	this.title = '';	
-  			this.text = '';
-  			this.imagesArray = [];
-	  	}
-
+			const newExersices = {id: this.newId, title: this.title, text: this.text};
+	  	this.exercises.push(newExersices);
+	  	this.newId++;
+	  	this.messageError = '';
+	  	this.messageSuccess = this.messageAdded;
+	  	this.title = '';	
+			this.text = '';
+			this.imagesArray = [];
   	}
   	else {
   		this.messageSuccess = '';
