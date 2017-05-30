@@ -11,8 +11,14 @@ export class ExercisesService {
  	messageSuccess: string = '';
  	messageError: string = ''; 
  	isUsed: boolean = false;
+ 	title: string = '';
+  text: string = '';
+  imagesArray = [];
 	
-	add(title, text, numabersImages) {
+	add(title, text, numabersImages, imagesArray) {
+		this.title = title;
+		this.text = text;
+		this.imagesArray = imagesArray;
 
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].title === title) {
@@ -33,15 +39,16 @@ export class ExercisesService {
 		  	this.newId++;
 		  	this.messageError = '';
 		  	this.messageSuccess = this.messageAdded;
+		  	this.title = '';	
+  			this.text = '';
+  			this.imagesArray = [];
 	  	}
 
   	}
   	else {
   		this.messageSuccess = '';
-  		this.messageError = this.messageIsUsed;	
+  		this.messageError = this.messageIsUsed;
   	}
-
-  	
 	}
 
 	remove(id) {		

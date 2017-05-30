@@ -11,7 +11,7 @@
 				<file-uploader></file-uploader>
 			</div>
 			<div class="b-form__item -type_button">
-				<button class="b-button" [disabled]="!exForm.form.valid" (click)="addNewExBlock()">Добавить упражнение</button>
+				<button class="b-button" [disabled]="!exForm.form.valid || !_fileUploaderComponent.uploader.getNotUploadedItems().length" (click)="addNewExBlock()">Добавить упражнение</button>
 			</div>
 		</div>
 		<div class="b-form__row -type_message">
