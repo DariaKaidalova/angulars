@@ -14,10 +14,10 @@ export class ExercisesService {
   text: string = '';
   imagesArray: any = [];
 
-  clearMessageBlock() {
-  	this.messageSuccess = '';
-  	console.log('test');
-	}
+ //  clearMessageBlock() {
+ //  	this.messageSuccess = '';
+ //  	console.log('test');
+	// }
 	
 	add(title, text, imagesArray) {
 		this.title = title.trim();
