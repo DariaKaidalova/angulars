@@ -14,11 +14,9 @@ export class ExercisesService {
   text: string = '';
   imagesArray: any = [];
 
-  clearMessageBlock(message) {
-  	console.log('message', message);
-  	message = '';
-  	return message;
-	}
+ //  clearMessageBlock() {
+ //  	this.messageSuccess = '';
+	// }
 	
 	add(title, text, imagesArray) {
 		this.title = title.trim();
@@ -43,7 +41,7 @@ export class ExercisesService {
 			this.text = '';
 			this.imagesArray = [];
 
-			setTimeout(this.clearMessageBlock(this.messageSuccess), 1000);
+			//setTimeout(this.clearMessageBlock(), 2000);
 			console.log('cleared message', this.messageSuccess);
   	}
   	else {
