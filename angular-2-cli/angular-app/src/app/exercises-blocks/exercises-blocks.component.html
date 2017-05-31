@@ -11,13 +11,13 @@
 				<file-uploader></file-uploader>
 			</div>
 			<div class="b-form__item -type_button">
-				<button class="b-button" [disabled]="!exForm.form.valid || !_fileUploaderComponent.uploader.getNotUploadedItems().length" (click)="addNewExBlock()">Добавить упражнение</button>
+				<button class="b-button" [disabled]="!exForm.form.valid || !_fileUploaderComponent.uploader.getNotUploadedItems().length" (click)="addNewExBlock(); exForm.reset()" >Добавить упражнение</button>
 			</div>
 		</div>
 		<div class="b-form__row -type_message">
 			<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>
-			<div class="b-message -type_error" *ngIf="title.invalid && title.dirty">Поле "Название упражнения" обязательно для заполнения!</div>
-			<div class="b-message -type_error" *ngIf="text.invalid && text.dirty && title.valid">Поле "Описание упражнения" обязательно для заполнения!</div>
+		<!-- 	<div class="b-message -type_error" *ngIf="title.invalid && title.dirty && !messageSuccess">Поле "Название упражнения" обязательно для заполнения!</div>
+			<div class="b-message -type_error" *ngIf="text.invalid && text.dirty && title.valid && !messageSuccess">Поле "Описание упражнения" обязательно для заполнения!</div> -->
 			<div class="b-message -type_success" *ngIf="messageSuccess">{{messageSuccess}}</div>
 		</div>
 	</div>
