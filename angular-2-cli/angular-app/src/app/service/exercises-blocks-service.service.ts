@@ -14,9 +14,10 @@ export class ExercisesService {
   text: string = '';
   imagesArray: any = [];
 
- //  clearMessageBlock() {
- //  	this.messageSuccess = '';
-	// }
+  clearMessageBlock() {
+  	this.messageSuccess = '';
+  	console.log('test');
+	}
 	
 	add(title, text, imagesArray) {
 		this.title = title.trim();
@@ -41,8 +42,11 @@ export class ExercisesService {
 			this.text = '';
 			this.imagesArray = [];
 
-			//setTimeout(this.clearMessageBlock(), 2000);
-			console.log('cleared message', this.messageSuccess);
+			//setTimeout(this.clearMessageBlock(), 10000);
+			// setTimeout(() => {
+   //    	this.messageSuccess = '';
+   //  	}, 1000);
+			// console.log('cleared message', this.messageSuccess);
   	}
   	else {
   		this.messageSuccess = '';
