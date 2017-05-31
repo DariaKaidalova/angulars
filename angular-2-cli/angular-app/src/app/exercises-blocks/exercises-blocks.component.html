@@ -2,10 +2,10 @@
 	<div class="b-form__inner">
 		<div class="b-form__row">
 			<div class="b-form__item">
-				<input type="text" class="b-field" placeholder="Упражнение *"  [(ngModel)]="newTitle" name="newExTitle" required>
+				<input type="text" class="b-field" placeholder="Название упражнения *"  [(ngModel)]="newTitle" name="newExTitle" #title="ngModel" required>
 			</div>
 			<div class="b-form__item">
-				<input type="text" class="b-field" placeholder="Описание *" [(ngModel)]="newText" name="newExText" required>
+				<input type="text" class="b-field" placeholder="Описание упражнения *" [(ngModel)]="newText" name="newExText" #text="ngModel" required> 
 			</div>
 			<div class="b-form__item">
 				<file-uploader></file-uploader>
@@ -16,6 +16,8 @@
 		</div>
 		<div class="b-form__row -type_message">
 			<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>
+			<div class="b-message -type_error" *ngIf="title.invalid && title.dirty">Поле "Название упражнения" обязательно для заполнения!</div>
+			<div class="b-message -type_error" *ngIf="text.invalid && text.dirty && title.valid">Поле "Описание упражнения" обязательно для заполнения!</div>
 			<div class="b-message -type_success" *ngIf="messageSuccess">{{messageSuccess}}</div>
 		</div>
 	</div>
