@@ -13,11 +13,18 @@ export class ExercisesService {
  	title: string = '';
   text: string = '';
   imagesArray: any = [];
+  isAdded: boolean = false;
 
- //  clearMessageBlock() {
- //  	this.messageSuccess = '';
- //  	console.log('test');
-	// }
+  // constructor() {
+  // 	if(this.isAdded) {
+		// 	setTimeout(() => {
+		// 		this.messageSuccess = '';
+		// 		console.log('cleared message setTimeout', this.messageSuccess);
+		// 	}, 1000);
+		// 	console.log('cleared message', this.messageSuccess)
+		// 	this.isAdded = false;
+  // 	}
+  // }
 	
 	add(title, text, imagesArray) {
 		this.title = title.trim();
@@ -32,23 +39,18 @@ export class ExercisesService {
 		}
 
 		if(!this.isUsed) {
-			console.log(this.imagesArray);
 			const newExersices = {id: this.newId, title: this.title, text: this.text, images: this.imagesArray};
 	  	this.exercises.push(newExersices);
 	  	this.newId++;
 	  	this.messageError = '';
 	  	this.messageSuccess = this.messageAdded;
-	  	this.title = '';	
-			this.text = '';
+	  	this.title = '';
+	  	this.text = '';
 			this.imagesArray = [];
-
-			//setTimeout(this.clearMessageBlock(), 10000);
-			// setTimeout(() => {
-   //    	this.messageSuccess = '';
-   //  	}, 1000);
-			// console.log('cleared message', this.messageSuccess);
+			//this.isAdded = true;
   	}
   	else {
+  		console.log('test');
   		this.messageSuccess = '';
   		this.messageError = this.messageIsUsed;
   	}
@@ -64,5 +66,5 @@ export class ExercisesService {
 
 	}
 
-	constructor() {}
+	
 }

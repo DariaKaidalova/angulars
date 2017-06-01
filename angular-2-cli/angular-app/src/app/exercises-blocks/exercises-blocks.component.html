@@ -2,22 +2,20 @@
 	<div class="b-form__inner">
 		<div class="b-form__row">
 			<div class="b-form__item">
-				<input type="text" class="b-field" placeholder="Название упражнения *"  [(ngModel)]="newTitle" name="newExTitle" #title="ngModel" required>
+				<input type="text" class="b-field" placeholder="Название упражнения *"  [(ngModel)]="newTitle" name="newExTitle" required>
 			</div>
 			<div class="b-form__item">
-				<input type="text" class="b-field" placeholder="Описание упражнения *" [(ngModel)]="newText" name="newExText" #text="ngModel" required> 
+				<input type="text" class="b-field" placeholder="Описание упражнения *" [(ngModel)]="newText" name="newExText" required> 
 			</div>
 			<div class="b-form__item">
 				<file-uploader></file-uploader>
 			</div>
 			<div class="b-form__item -type_button">
-				<button class="b-button" [disabled]="!exForm.form.valid || !_fileUploaderComponent.uploader.getNotUploadedItems().length" (click)="addNewExBlock(); exForm.reset()" >Добавить упражнение</button>
+				<button class="b-button" [disabled]="!exForm.form.valid || !_fileUploaderComponent.uploader.getNotUploadedItems().length" (click)="addExerciseBlock()">Добавить упражнение</button>
 			</div>
 		</div>
 		<div class="b-form__row -type_message">
 			<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>
-		<!-- 	<div class="b-message -type_error" *ngIf="title.invalid && title.dirty && !messageSuccess">Поле "Название упражнения" обязательно для заполнения!</div>
-			<div class="b-message -type_error" *ngIf="text.invalid && text.dirty && title.valid && !messageSuccess">Поле "Описание упражнения" обязательно для заполнения!</div> -->
 			<div class="b-message -type_success" *ngIf="messageSuccess">{{messageSuccess}}</div>
 		</div>
 	</div>
@@ -35,7 +33,7 @@
 		</div>
 		<div class="b-blocks__text">{{ exItem.text }}</div>
 		<div class="b-blocks__buttons">
-			<button class="b-button" (click)="removeExBlock(exItem.id)"><i class="fa fa-trash" aria-hidden="true"></i> Удалить упражнение</button>
+			<button class="b-button" (click)="removeExerciseBlock(exItem.id)"><i class="fa fa-trash" aria-hidden="true"></i> Удалить упражнение</button>
 		</div>
 	</li>
 </ul>

@@ -11,7 +11,6 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
 export class ExercisesBlocksComponent {
   newTitle: string = '';
   newText: string = '';
-  submitted: boolean = false;
   messageError: string = '';
   messageSuccess: string = '';
 
@@ -19,23 +18,18 @@ export class ExercisesBlocksComponent {
 
   @ViewChild(FileUploaderComponent)
   private _fileUploaderComponent: FileUploaderComponent;
+  onSubmit(): void {}
   
-  onSubmit() { 
-    this.submitted = true;
-  }
-
-  addNewExBlock(): void {
-    // console.log('addNewExBlock');
-    console.log(this._fileUploaderComponent.uploader);
+  addExerciseBlock(): void {
     this._exercisesService.add(this.newTitle, this.newText, this._fileUploaderComponent.uploader.queue);
     this.messageSuccess = this._exercisesService.messageSuccess;
     this.messageError = this._exercisesService.messageError;
     this.newTitle = this._exercisesService.title;
-    this.newText = this._exercisesService.text; 
+    this.newText = this._exercisesService.text;
     this._fileUploaderComponent.uploader.queue = this._exercisesService.imagesArray;
   }
 
-  removeExBlock(id){
+  removeExerciseBlock(id){
     this._exercisesService.remove(id);
   }
 }
