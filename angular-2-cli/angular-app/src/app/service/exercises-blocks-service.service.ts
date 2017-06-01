@@ -13,18 +13,18 @@ export class ExercisesService {
  	title: string = '';
   text: string = '';
   imagesArray: any = [];
-  isAdded: boolean = false;
+  //isAdded: boolean = false;
 
-  // constructor() {
-  // 	if(this.isAdded) {
-		// 	setTimeout(() => {
-		// 		this.messageSuccess = '';
-		// 		console.log('cleared message setTimeout', this.messageSuccess);
-		// 	}, 1000);
-		// 	console.log('cleared message', this.messageSuccess)
-		// 	this.isAdded = false;
-  // 	}
-  // }
+  constructor() {
+  	// if(this.isAdded) {
+			// setTimeout(() => {
+			// 	this.messageSuccess = '';
+			// 	console.log('cleared message setTimeout', this.messageSuccess);
+			// }, 1000);
+			// console.log('cleared message', this.messageSuccess)
+			// this.isAdded = false;
+  	// }
+  }
 	
 	add(title, text, imagesArray) {
 		this.title = title.trim();
@@ -50,7 +50,6 @@ export class ExercisesService {
 			//this.isAdded = true;
   	}
   	else {
-  		console.log('test');
   		this.messageSuccess = '';
   		this.messageError = this.messageIsUsed;
   	}
