@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Exercise } from '../exercises-blocks/exercise.interface';
+import { ExercisesRestService } from './exercises-blocks-rest-service.service';
 
 @Injectable()
 export class ExercisesService {
@@ -13,23 +14,24 @@ export class ExercisesService {
  	title: string = '';
   text: string = '';
   imagesArray: any = [];
-  //isAdded: boolean = false;
 
-  constructor() {
-  	// if(this.isAdded) {
-			// setTimeout(() => {
-			// 	this.messageSuccess = '';
-			// 	console.log('cleared message setTimeout', this.messageSuccess);
-			// }, 1000);
-			// console.log('cleared message', this.messageSuccess)
-			// this.isAdded = false;
-  	// }
+  constructor(private _exercisesRestService: ExercisesRestService) {}
+
+  get() {
+  	this._exercisesRestService.get().subscribe(
+			exercises => this.exercises = exercises, 
+			err => { console.log(err); }
+		);
+		console.log('test:');
+		console.log(this.exercises);
   }
 	
 	add(title, text, imagesArray) {
 		this.title = title.trim();
 		this.text = text;
 		this.imagesArray = imagesArray;
+
+		
 
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].title === this.title) {
@@ -47,7 +49,6 @@ export class ExercisesService {
 	  	this.title = '';
 	  	this.text = '';
 			this.imagesArray = [];
-			//this.isAdded = true;
   	}
   	else {
   		this.messageSuccess = '';
@@ -65,5 +66,4 @@ export class ExercisesService {
 
 	}
 
-	
 }

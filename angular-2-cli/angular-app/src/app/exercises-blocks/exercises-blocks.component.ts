@@ -8,7 +8,7 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
   templateUrl: './exercises-blocks.component.html',
   styleUrls: ['./exercises-blocks.component.css']
 })
-export class ExercisesBlocksComponent {
+export class ExercisesBlocksComponent implements OnInit {
   newTitle: string = '';
   newText: string = '';
   messageError: string = '';
@@ -16,9 +16,19 @@ export class ExercisesBlocksComponent {
 
   constructor(private _exercisesService: ExercisesService) {}
 
+  ngOnInit() {
+    this.getExercises();
+    console.log('exercises:');
+    console.log(this._exercisesService.exercises);
+  }
+
   @ViewChild(FileUploaderComponent)
   private _fileUploaderComponent: FileUploaderComponent;
   onSubmit(): void {}
+
+  getExercises() {
+    this._exercisesService.get();
+  }
   
   addExerciseBlock(): void {
     this._exercisesService.add(this.newTitle, this.newText, this._fileUploaderComponent.uploader.queue);
