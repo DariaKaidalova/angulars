@@ -7,19 +7,20 @@ import { Exercise } from '../exercises-blocks/exercise.interface';
 @Injectable()
 export class ExercisesService {
  	exercises: Array<Exercise> = [];
- 	newId: number = 0;
  	messageIsUsed: string = 'Упражнение c данным названием уже добавлено!';
  	messageAdded: string = 'Упражнение добавлено!';
  	messageSuccess: string = '';
  	messageError: string = ''; 
  	isUsed: boolean = false;
+ 	id: number = 0;
  	name: string = '';
   description: string = '';
   imagesArray: any = [];
 
   constructor(private _exercisesRestService: ExercisesRestService) {}
 
-	add(name, description, imagesArray) {
+	add(id, name, description, imagesArray) {
+		this.id = id;
 		this.name = name.trim();
 		this.description = description;
 		//this.imagesArray = imagesArray;
@@ -32,9 +33,8 @@ export class ExercisesService {
 		}
 
 		if(!this.isUsed) {
-			const newExersices = {id: this.newId, name: this.name, description: this.description /*, images: this.imagesArray*/};
+			const newExersices = {id: this.id, name: this.name, description: this.description /*, images: this.imagesArray*/};
 	  	this.exercises.push(newExersices);
-	  	this.newId++;
 	  	this.messageError = '';
 	  	this.messageSuccess = this.messageAdded;
 	  	this.name = '';

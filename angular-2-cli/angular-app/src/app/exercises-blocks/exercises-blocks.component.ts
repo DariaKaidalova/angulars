@@ -14,6 +14,7 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
 export class ExercisesBlocksComponent implements OnInit, OnChanges {
   @Input() newName: string = '';
   @Input() newDescription: string = '';
+  newId: number = 0;
   messageError: string = '';
   messageSuccess: string = '';
 
@@ -33,7 +34,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
   onSubmit(): void {}
   
   addExerciseBlock(): void {
-    this._exercisesService.add(this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
+    this._exercisesService.add(this._exercisesService.exercises.length+1, this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
     this.messageSuccess = this._exercisesService.messageSuccess;
     this.messageError = this._exercisesService.messageError;
     this.newName = this._exercisesService.name;
