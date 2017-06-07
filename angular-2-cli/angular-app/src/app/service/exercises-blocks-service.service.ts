@@ -35,6 +35,7 @@ export class ExercisesService {
 		if(!this.isUsed) {
 			const newExersices = {id: this.id, name: this.name, description: this.description /*, images: this.imagesArray*/};
 	  	this.exercises.push(newExersices);
+	  	this._exercisesRestService.add(newExersices);
 	  	this.messageError = '';
 	  	this.messageSuccess = this.messageAdded;
 	  	this.name = '';
