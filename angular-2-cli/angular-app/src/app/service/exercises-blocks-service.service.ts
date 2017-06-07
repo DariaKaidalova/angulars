@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Exercise } from '../exercises-blocks/exercise.interface';
+import { Injectable, OnInit} from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import { ExercisesRestService } from './exercises-blocks-rest-service.service';
+import { Exercise } from '../exercises-blocks/exercise.interface';
 
 @Injectable()
 export class ExercisesService {
@@ -11,44 +13,33 @@ export class ExercisesService {
  	messageSuccess: string = '';
  	messageError: string = ''; 
  	isUsed: boolean = false;
- 	title: string = '';
-  text: string = '';
+ 	name: string = '';
+  description: string = '';
   imagesArray: any = [];
 
   constructor(private _exercisesRestService: ExercisesRestService) {}
 
-  get() {
-  	this._exercisesRestService.get().subscribe(
-			exercises => this.exercises = exercises, 
-			err => { console.log(err); }
-		);
-		console.log('test:');
-		console.log(this.exercises);
-  }
-	
-	add(title, text, imagesArray) {
-		this.title = title.trim();
-		this.text = text;
-		this.imagesArray = imagesArray;
-
-		
+	add(name, description, imagesArray) {
+		this.name = name.trim();
+		this.description = description;
+		//this.imagesArray = imagesArray;
 
 		for(var i = 0; i < this.exercises.length; i++) {
-			if(this.exercises[i].title === this.title) {
+			if(this.exercises[i].name === this.name) {
 				this.isUsed = true; break;
 			}
 			else this.isUsed = false;
 		}
 
 		if(!this.isUsed) {
-			const newExersices = {id: this.newId, title: this.title, text: this.text, images: this.imagesArray};
+			const newExersices = {id: this.newId, name: this.name, description: this.description /*, images: this.imagesArray*/};
 	  	this.exercises.push(newExersices);
 	  	this.newId++;
 	  	this.messageError = '';
 	  	this.messageSuccess = this.messageAdded;
-	  	this.title = '';
-	  	this.text = '';
-			this.imagesArray = [];
+	  	this.name = '';
+	  	this.description = '';
+			//this.imagesArray = [];
   	}
   	else {
   		this.messageSuccess = '';

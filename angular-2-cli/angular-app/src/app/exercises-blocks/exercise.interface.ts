@@ -1,6 +1,6 @@
 export interface Exercise {
   id: number;
-  title: string;
-  text: string;
-  images: any;
+  name: string;
+  description: string;
+  /*images: any;*/
 }

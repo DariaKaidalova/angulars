@@ -2,10 +2,10 @@
 	<div class="b-form__inner">
 		<div class="b-form__row">
 			<div class="b-form__item">
-				<input type="text" class="b-field" placeholder="Название упражнения *"  [(ngModel)]="newTitle" name="newExTitle" required>
+				<input type="text" class="b-field" placeholder="Название упражнения *"  [(ngModel)]="newName" name="newName" required>
 			</div>
 			<div class="b-form__item">
-				<input type="text" class="b-field" placeholder="Описание упражнения *" [(ngModel)]="newText" name="newExText" required> 
+				<input type="text" class="b-field" placeholder="Описание упражнения *" [(ngModel)]="newDescription" name="newDescription" required> 
 			</div>
 			<div class="b-form__item">
 				<file-uploader></file-uploader>
@@ -29,9 +29,9 @@
 			</a>
 		</div>
 		<div class="b-blocks__titleWrap">
-			<h3 class="b-blocks__title"><a href="" class="b-blocks__link">{{ exItem.title }}</a></h3>
+			<h3 class="b-blocks__title"><a href="" class="b-blocks__link">{{ exItem.name }}</a></h3>
 		</div>
-		<div class="b-blocks__text">{{ exItem.text }}</div>
+		<div class="b-blocks__text">{{ exItem.description }}</div>
 		<div class="b-blocks__buttons">
 			<button class="b-button" (click)="removeExerciseBlock(exItem.id)"><i class="fa fa-trash" aria-hidden="true"></i> Удалить упражнение</button>
 		</div>

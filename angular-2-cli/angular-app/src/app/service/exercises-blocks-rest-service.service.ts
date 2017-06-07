@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Exercise } from '../exercises-blocks/exercise.interface';
-import {Observable} from 'rxjs/Rx';
-// Import RxJs required methods
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/map'; // Import RxJs required methods: map and catch
 import 'rxjs/add/operator/catch';
+
+import { Exercise } from '../exercises-blocks/exercise.interface';
 
 @Injectable()
 export class ExercisesRestService {
@@ -13,9 +13,19 @@ export class ExercisesRestService {
 
   private _exerciseUrl = '/api/v1/exercises';
 
-	get() : Observable<Exercise[]> {
+	get(): Observable<Exercise[]> {
 		return this._http.get(this._exerciseUrl)
-			.map((res:Response) => res.json())
+			.map((res: Response) => res.json())
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
+
+	add(body: Object): Observable<Exercise[]> {
+		let bodyString = JSON.stringify(body);
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers }); 
+
+		return this._http.post(this._exerciseUrl, body, options) 
+			.map((res:Response) => res.json()) 
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
+	}   
 }
