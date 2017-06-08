@@ -62,6 +62,9 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
   }
 
   removeExerciseBlock(id){
+    this._exercisesRestService.remove(id).subscribe(
+      exercises => {console.log(id+' removed')}, 
+      err => { console.log(err); });
     this._exercisesService.remove(id);
   }
 }

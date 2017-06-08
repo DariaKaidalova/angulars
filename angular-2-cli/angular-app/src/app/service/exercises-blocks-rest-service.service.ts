@@ -29,5 +29,11 @@ export class ExercisesRestService {
 		return this._http.post(this._exerciseUrl, dataString, options) 
 			.map((res:Response) => {res.json()}) 
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
-	}   
+	}
+
+	remove(id:string): Observable<Exercise[]> {
+    return this._http.delete(`${this._exerciseUrl}/${id}`) 
+                         .map((res:Response) => res.json())
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
+  }    
 }
