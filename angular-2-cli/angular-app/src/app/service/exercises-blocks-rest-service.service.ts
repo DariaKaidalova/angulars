@@ -19,13 +19,15 @@ export class ExercisesRestService {
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 
-	add(body: Object): Observable<Exercise[]> {
-		let bodyString = JSON.stringify(body);
+	add(data: Object): Observable<Exercise[]> {
+		let bodyString = JSON.stringify(data);
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers }); 
+		console.log('data:');
+		console.log(data);
 
-		return this._http.post(this._exerciseUrl, body, options) 
-			.map((res:Response) => res.json()) 
+		return this._http.post(this._exerciseUrl, data, options) 
+			.map((res:Response) => {res.json()}) 
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
 	}   
 }
