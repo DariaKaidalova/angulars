@@ -40,6 +40,8 @@ export class ExercisesService {
 	  	this.name = '';
 	  	this.description = '';
 			//this.imagesArray = [];
+
+			console.log(this.exercises);
   	}
   	else {
   		this.messageSuccess = '';

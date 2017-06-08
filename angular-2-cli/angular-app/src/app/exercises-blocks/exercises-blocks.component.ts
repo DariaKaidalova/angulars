@@ -52,7 +52,6 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
       exercisesOperation.subscribe(
       exercises => {}, 
       err => { console.log(err); });
-      //this.getExerciseBlock();
     }
 
     this.messageSuccess = this._exercisesService.messageSuccess;
