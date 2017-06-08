@@ -17,24 +17,44 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
   newId: number = 0;
   messageError: string = '';
   messageSuccess: string = '';
+  isUsed: boolean = false;
 
   constructor(private _exercisesService: ExercisesService, private _exercisesRestService: ExercisesRestService) {}
 
   ngOnInit() {
-    this._exercisesRestService.get().subscribe(
-      exercises => {this._exercisesService.exercises = exercises; console.log(this._exercisesService.exercises)}, 
-      err => { console.log(err); }
-    );
+    this.getExerciseBlock();
   }
 
-  ngOnChanges(changes:any) {}
+  ngOnChanges(changes:any) {
+    this.getExerciseBlock();
+  }
 
   @ViewChild(FileUploaderComponent)
   private _fileUploaderComponent: FileUploaderComponent;
   onSubmit(): void {}
+
+  getExerciseBlock() {
+    this._exercisesRestService.get().subscribe(
+      exercises => {this._exercisesService.exercises = exercises;}, 
+      err => { console.log(err); }
+    );
+  }
   
   addExerciseBlock(): void {
-    this._exercisesService.add(this._exercisesService.exercises.length+1, this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
+    let exercisesOperation:Observable<Exercise[]>;
+    const newExersices = {name: this.newName, description: this.newDescription /*, images: this.imagesArray*/};
+    this._exercisesService.add(null, this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
+
+    this.isUsed = this._exercisesService.isUsed;
+
+    if(!this.isUsed) {
+      exercisesOperation = this._exercisesRestService.add(newExersices);
+      exercisesOperation.subscribe(
+      exercises => {}, 
+      err => { console.log(err); });
+      //this.getExerciseBlock();
+    }
+
     this.messageSuccess = this._exercisesService.messageSuccess;
     this.messageError = this._exercisesService.messageError;
     this.newName = this._exercisesService.name;

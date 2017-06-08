@@ -20,13 +20,13 @@ export class ExercisesRestService {
 	}
 
 	add(data: Object): Observable<Exercise[]> {
-		let bodyString = JSON.stringify(data);
+		let dataString = JSON.stringify(data);
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers }); 
-		console.log('data:');
-		console.log(data);
+		console.log('dataString:');
+		console.log(dataString);
 
-		return this._http.post(this._exerciseUrl, data, options) 
+		return this._http.post(this._exerciseUrl, dataString, options) 
 			.map((res:Response) => {res.json()}) 
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
 	}   
