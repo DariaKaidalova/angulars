@@ -197,4 +197,18 @@ ul {
 .b-message.-type_error {
   color: #b9041f; }
 
+/*footer*/
+.l-popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); }
+
+.b-popup {
+  max-width: 1400px;
+  min-width: 600px;
+  margin: 30% auto 0; }
+
 /*# sourceMappingURL=styles.css.map */
