@@ -2,7 +2,7 @@
 
 .b-field {
 	display: inline-block;
-  width: 200px;
+  width: 300px;
   height: 30px;
   padding: 5px 8px;
   box-sizing: border-box;
@@ -11,8 +11,16 @@
   border-radius: 7px;
   border: 1px solid $color-gray-3;
 
+  &.-type_textarea {
+    min-height: 100px;
+    height: initial;
+  }
+
 	@include placeholder {
 		font-style: italic;
+    font-size: 13px;
 	}
 }
+
+
 

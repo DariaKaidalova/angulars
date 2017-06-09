@@ -138,19 +138,21 @@ ul {
     display: inline-block; }
   .b-form__row {
     display: flex;
+    flex-direction: column;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     margin: 0 0 10px; }
     .b-form__row.-type_message {
       justify-content: center; }
     .b-form__row:last-child {
       margin-bottom: 0; }
   .b-form__item {
-    margin: 0 10px 0 0; }
+    margin: 0 0 10px 0; }
     .b-form__item:last-child {
       margin-right: 0; }
     .b-form__item.-type_button {
-      margin-right: 0; }
+      margin-right: 0;
+      align-self: center; }
 
 /*button*/
 .b-button {
@@ -172,7 +174,7 @@ ul {
 /*field*/
 .b-field {
   display: inline-block;
-  width: 200px;
+  width: 300px;
   height: 30px;
   padding: 5px 8px;
   box-sizing: border-box;
@@ -180,14 +182,21 @@ ul {
   outline: 0;
   border-radius: 7px;
   border: 1px solid #bbb; }
+  .b-field.-type_textarea {
+    min-height: 100px;
+    height: initial; }
   .b-field::-webkit-input-placeholder {
-    font-style: italic; }
+    font-style: italic;
+    font-size: 13px; }
   .b-field:-moz-placeholder {
-    font-style: italic; }
+    font-style: italic;
+    font-size: 13px; }
   .b-field::-moz-placeholder {
-    font-style: italic; }
+    font-style: italic;
+    font-size: 13px; }
   .b-field:-ms-input-placeholder {
-    font-style: italic; }
+    font-style: italic;
+    font-size: 13px; }
 
 /*message css*/
 .b-message.-type_success {
