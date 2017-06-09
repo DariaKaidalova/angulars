@@ -18,6 +18,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
   messageError: string = '';
   messageSuccess: string = '';
   isUsed: boolean = false;
+  isOpenedPopup: boolean = false;
 
   constructor(private _exercisesService: ExercisesService, private _exercisesRestService: ExercisesRestService) {}
 
@@ -61,10 +62,18 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     //this._fileUploaderComponent.uploader.queue = this._exercisesService.imagesArray;
   }
 
-  removeExerciseBlock(id){
+  removeExerciseBlock(id) {
     this._exercisesRestService.remove(id).subscribe(
       exercises => {console.log(id+' removed')}, 
       err => { console.log(err); });
     this._exercisesService.remove(id);
+  }
+
+  closePopup() {
+    this.isOpenedPopup = false;
+  }
+
+  openPopup() {
+    this.isOpenedPopup = true;
   }
 }

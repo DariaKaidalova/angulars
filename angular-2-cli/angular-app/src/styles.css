@@ -134,25 +134,22 @@ ul {
 /*form*/
 .b-form {
   margin: 0 0 20px; }
+  .b-popup .b-form {
+    margin-bottom: 0; }
   .b-form__inner {
     display: inline-block; }
   .b-form__row {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
     margin: 0 0 10px; }
-    .b-form__row.-type_message {
-      justify-content: center; }
     .b-form__row:last-child {
       margin-bottom: 0; }
   .b-form__item {
     margin: 0 0 10px 0; }
-    .b-form__item:last-child {
-      margin-right: 0; }
     .b-form__item.-type_button {
-      margin-right: 0;
-      align-self: center; }
+      margin-top: 15px; }
+    .b-form__item.-type_message {
+      text-align: center; }
+    .b-form__item:last-child {
+      margin-bottom: 0; }
 
 /*button*/
 .b-button {
@@ -172,6 +169,16 @@ ul {
   cursor: pointer; }
 
 /*field*/
+.b-label {
+  display: inline-block;
+  margin: 0 0 5px; }
+  .b-label.-type_required:after {
+    display: inline-block;
+    margin: 0 0 0 3px;
+    color: #b9041f;
+    content: '*'; }
+
+/*field*/
 .b-field {
   display: inline-block;
   width: 300px;
@@ -181,22 +188,11 @@ ul {
   box-shadow: none;
   outline: 0;
   border-radius: 7px;
-  border: 1px solid #bbb; }
+  border: 1px solid #bbb;
+  font-size: 13px; }
   .b-field.-type_textarea {
     min-height: 100px;
     height: initial; }
-  .b-field::-webkit-input-placeholder {
-    font-style: italic;
-    font-size: 13px; }
-  .b-field:-moz-placeholder {
-    font-style: italic;
-    font-size: 13px; }
-  .b-field::-moz-placeholder {
-    font-style: italic;
-    font-size: 13px; }
-  .b-field:-ms-input-placeholder {
-    font-style: italic;
-    font-size: 13px; }
 
 /*message css*/
 .b-message.-type_success {
@@ -208,8 +204,7 @@ ul {
 
 /*footer*/
 .l-popup {
-  display: none;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -220,10 +215,10 @@ ul {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 450px;
-  height: 300px;
+  width: 340px;
+  min-height: 340px;
   box-sizing: border-box;
-  margin: -150px 0 0 -225px;
+  margin: -180px 0 0 -170px;
   border-radius: 7px;
   border: 1px solid rgba(167, 62, 69, 0.2);
   background: #fff; }

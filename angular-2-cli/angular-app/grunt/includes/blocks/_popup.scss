@@ -1,8 +1,8 @@
 /*footer*/
 
 .l-popup {
-	display: none;
-	position: absolute;
+	//display: none;
+	position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -14,10 +14,10 @@
 	position: fixed;
 	top: 50%;
 	left: 50%;
-  width: 450px;
-  height: 300px;
+  width: 340px;
+  min-height: 340px;
   box-sizing: border-box;
-	margin: -150px 0 0 -225px;
+	margin: -180px 0 0 -170px;
 	border-radius: 7px;
 	border: 1px solid rgba(167, 62, 69, 0.2);
 	background: $color-white-1;

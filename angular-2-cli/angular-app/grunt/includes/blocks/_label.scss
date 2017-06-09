@@ -1,0 +1,16 @@
+/*field*/
+
+.b-label {
+	display: inline-block;
+  margin: 0 0 5px;
+
+  &.-type_required {
+
+    &:after {
+      display: inline-block;
+      margin: 0 0 0 3px;
+      color: $color-red-2;
+      content: '*';
+    }
+  }
+}

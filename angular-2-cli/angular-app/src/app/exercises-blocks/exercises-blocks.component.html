@@ -2,21 +2,30 @@
 	<div class="b-form__inner">
 		<div class="b-form__row">
 			<div class="b-form__item">
-				<input type="text" class="b-field" placeholder="Название упражнения *"  [(ngModel)]="newName" name="newName" required>
+				<div class="b-form__label">
+					<label for="" class="b-label -type_required">Название упражнения</label>
+				</div>
+				<input type="text" class="b-field" [(ngModel)]="newName" name="newName" required>
 			</div>
 			<div class="b-form__item">
-				<textarea class="b-field -type_textarea" placeholder="Описание упражнения *" [(ngModel)]="newDescription" name="newDescription" required>></textarea>
+				<div class="b-form__label">
+					<label for="" class="b-label -type_required">Описание упражнения</label>
+				</div>
+				<textarea class="b-field -type_textarea" [(ngModel)]="newDescription" name="newDescription" required>></textarea>
 			</div>
 			<div class="b-form__item">
+				<div class="b-form__label">
+					<label for="" class="b-label">Фотографии</label>
+				</div>
 				<file-uploader></file-uploader>
 			</div>
 			<div class="b-form__item -type_button">
-				<button class="b-button" [disabled]="!exForm.form.valid || !_fileUploaderComponent.uploader.getNotUploadedItems().length" (click)="addExerciseBlock()">Добавить упражнение</button>
+				<button class="b-button" [disabled]="!exForm.form.valid" (click)="addExerciseBlock()">Добавить</button>
 			</div>
-		</div>
-		<div class="b-form__row -type_message">
-			<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>
-			<div class="b-message -type_success" *ngIf="messageSuccess">{{messageSuccess}}</div>
+			<div class="b-form__item -type_message">
+				<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>
+				<div class="b-message -type_success" *ngIf="messageSuccess">{{messageSuccess}}</div>
+			</div> 	
 		</div>
 	</div>
 </form>
@@ -33,17 +42,47 @@
 		</div>
 		<div class="b-blocks__text">{{ exItem.description }}</div>
 		<div class="b-blocks__buttons">
-			<button class="b-button">Редактировать</button>
+			<button class="b-button" (click)="openPopup()">Редактировать</button>
 			<button class="b-button" (click)="removeExerciseBlock(exItem.id)">Удалить</button>
 		</div>
 	</li>
 </ul>
 
-<div class="l-popup">
+<div class="l-popup" *ngIf="isOpenedPopup">
 	<div class="b-popup">
 		<div class="b-popup__inner">
-			<span class="b-popup__close">Close</span>
-			test
+			<span class="b-popup__close" (click)="closePopup()">Close</span>
+			<form class="b-form">
+				<div class="b-form__inner">
+					<div class="b-form__row">
+						<div class="b-form__item">
+							<div class="b-form__label">
+								<label for="" class="b-label -type_required">Название упражнения</label>
+							</div>
+							<input type="text" class="b-field" required>
+						</div>
+						<div class="b-form__item">
+							<div class="b-form__label">
+								<label for="" class="b-label -type_required">Описание упражнения</label>
+							</div>
+							<textarea class="b-field -type_textarea" required></textarea>
+						</div>
+						<div class="b-form__item">
+							<div class="b-form__label">
+								<label for="" class="b-label">Фотографии</label>
+							</div>
+							<file-uploader></file-uploader>
+						</div>
+						<div class="b-form__item -type_button">
+							<button class="b-button">Сохранить</button>
+						</div>
+						<div class="b-form__item -type_message">
+							<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>
+							<div class="b-message -type_success" *ngIf="messageSuccess">{{messageSuccess}}</div>
+						</div> 	
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

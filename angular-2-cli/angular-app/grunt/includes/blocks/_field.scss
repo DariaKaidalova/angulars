@@ -10,16 +10,12 @@
   outline: 0;
   border-radius: 7px;
   border: 1px solid $color-gray-3;
+  font-size: 13px;
 
   &.-type_textarea {
     min-height: 100px;
     height: initial;
   }
-
-	@include placeholder {
-		font-style: italic;
-    font-size: 13px;
-	}
 }
 
 

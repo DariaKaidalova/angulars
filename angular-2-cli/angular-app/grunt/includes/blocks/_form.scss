@@ -3,24 +3,17 @@
 .b-form {
 	margin: 0 0 20px;
 
+	.b-popup & {
+		margin-bottom: 0
+	}
+
 	&__inner {
 		display: inline-block;
 	}
 	
 	&__row {
-		display: flex;
-		flex-direction: column;
-		justify-content: start;
-		align-items: start;
 		margin: 0 0 10px;
-
-		&.-type {
-			
-			&_message {
-		    justify-content: center;
-			}
-		}
-
+		
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -29,16 +22,16 @@
 	&__item {
 		margin: 0 0 10px 0;
 
-		&:last-child {
-			margin-right: 0;
+		&.-type_button {
+			margin-top: 15px
 		}
 
-		&.-type {
+		&.-type_message {
+			text-align: center;
+		}
 
-			&_button {
-				margin-right: 0;
-		    align-self: center;
-			}
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 }
