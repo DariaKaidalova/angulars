@@ -14,14 +14,20 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
 export class ExercisesBlocksComponent implements OnInit, OnChanges {
     @Input() newName: string = '';
     @Input() newDescription: string = '';
+    
     editableId:number = 0;
     editableName: string = '';
     editableDescription: string = '';
+    isOpenedPopup: boolean = false;
+
     messageError: string = '';
     messageSuccess: string = '';
     isUsed: boolean = false;
-    isOpenedPopup: boolean = false;
 
+    messageEditableError: string = '';
+    messageEditableSuccess: string = '';
+    isEditableUsed: boolean = false;
+    
     constructor(private _exercisesService: ExercisesService, private _exercisesRestService: ExercisesRestService) {}
 
     ngOnInit() {

@@ -21,19 +21,25 @@ export class ExercisesService {
 
 	constructor(private _exercisesRestService: ExercisesRestService) {}
 
+	сheckIdenticalNames(comparable_name) {
+
+		for(var i = 0; i < this.exercises.length; i++) { //this.name
+			if(this.exercises[i].name === comparable_name) {
+				this.isUsed = true; 
+				break;
+			}
+			else this.isUsed = false;
+		}
+		
+	}
+
 	add(id, name, description, imagesArray) {
 		this.id = id;
 		this.name = name.trim();
 		this.description = description;
 		//this.imagesArray = imagesArray;
 
-		for(var i = 0; i < this.exercises.length; i++) {
-			if(this.exercises[i].name === this.name) {
-				this.isUsed = true; 
-				break;
-			}
-			else this.isUsed = false;
-		}
+		this.сheckIdenticalNames(this.name);
 
 		if(!this.isUsed) {
 			const newExersices = {id: null, name: this.name, description: this.description /*, images: this.imagesArray*/};
@@ -55,12 +61,15 @@ export class ExercisesService {
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].id === id) {
 				this.exercises.splice(i, 1);
+				break;
 			}
+			else console.error('cannot REMOVE entry in the interface using ID = '+id);
 		}
 
 	}
 
 	find(id) {
+
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].id === id) {
 				this.editableName = this.exercises[i].name; 
@@ -68,17 +77,22 @@ export class ExercisesService {
 				console.log(this.editableName, this.editableDescription);
 				break;
 			}
+			else console.error('cannot FIND entry in the interface using ID = '+id);
 		}
+
 	}
 
 	update(id, name, description) {
+
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].id === id) {
 				this.exercises[i].name = name; 
-				this.editableDescription = description;
+				this.exercises[i].description = description;
 				break;
 			}
+			else console.error('cannot UPDATE entry in the interface using ID = '+id);
 		}
+
 	}
 
 }
