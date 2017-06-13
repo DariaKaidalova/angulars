@@ -42,7 +42,7 @@
 		</div>
 		<div class="b-blocks__text">{{ exItem.description }}</div>
 		<div class="b-blocks__buttons">
-			<button class="b-button" (click)="openPopup()">Редактировать</button>
+			<button class="b-button" (click)="openPopup(exItem.id)">Редактировать</button>
 			<button class="b-button" (click)="removeExerciseBlock(exItem.id)">Удалить</button>
 		</div>
 	</li>
@@ -59,22 +59,22 @@
 							<div class="b-form__label">
 								<label for="" class="b-label -type_required">Название упражнения</label>
 							</div>
-							<input type="text" class="b-field" required>
+							<input type="text" class="b-field" [(ngModel)]="editableName" name="editableName">
 						</div>
 						<div class="b-form__item">
 							<div class="b-form__label">
 								<label for="" class="b-label -type_required">Описание упражнения</label>
 							</div>
-							<textarea class="b-field -type_textarea" required></textarea>
+							<textarea class="b-field -type_textarea" [(ngModel)]="editableDescription" name="editableDescription"></textarea>
 						</div>
-						<div class="b-form__item">
+						<!-- <div class="b-form__item">
 							<div class="b-form__label">
 								<label for="" class="b-label">Фотографии</label>
 							</div>
 							<file-uploader></file-uploader>
-						</div>
+						</div> -->
 						<div class="b-form__item -type_button">
-							<button class="b-button">Сохранить</button>
+							<button class="b-button" (click)="saveEditableExercise()">Сохранить</button>
 						</div>
 						<div class="b-form__item -type_message">
 							<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>

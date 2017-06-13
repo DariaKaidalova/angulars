@@ -12,68 +12,79 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
   styleUrls: ['./exercises-blocks.component.css']
 })
 export class ExercisesBlocksComponent implements OnInit, OnChanges {
-  @Input() newName: string = '';
-  @Input() newDescription: string = '';
-  newId: number = 0;
-  messageError: string = '';
-  messageSuccess: string = '';
-  isUsed: boolean = false;
-  isOpenedPopup: boolean = false;
+    @Input() newName: string = '';
+    @Input() newDescription: string = '';
+    editableName: string = '';
+    editableDescription: string = '';
+    messageError: string = '';
+    messageSuccess: string = '';
+    isUsed: boolean = false;
+    isOpenedPopup: boolean = false;
 
-  constructor(private _exercisesService: ExercisesService, private _exercisesRestService: ExercisesRestService) {}
+    constructor(private _exercisesService: ExercisesService, private _exercisesRestService: ExercisesRestService) {}
 
-  ngOnInit() {
-    this.getExerciseBlock();
-  }
-
-  ngOnChanges(changes:any) {
-    this.getExerciseBlock();
-  }
-
-  @ViewChild(FileUploaderComponent)
-  private _fileUploaderComponent: FileUploaderComponent;
-  onSubmit(): void {}
-
-  getExerciseBlock() {
-    this._exercisesRestService.get().subscribe(
-      exercises => {this._exercisesService.exercises = exercises;}, 
-      err => { console.log(err); }
-    );
-  }
-  
-  addExerciseBlock(): void {
-    let exercisesOperation:Observable<Exercise[]>;
-    const newExersices = {name: this.newName, description: this.newDescription /*, images: this.imagesArray*/};
-    this._exercisesService.add(null, this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
-
-    this.isUsed = this._exercisesService.isUsed;
-
-    if(!this.isUsed) {
-      exercisesOperation = this._exercisesRestService.add(newExersices);
-      exercisesOperation.subscribe(
-      exercises => {}, 
-      err => { console.log(err); });
+    ngOnInit() {
+        this.getExerciseBlock();
     }
 
-    this.messageSuccess = this._exercisesService.messageSuccess;
-    this.messageError = this._exercisesService.messageError;
-    this.newName = this._exercisesService.name;
-    this.newDescription = this._exercisesService.description;
-    //this._fileUploaderComponent.uploader.queue = this._exercisesService.imagesArray;
-  }
+    ngOnChanges(changes:any) {
+        this.getExerciseBlock();
+    }
 
-  removeExerciseBlock(id) {
-    this._exercisesRestService.remove(id).subscribe(
-      exercises => {console.log(id+' removed')}, 
-      err => { console.log(err); });
-    this._exercisesService.remove(id);
-  }
+    @ViewChild(FileUploaderComponent)
+    private _fileUploaderComponent: FileUploaderComponent;
+    onSubmit(): void {}
 
-  closePopup() {
-    this.isOpenedPopup = false;
-  }
+    getExerciseBlock() {
+        this._exercisesRestService.get().subscribe(
+            exercises => {this._exercisesService.exercises = exercises;}, 
+            err => { console.log(err); }
+        );
+    }
 
-  openPopup() {
-    this.isOpenedPopup = true;
-  }
+    addExerciseBlock(): void {
+        let exercisesOperation:Observable<Exercise[]>;
+        const newExersices = {name: this.newName, description: this.newDescription /*, images: this.imagesArray*/};
+        this._exercisesService.add(null, this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
+
+        this.isUsed = this._exercisesService.isUsed;
+
+        if(!this.isUsed) {
+            exercisesOperation = this._exercisesRestService.add(newExersices);
+            exercisesOperation.subscribe(
+                exercises => {}, 
+                err => { console.log(err); 
+            });
+        }
+
+        this.messageSuccess = this._exercisesService.messageSuccess;
+        this.messageError = this._exercisesService.messageError;
+        this.newName = this._exercisesService.name;
+        this.newDescription = this._exercisesService.description;
+        //this._fileUploaderComponent.uploader.queue = this._exercisesService.imagesArray;
+    }
+
+    removeExerciseBlock(id) {
+        this._exercisesRestService.remove(id).subscribe(
+            exercises => {console.log(id+' removed')}, 
+            err => { console.log(err); }
+        );
+        this._exercisesService.remove(id);
+    }
+
+    openPopup(id) {
+        this.isOpenedPopup = true;
+        this._exercisesService.find(id);
+        this.editableName = this._exercisesService.editableName;
+        this.editableDescription = this._exercisesService.editableDescription;
+        console.log('id = '+id);
+    }
+
+    closePopup() {
+        this.isOpenedPopup = false;
+    }
+
+    saveEditableExercise() {
+        this.closePopup(); 
+    }
 }

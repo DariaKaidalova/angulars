@@ -6,18 +6,20 @@ import { Exercise } from '../exercises-blocks/exercise.interface';
 
 @Injectable()
 export class ExercisesService {
- 	exercises: Array<Exercise> = [];
- 	messageIsUsed: string = 'Упражнение c данным названием уже добавлено!';
- 	messageAdded: string = 'Упражнение добавлено!';
- 	messageSuccess: string = '';
- 	messageError: string = ''; 
- 	isUsed: boolean = false;
- 	id: number = 0;
- 	name: string = '';
-  description: string = '';
-  imagesArray: any = [];
+	exercises: Array<Exercise> = [];
+	messageIsUsed: string = 'Упражнение c данным названием уже добавлено!';
+	messageAdded: string = 'Упражнение добавлено!';
+	messageSuccess: string = '';
+	messageError: string = ''; 
+	isUsed: boolean = false;
+	id: number = 0;
+	name: string = '';
+	description: string = '';
+	imagesArray: any = [];
+	editableName: string = '';
+    editableDescription: string = '';
 
-  constructor(private _exercisesRestService: ExercisesRestService) {}
+	constructor(private _exercisesRestService: ExercisesRestService) {}
 
 	add(id, name, description, imagesArray) {
 		this.id = id;
@@ -27,7 +29,8 @@ export class ExercisesService {
 
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].name === this.name) {
-				this.isUsed = true; break;
+				this.isUsed = true; 
+				break;
 			}
 			else this.isUsed = false;
 		}
@@ -35,18 +38,16 @@ export class ExercisesService {
 		if(!this.isUsed) {
 			const newExersices = {id: null, name: this.name, description: this.description /*, images: this.imagesArray*/};
 			this.exercises.push(newExersices);
-	  	this.messageError = '';
-	  	this.messageSuccess = this.messageAdded;
-	  	this.name = '';
-	  	this.description = '';
+	  		this.messageError = '';
+	  		this.messageSuccess = this.messageAdded;
+	  		this.name = '';
+	  		this.description = '';
 			//this.imagesArray = [];
-
-			console.log(this.exercises);
-  	}
-  	else {
-  		this.messageSuccess = '';
-  		this.messageError = this.messageIsUsed;
-  	}
+	  	}
+	  	else {
+	  		this.messageSuccess = '';
+	  		this.messageError = this.messageIsUsed;
+	  	}
 	}
 
 	remove(id) {		
@@ -57,6 +58,17 @@ export class ExercisesService {
 			}
 		}
 
+	}
+
+	find(id) {
+		for(var i = 0; i < this.exercises.length; i++) {
+			if(this.exercises[i].id === id) {
+				this.editableName = this.exercises[i].name; 
+				this.editableDescription = this.exercises[i].description;
+				console.log(this.editableName, this.editableDescription);
+				break;
+			}
+		}
 	}
 
 }
