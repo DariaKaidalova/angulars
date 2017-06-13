@@ -97,7 +97,6 @@ export class ExercisesService {
 	  				this.messageError = this.messageIsUsed;
 				}
 				break;
-				
 			}
 		}
 	}
