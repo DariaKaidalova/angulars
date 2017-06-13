@@ -67,7 +67,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
             exercisesOperation = this._exercisesRestService.add(newExersices);
             exercisesOperation.subscribe(
                 exercises => {  }, 
-                err => { console.log(err); console.error('cannot ADD entry in the database using NAME = '+this.newName); });
+                err => { console.log(err); console.error('cannot ADD entry into the database using NAME = '+this.newName); });
         }
 
         this.messageSuccess = this._exercisesService.messageSuccess;
@@ -82,7 +82,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
         this._exercisesRestService.remove(id).subscribe(
             exercises => {  }, 
-            err => { console.log(err); console.error('cannot REMOVE entry in the database using ID = '+id); }
+            err => { console.log(err); console.error('cannot REMOVE entry from the database using ID = '+id); }
         );
         this._exercisesService.remove(id);
 
