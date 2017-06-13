@@ -14,6 +14,7 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
 export class ExercisesBlocksComponent implements OnInit, OnChanges {
     @Input() newName: string = '';
     @Input() newDescription: string = '';
+    editableId:number = 0;
     editableName: string = '';
     editableDescription: string = '';
     messageError: string = '';
@@ -66,7 +67,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
     removeExerciseBlock(id) {
         this._exercisesRestService.remove(id).subscribe(
-            exercises => {console.log(id+' removed')}, 
+            exercises => {}, 
             err => { console.log(err); }
         );
         this._exercisesService.remove(id);
@@ -77,7 +78,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
         this._exercisesService.find(id);
         this.editableName = this._exercisesService.editableName;
         this.editableDescription = this._exercisesService.editableDescription;
-        console.log('id = '+id);
+        this.editableId = id;
     }
 
     closePopup() {
@@ -85,6 +86,18 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     }
 
     saveEditableExercise() {
+        console.log('this.editableId = '+this.editableId);
+
+        this._exercisesService.update(this.editableId, this.editableName, this.editableDescription);
+
+        let exercisesOperation:Observable<Exercise[]>;
+        const editableExersices = {id: this.editableId, name: this.editableName, description: this.editableDescription /*, images: this.imagesArray*/};
+        exercisesOperation = this._exercisesRestService.update(editableExersices);
+            exercisesOperation.subscribe(
+                exercises => {}, 
+                err => { console.log(err); 
+        });
+
         this.closePopup(); 
     }
 }

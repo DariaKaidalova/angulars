@@ -71,4 +71,14 @@ export class ExercisesService {
 		}
 	}
 
+	update(id, name, description) {
+		for(var i = 0; i < this.exercises.length; i++) {
+			if(this.exercises[i].id === id) {
+				this.exercises[i].name = name; 
+				this.editableDescription = description;
+				break;
+			}
+		}
+	}
+
 }
