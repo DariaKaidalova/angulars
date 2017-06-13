@@ -64,7 +64,6 @@ export class ExercisesService {
 				this.exercises.splice(i, 1);
 				break;
 			}
-			//else console.error('cannot REMOVE entry in the interface using ID = '+id);
 		}
 
 	}
@@ -78,7 +77,6 @@ export class ExercisesService {
 				console.log(this.editableName, this.editableDescription);
 				break;
 			}
-			//else console.error('cannot FIND entry in the interface using ID = '+id);
 		}
 
 	}
@@ -91,21 +89,17 @@ export class ExercisesService {
 				if(!this.isUsed) {
 					this.exercises[i].name = name; 
 					this.exercises[i].description = description;
+					this.messageError = '';
+	  				this.messageSuccess = this.messageUpdated;
+				}
+				else {
+					this.messageSuccess = '';
+	  				this.messageError = this.messageIsUsed;
 				}
 				break;
+				
 			}
-			//else console.error('cannot UPDATE entry in the interface using ID = '+id);
 		}
-
-		if(!this.isUsed) {
-			this.messageError = '';
-	  		this.messageSuccess = this.messageUpdated;
-		}
-		else {
-			this.messageSuccess = '';
-	  		this.messageError = this.messageIsUsed;
-		}
-
 	}
 
 }
