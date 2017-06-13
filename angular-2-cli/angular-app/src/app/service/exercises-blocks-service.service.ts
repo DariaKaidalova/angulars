@@ -9,6 +9,7 @@ export class ExercisesService {
 	exercises: Array<Exercise> = [];
 	messageIsUsed: string = 'Упражнение c данным названием уже добавлено!';
 	messageAdded: string = 'Упражнение добавлено!';
+	messageUpdated: string = 'Упражнение обновлено!';
 	messageSuccess: string = '';
 	messageError: string = ''; 
 	isUsed: boolean = false;
@@ -30,7 +31,7 @@ export class ExercisesService {
 			}
 			else this.isUsed = false;
 		}
-		
+
 	}
 
 	add(id, name, description, imagesArray) {
@@ -63,7 +64,7 @@ export class ExercisesService {
 				this.exercises.splice(i, 1);
 				break;
 			}
-			else console.error('cannot REMOVE entry in the interface using ID = '+id);
+			//else console.error('cannot REMOVE entry in the interface using ID = '+id);
 		}
 
 	}
@@ -77,7 +78,7 @@ export class ExercisesService {
 				console.log(this.editableName, this.editableDescription);
 				break;
 			}
-			else console.error('cannot FIND entry in the interface using ID = '+id);
+			//else console.error('cannot FIND entry in the interface using ID = '+id);
 		}
 
 	}
@@ -86,11 +87,23 @@ export class ExercisesService {
 
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].id === id) {
-				this.exercises[i].name = name; 
-				this.exercises[i].description = description;
+				if(this.exercises[i].name != name.trim()) this.сheckIdenticalNames(name);
+				if(!this.isUsed) {
+					this.exercises[i].name = name; 
+					this.exercises[i].description = description;
+				}
 				break;
 			}
-			else console.error('cannot UPDATE entry in the interface using ID = '+id);
+			//else console.error('cannot UPDATE entry in the interface using ID = '+id);
+		}
+
+		if(!this.isUsed) {
+			this.messageError = '';
+	  		this.messageSuccess = this.messageUpdated;
+		}
+		else {
+			this.messageSuccess = '';
+	  		this.messageError = this.messageIsUsed;
 		}
 
 	}
