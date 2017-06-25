@@ -2,30 +2,17 @@
 	<header class="b-header">
 		<div class="b-header__inner">
 			<div class="b-header__block -type_left">
-				<div class="b-logo">
-					<a href="#" class="b-logo__link">
-						<span class="b-logo__imageWrapper">
-							<img src="assets/images/logo-image-hand.jpg" alt="" class="b-logo__image">
-						</span>
-					</a>
-				</div>
+				<app-logo></app-logo>
 			</div>
 			<div class="b-header__block -type_right">
-				<ul class="b-menu">
-					<li class="b-menu__item">
-						<a href="" class="b-menu__link">Виды йоги</a>
-					</li>
-					<li class="b-menu__item">
-						<a href="" class="b-menu__link">Хатха йога</a>
-					</li>
-				</ul>
+				<app-navigation></app-navigation>
 			</div>
 		</div>
 	</header>
 
 	<main class="b-content">
 		<div class="b-content__inner">
-			<app-exercises-blocks></app-exercises-blocks>
+			<router-outlet></router-outlet>
 		</div>
 	</main>
 </div>

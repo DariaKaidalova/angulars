@@ -1,0 +1,24 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+
+import { ExercisesBlocksComponent } from '../../exercises-blocks/exercises-blocks.component';
+import { TypesBlocksComponent } from '../../types-blocks/types-blocks.component';
+
+const mainRoutes: Routes = [
+  { path: 'exercises',  component:  ExercisesBlocksComponent},
+  { path: 'types', component:  TypesBlocksComponent},
+  { path: '', redirectTo: '/exercises', pathMatch: 'full'},
+  { path: '**', component: ExercisesBlocksComponent }
+];
+
+@NgModule({
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(mainRoutes)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class RoutingModule { }
