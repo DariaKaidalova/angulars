@@ -42,7 +42,7 @@ export class ExercisesDetailsComponent implements OnInit {
     	.switchMap((params: Params) => this._exercisesRestService.getById(params['id']) ) // (+) converts string 'id' to a number
     	.subscribe(exercise => this.exercise = exercise);
 
-		console.log(this.exercise);
+		console.log(this._route.params);
 
     	// this._exercisesRestService.get().subscribe(
      //        exercises => {this._exercisesService.exercises = exercises;}, 
