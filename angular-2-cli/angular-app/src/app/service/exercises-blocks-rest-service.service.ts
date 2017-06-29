@@ -19,6 +19,13 @@ export class ExercisesRestService {
 			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 
+	getById(id:string): Observable<Exercise[]> {
+		return this._http.get(`${this._exerciseUrl}/${id}`) 
+			.map((res:Response) => res.json())
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
+
+
 	add(data: Object): Observable<Exercise[]> {
 		let dataString = JSON.stringify(data);
 		let headers = new Headers({ 'Content-Type': 'application/json' });

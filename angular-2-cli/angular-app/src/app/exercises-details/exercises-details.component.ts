@@ -1,14 +1,74 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewChild, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { RouterModule, Routes, Router, ActivatedRoute, Params }  from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+
+import { ExercisesService } from '../service/exercises-blocks-service.service';
+import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
+import { Exercise } from '../exercises-blocks/exercise.interface';
+import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
 
 @Component({
-  selector: 'app-exercises-details',
-  templateUrl: './exercises-details.component.html',
-  styleUrls: ['./exercises-details.component.css']
+	selector: 'app-exercises-details',
+	templateUrl: './exercises-details.component.html',
+	styleUrls: ['./exercises-details.component.css']
 })
 export class ExercisesDetailsComponent implements OnInit {
+	exercise;
+	editableId: number = 0;
+    editableName: string = '';
+    editableDescription: string = '';
 
-  constructor() {}
+    messageEditableError: string = '';
+    messageEditableSuccess: string = '';
+    isEditableUsed: boolean = false;
 
-  ngOnInit() {}
+	constructor(
+		private _exercisesService: ExercisesService, 
+		private _exercisesRestService: ExercisesRestService, 
+		private _route: ActivatedRoute,
+		private _router: Router
+	) {}
+
+	ngOnInit() {
+
+		this.getExerciseBlock();
+
+	}
+
+	getExerciseBlock() {
+
+	this._route.params
+    	.switchMap((params: Params) => this._exercisesRestService.getById(params['id']) ) // (+) converts string 'id' to a number
+    	.subscribe(exercise => this.exercise = exercise);
+
+		console.log(this.exercise);
+
+    	// this._exercisesRestService.get().subscribe(
+     //        exercises => {this._exercisesService.exercises = exercises;}, 
+     //        err => { console.log(err); console.error('cannot GET data from the database'); }
+     //    );
+
+	}
+
+	updateExerciseBlock() {
+
+        this._exercisesService.update(this.editableId, this.editableName, this.editableDescription);
+
+        this.isEditableUsed = this._exercisesService.isUsed;
+
+        if(!this.isEditableUsed) {
+            let exercisesOperation:Observable<Exercise[]>;
+            const editableExersices = { id: this.editableId, name: this.editableName, description: this.editableDescription };
+            exercisesOperation = this._exercisesRestService.update(editableExersices);
+            exercisesOperation.subscribe(
+                exercises => {}, 
+                err => { console.log(err); console.error('cannot UPDATE entry in the database using ID = '+this.editableId); }
+            );
+        }
+
+        this.messageEditableSuccess = this._exercisesService.messageSuccess;
+        this.messageEditableError = this._exercisesService.messageError;
+    }
 
 }
