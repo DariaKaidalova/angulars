@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges, ViewChild, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { RouterModule, Routes, Router }  from '@angular/router';
 
 import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
@@ -28,7 +29,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     messageEditableSuccess: string = '';
     isEditableUsed: boolean = false;
     
-    constructor(private _exercisesService: ExercisesService, private _exercisesRestService: ExercisesRestService) {}
+    constructor(private _exercisesService: ExercisesService, private _exercisesRestService: ExercisesRestService, private _router: Router) {}
 
     ngOnInit() {
 
@@ -126,5 +127,9 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
         this.messageEditableSuccess = '';
         this.messageEditableError = '';
 
+    }
+
+    navigateToDetails(exercise: Exercise) {
+        this._router.navigate(['/exercise', exercise.id]);
     }
 }

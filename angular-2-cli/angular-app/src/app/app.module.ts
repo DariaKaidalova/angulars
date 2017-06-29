@@ -14,6 +14,7 @@ import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { TypesBlocksComponent } from './types-blocks/types-blocks.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LogoComponent } from './logo/logo.component';
+import { ExercisesDetailsComponent } from './exercises-details/exercises-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LogoComponent } from './logo/logo.component';
     FileUploaderComponent,
     TypesBlocksComponent,
     NavigationComponent,
-    LogoComponent
+    LogoComponent,
+    ExercisesDetailsComponent
   ],
   imports: [
     BrowserModule,
