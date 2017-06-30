@@ -36,6 +36,12 @@ export class ExercisesDetailsComponent implements OnInit {
 
 	}
 
+    ngOnChanges(changes:any) {
+
+        this.getExerciseBlock();
+
+    }
+
 	getExerciseBlock() {
 
     	this._route.params
@@ -49,7 +55,11 @@ export class ExercisesDetailsComponent implements OnInit {
                             },
                 err => { console.log(err); console.error('cannot GET editable entry in the database using using ID = '+this.editableId); }
             );
-        
+
+        console.log(this._route.params);
+        console.log('this.editableId = '+this.editableId);
+        console.log('this.exercise:');
+        console.log(this.exercise);
         
 	}
 
