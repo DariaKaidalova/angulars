@@ -38,17 +38,19 @@ export class ExercisesDetailsComponent implements OnInit {
 
 	getExerciseBlock() {
 
-	this._route.params
-    	.switchMap((params: Params) => this._exercisesRestService.getById(params['id']) ) // (+) converts string 'id' to a number
-    	.subscribe(exercise => this.exercise = exercise);
-
-		console.log(this._route.params);
-
-    	// this._exercisesRestService.get().subscribe(
-     //        exercises => {this._exercisesService.exercises = exercises;}, 
-     //        err => { console.log(err); console.error('cannot GET data from the database'); }
-     //    );
-
+    	this._route.params
+            .switchMap((params: Params) => this._exercisesRestService.getById(params['id']) ) // (+) converts string 'id' to a number
+            .subscribe(
+                exercise => { this.exercise = exercise; 
+                                this.editableId = this.exercise.id; 
+                                this._exercisesService.find(this.editableId);
+                                this.editableName = this._exercisesService.editableName;
+                                this.editableDescription = this._exercisesService.editableDescription;
+                            },
+                err => { console.log(err); console.error('cannot GET editable entry in the database using using ID = '+this.editableId); }
+            );
+        
+        
 	}
 
 	updateExerciseBlock() {
@@ -65,6 +67,8 @@ export class ExercisesDetailsComponent implements OnInit {
                 exercises => {}, 
                 err => { console.log(err); console.error('cannot UPDATE entry in the database using ID = '+this.editableId); }
             );
+
+            this._router.navigate(['/exercise']);
         }
 
         this.messageEditableSuccess = this._exercisesService.messageSuccess;
