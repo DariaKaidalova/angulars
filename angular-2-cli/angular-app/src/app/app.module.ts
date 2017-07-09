@@ -15,6 +15,7 @@ import { TypesBlocksComponent } from './types-blocks/types-blocks.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LogoComponent } from './logo/logo.component';
 import { ExercisesDetailsComponent } from './exercises-details/exercises-details.component';
+import { ExercisesAddingComponent } from './exercises-adding/exercises-adding.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ExercisesDetailsComponent } from './exercises-details/exercises-details
     TypesBlocksComponent,
     NavigationComponent,
     LogoComponent,
-    ExercisesDetailsComponent
+    ExercisesDetailsComponent,
+    ExercisesAddingComponent
   ],
   imports: [
     BrowserModule,

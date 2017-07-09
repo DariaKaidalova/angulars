@@ -16,11 +16,6 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     @Input() newName: string = '';
     @Input() newDescription: string = '';
     
-    editableId:number = 0;
-    editableName: string = '';
-    editableDescription: string = '';
-    isOpenedPopup: boolean = false;
-
     messageError: string = '';
     messageSuccess: string = '';
     isUsed: boolean = false;
@@ -29,7 +24,10 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     messageEditableSuccess: string = '';
     isEditableUsed: boolean = false;
     
-    constructor(private _exercisesService: ExercisesService, private _exercisesRestService: ExercisesRestService, private _router: Router) {}
+    constructor(
+        private _exercisesService: ExercisesService, 
+        private _exercisesRestService: ExercisesRestService, 
+        private _router: Router) {}
 
     ngOnInit() {
 
@@ -89,47 +87,16 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
     }
 
-   
-    updateExerciseBlock() {
-
-        this._exercisesService.update(this.editableId, this.editableName, this.editableDescription);
-
-        this.isEditableUsed = this._exercisesService.isUsed;
-
-        if(!this.isEditableUsed) {
-            let exercisesOperation:Observable<Exercise[]>;
-            const editableExersices = { id: this.editableId, name: this.editableName, description: this.editableDescription };
-            exercisesOperation = this._exercisesRestService.update(editableExersices);
-            exercisesOperation.subscribe(
-                exercises => {}, 
-                err => { console.log(err); console.error('cannot UPDATE entry in the database using ID = '+this.editableId); }
-            );
-        }
-
-        this.messageEditableSuccess = this._exercisesService.messageSuccess;
-        this.messageEditableError = this._exercisesService.messageError;
-    }
-
-    openPopup(id) {
-
-        this.isOpenedPopup = true;
-        this._exercisesService.find(id);
-        this.editableName = this._exercisesService.editableName;
-        this.editableDescription = this._exercisesService.editableDescription;
-        this.editableId = id;
-
-    }
-
-
-    closePopup() {
-
-        this.isOpenedPopup = false;
-        this.messageEditableSuccess = '';
-        this.messageEditableError = '';
-
-    }
-
     navigateToDetails(exercise: Exercise) {
+
+        console.log(exercise.id);
         this._router.navigate(['/exercise', exercise.id]);
+
+    }
+
+    navigateToAdding() {
+
+        this._router.navigate(['/adding']);
+        
     }
 }
