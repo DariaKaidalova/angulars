@@ -50,17 +50,12 @@ export class ExercisesDetailsComponent implements OnInit {
                 exercise => { this.exercise = exercise; 
                                 this.editableId = this.exercise.id; 
                                 this._exercisesService.find(this.editableId);
-                                this.editableName = this._exercisesService.editableName;
-                                this.editableDescription = this._exercisesService.editableDescription;
+                                this.editableName = this.exercise.name;
+                                this.editableDescription =  this.exercise.description;
                             },
                 err => { console.log(err); console.error('cannot GET editable entry in the database using using ID = '+this.editableId); }
             );
-
-        console.log(this._route.params);
-        console.log('this.editableId = '+this.editableId);
-        console.log('this.exercise:');
-        console.log(this.exercise);
-        
+                    
 	}
 
 	updateExerciseBlock() {
