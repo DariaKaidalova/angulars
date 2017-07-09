@@ -19,10 +19,6 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     messageError: string = '';
     messageSuccess: string = '';
     isUsed: boolean = false;
-
-    messageEditableError: string = '';
-    messageEditableSuccess: string = '';
-    isEditableUsed: boolean = false;
     
     constructor(
         private _exercisesService: ExercisesService, 
@@ -52,29 +48,6 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
             exercises => {this._exercisesService.exercises = exercises;}, 
             err => { console.log(err); console.error('cannot GET data from the database'); }
         );
-    }
-
-    addExerciseBlock(): void {
-
-        let exercisesOperation:Observable<Exercise[]>;
-        const newExersices = {name: this.newName, description: this.newDescription /*, images: this.imagesArray*/};
-        this._exercisesService.add(null, this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
-
-        this.isUsed = this._exercisesService.isUsed;
-
-        if(!this.isUsed) {
-            exercisesOperation = this._exercisesRestService.add(newExersices);
-            exercisesOperation.subscribe(
-                exercises => {  }, 
-                err => { console.log(err); console.error('cannot ADD entry into the database using NAME = '+this.newName); });
-        }
-
-        this.messageSuccess = this._exercisesService.messageSuccess;
-        this.messageError = this._exercisesService.messageError;
-        this.newName = this._exercisesService.name;
-        this.newDescription = this._exercisesService.description;
-        //this._fileUploaderComponent.uploader.queue = this._exercisesService.imagesArray;
-
     }
 
     removeExerciseBlock(id) {

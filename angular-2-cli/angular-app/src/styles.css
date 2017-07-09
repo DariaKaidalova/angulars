@@ -102,7 +102,7 @@ ul {
 
 /*footer*/
 .b-blocks {
-  margin: 0 -1%; }
+  margin: 20px -1% 0; }
   .b-blocks__item {
     position: relative;
     width: 48%;
