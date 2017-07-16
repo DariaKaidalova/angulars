@@ -16,6 +16,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { LogoComponent } from './logo/logo.component';
 import { ExercisesDetailsComponent } from './exercises-details/exercises-details.component';
 import { ExercisesAddingComponent } from './exercises-adding/exercises-adding.component';
+import { ExercisesEditingComponent } from './exercises-editing/exercises-editing.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ExercisesAddingComponent } from './exercises-adding/exercises-adding.co
     NavigationComponent,
     LogoComponent,
     ExercisesDetailsComponent,
-    ExercisesAddingComponent
+    ExercisesAddingComponent,
+    ExercisesEditingComponent
   ],
   imports: [
     BrowserModule,

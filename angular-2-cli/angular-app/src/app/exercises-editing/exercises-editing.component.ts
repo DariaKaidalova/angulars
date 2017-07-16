@@ -9,11 +9,11 @@ import { Exercise } from '../exercises-blocks/exercise.interface';
 import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
 
 @Component({
-	selector: 'app-exercises-details',
-	templateUrl: './exercises-details.component.html',
-	styleUrls: ['./exercises-details.component.css']
+  selector: 'app-exercises-editing',
+  templateUrl: './exercises-editing.component.html',
+  styleUrls: ['./exercises-editing.component.css']
 })
-export class ExercisesDetailsComponent implements OnInit {
+export class ExercisesEditingComponent implements OnInit {
 	exercise;
 	editableId: number = 0;
     editableName: string = '';
@@ -44,6 +44,8 @@ export class ExercisesDetailsComponent implements OnInit {
 
 	getExerciseBlock() {
 
+        console.log('getExerciseBlock');
+
     	this._route.params
             .switchMap((params: Params) => this._exercisesRestService.getById(params['id']) ) // (+) converts string 'id' to a number
             .subscribe(
@@ -58,8 +60,37 @@ export class ExercisesDetailsComponent implements OnInit {
                     
 	}
 
-    navigateToExercises() {
-        this._router.navigate(['/exercises']);
+    getExerciseBlocks() {
+
+        this._exercisesRestService.get().subscribe(
+            exercises => {this._exercisesService.exercises = exercises;}, 
+            err => { console.log(err); console.error('cannot GET data from the database'); }
+        );
     }
 
+
+	updateExerciseBlock() {
+
+        console.log('updateExerciseBlock');
+
+        this._exercisesService.update(this.editableId, this.editableName, this.editableDescription);
+
+        this.isEditableUsed = this._exercisesService.isUsed;
+
+        if(!this.isEditableUsed) {
+            let exercisesOperation:Observable<Exercise[]>;
+            const editableExersices = { id: this.editableId, name: this.editableName, description: this.editableDescription };
+            exercisesOperation = this._exercisesRestService.update(editableExersices);
+            exercisesOperation.subscribe(
+                exercises => {}, 
+                err => { console.log(err); console.error('cannot UPDATE entry in the database using ID = '+this.editableId); }
+            );
+
+            this._router.navigate(['/exercises']);
+            this.getExerciseBlocks();
+        }
+
+        this.messageEditableSuccess = this._exercisesService.messageSuccess;
+        this.messageEditableError = this._exercisesService.messageError;
+    }
 }

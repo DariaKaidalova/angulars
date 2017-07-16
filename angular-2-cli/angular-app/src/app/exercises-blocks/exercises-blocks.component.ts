@@ -60,16 +60,21 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
     }
 
-    navigateToDetails(exercise: Exercise) {
+    navigateToDetail(exercise: Exercise) {
 
-        console.log(exercise.id);
-        this._router.navigate(['/exercise', exercise.id]);
+        this._router.navigate(['/exercise/review', exercise.id]);
+
+    }
+
+    navigateToEditing(exercise: Exercise) {
+
+        this._router.navigate(['/exercise/update', exercise.id]);
 
     }
 
     navigateToAdding() {
 
-        this._router.navigate(['/adding']);
+        this._router.navigate(['/exercise/add']);
         
     }
 }

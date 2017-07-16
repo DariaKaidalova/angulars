@@ -55,7 +55,7 @@ export class ExercisesAddingComponent implements OnInit {
                 exercises => {  }, 
                 err => { console.log(err); console.error('cannot ADD entry into the database using NAME = '+this.newName); });
 
-            this._router.navigate(['/exercise']);
+            this._router.navigate(['/exercises']);
             
             this.getExerciseBlocks();
         }
