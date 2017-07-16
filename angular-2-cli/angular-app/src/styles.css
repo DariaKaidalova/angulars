@@ -189,7 +189,7 @@ ul {
   outline: 0;
   border-radius: 7px;
   border: 1px solid #bbb;
-  font-size: 13px; }
+  font: normal 14px/1.3 'Droid Sans', sans-serif; }
   .b-field.-type_textarea {
     min-height: 100px;
     height: initial; }

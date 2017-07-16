@@ -33,6 +33,14 @@ export class ExercisesAddingComponent implements OnInit {
 
     onSubmit(): void {}
 
+    getExerciseBlocks() {
+
+        this._exercisesRestService.get().subscribe(
+            exercises => {this._exercisesService.exercises = exercises;}, 
+            err => { console.log(err); console.error('cannot GET data from the database'); }
+        );
+    }
+
     addExerciseBlock(): void {
 
         let exercisesOperation:Observable<Exercise[]>;
@@ -46,7 +54,10 @@ export class ExercisesAddingComponent implements OnInit {
             exercisesOperation.subscribe(
                 exercises => {  }, 
                 err => { console.log(err); console.error('cannot ADD entry into the database using NAME = '+this.newName); });
+
             this._router.navigate(['/exercise']);
+            
+            this.getExerciseBlocks();
         }
 
         this.messageSuccess = this._exercisesService.messageSuccess;

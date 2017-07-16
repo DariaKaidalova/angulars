@@ -27,13 +27,13 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
     ngOnInit() {
 
-        this.getExerciseBlock();
+        this.getExerciseBlocks();
 
     }
 
     ngOnChanges(changes:any) {
 
-        this.getExerciseBlock();
+        this.getExerciseBlocks();
 
     }
 
@@ -42,7 +42,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
     onSubmit(): void {}
 
-    getExerciseBlock() {
+    getExerciseBlocks() {
 
         this._exercisesRestService.get().subscribe(
             exercises => {this._exercisesService.exercises = exercises;}, 
