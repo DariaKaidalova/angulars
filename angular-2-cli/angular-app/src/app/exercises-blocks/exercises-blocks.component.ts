@@ -48,6 +48,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
             exercises => {this._exercisesService.exercises = exercises;}, 
             err => { console.log(err); console.error('cannot GET data from the database'); }
         );
+
     }
 
     removeExerciseBlock(id) {

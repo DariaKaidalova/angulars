@@ -46,8 +46,6 @@ export class ExercisesRestService {
         let dataString = JSON.stringify(data);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        console.log('data');
-        console.log(data);
 
         return this._http.put(`${this._exerciseUrl}/${data['id']}`, dataString, options)
 			.map((res:Response) => res.json()) 

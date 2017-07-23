@@ -2,5 +2,5 @@ export interface Exercise {
   id: number;
   name: string;
   description: string;
-  /*images: any;*/
+  images: object;
 }

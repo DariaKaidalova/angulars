@@ -43,8 +43,14 @@ export class ExercisesAddingComponent implements OnInit {
 
     addExerciseBlock(): void {
 
+        console.log(this._fileUploaderComponent.uploader.queue);
+        
         let exercisesOperation:Observable<Exercise[]>;
-        const newExersices = {name: this.newName, description: this.newDescription /*, images: this.imagesArray*/};
+        const newExersices = {
+            name: this.newName, 
+            description: this.newDescription //, 
+            // images: this.imagesArray
+        };
         this._exercisesService.add(null, this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
 
         this.isUsed = this._exercisesService.isUsed;
