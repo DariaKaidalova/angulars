@@ -43,7 +43,7 @@ export class ExercisesService {
 		this.сheckIdenticalNames(this.name);
 
 		if(!this.isUsed) {
-			const newExersices = {id: null, name: this.name, description: this.description /*, images: this.imagesArray*/};
+			const newExersices = {id: null, name: this.name, description: this.description , images: this.imagesArray};
 			this.exercises.push(newExersices);
 	  		this.messageError = '';
 	  		this.messageSuccess = this.messageAdded;

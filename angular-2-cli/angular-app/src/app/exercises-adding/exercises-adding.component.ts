@@ -16,20 +16,23 @@ export class ExercisesAddingComponent implements OnInit {
 
 	@Input() newName: string = '';
 	@Input() newDescription: string = '';
+    @ViewChild(FileUploaderComponent)
+    private _fileUploaderComponent: FileUploaderComponent;
 
 	messageError: string = '';
 	messageSuccess: string = '';
 	isUsed: boolean = false;
+    loadedImages: object;
 
 	constructor(
 		private _exercisesService: ExercisesService, 
 		private _exercisesRestService: ExercisesRestService, 
 		private _router: Router) {}
 
-	ngOnInit() {}
-
-	@ViewChild(FileUploaderComponent)
-    private _fileUploaderComponent: FileUploaderComponent;
+	ngOnInit() {
+        this.loadedImages = this._fileUploaderComponent.uploader.queue;
+        console.log(this.loadedImages);
+    }
 
     onSubmit(): void {}
 

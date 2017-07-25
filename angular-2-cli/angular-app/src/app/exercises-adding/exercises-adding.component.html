@@ -19,8 +19,12 @@
 				</div>
 				<file-uploader></file-uploader>
 			</div>
-			<div>
-				{{images}}
+			<div *ngIf="loadedImages?.length > 0">
+				<ul>
+					<li *ngFor="let imageItem of loadedImages">
+						<img src="http://localhost:4200{{imageItem.url}}{{imageItem.name}}">
+					</li>
+				</ul>
 			</div>
 			<div class="b-form__item -type_button">
 				<button class="b-button" [disabled]="!exForm.form.valid" (click)="addExerciseBlock()">Добавить</button>
