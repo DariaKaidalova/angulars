@@ -45,7 +45,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     getExerciseBlocks() {
 
         this._exercisesRestService.get().subscribe(
-            exercises => {this._exercisesService.exercises = exercises;}, 
+            exercises => {this._exercisesService.exercises = exercises; console.log('exercises from blocks:'); console.log(exercises);}, 
             err => { console.log(err); console.error('cannot GET data from the database'); }
         );
 

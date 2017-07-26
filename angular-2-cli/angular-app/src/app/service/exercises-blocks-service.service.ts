@@ -16,7 +16,7 @@ export class ExercisesService {
 	id: number = 0;
 	name: string = '';
 	description: string = '';
-	imagesArray: any = [];
+	images: any = [];
 	editableName: string = '';
     editableDescription: string = '';
 
@@ -38,18 +38,18 @@ export class ExercisesService {
 		this.id = id;
 		this.name = name.trim();
 		this.description = description;
-		//this.imagesArray = imagesArray;
+		this.images = imagesArray;
 
 		this.сheckIdenticalNames(this.name);
 
 		if(!this.isUsed) {
-			const newExersices = {id: null, name: this.name, description: this.description , images: this.imagesArray};
+			const newExersices = {id: null, name: this.name, description: this.description , images: this.images};
 			this.exercises.push(newExersices);
 	  		this.messageError = '';
 	  		this.messageSuccess = this.messageAdded;
 	  		this.name = '';
 	  		this.description = '';
-			//this.imagesArray = [];
+			this.images = [];
 	  	}
 	  	else {
 	  		this.messageSuccess = '';

@@ -16,6 +16,7 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
 
 	@Input() newName: string = '';
 	@Input() newDescription: string = '';
+    @Input() newImages: Array<{}>;
     @ViewChild(FileUploaderComponent)
     private _fileUploaderComponent: FileUploaderComponent;
 
@@ -44,8 +45,6 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
     }
 
     addExerciseBlock(): void {
-
-        console.log(this._fileUploaderComponent.loadedImages);
     
         let exercisesOperation:Observable<Exercise[]>;
         const newExersices = {
@@ -53,7 +52,8 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
             description: this.newDescription, 
             images: this._fileUploaderComponent.loadedImages
         };
-        this._exercisesService.add(null, this.newName, this.newDescription, this._fileUploaderComponent.loadedImages);
+
+        this._exercisesService.add(null, newExersices.name, newExersices.description, newExersices.images);
 
         this.isUsed = this._exercisesService.isUsed;
 
@@ -72,7 +72,10 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
         this.messageError = this._exercisesService.messageError;
         this.newName = this._exercisesService.name;
         this.newDescription = this._exercisesService.description;
-        //this._fileUploaderComponent.uploader.queue = this._exercisesService.imagesArray;
+        this.newImages = this._exercisesService.images;
+
+        console.log('this.newImages:');
+        console.log(this.newImages);
 
     }
 
