@@ -28,24 +28,12 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
 		private _exercisesRestService: ExercisesRestService, 
 		private _router: Router) {}
 
-	ngOnInit() {
+	ngOnInit() {}
 
-        this.getImages();
-
-    }
-
-    ngOnChanges(changes: any) {
-
-        this.getImages();
-
-    }
+    ngOnChanges(changes: any) {}
 
     onSubmit(): void {}
 
-    getImages() {
-
-        // this._fileUploaderComponent.uploader.queue;
-    }
 
     getExerciseBlocks() {
 
@@ -57,15 +45,15 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
 
     addExerciseBlock(): void {
 
-        console.log(this._fileUploaderComponent.uploader.queue);
-        
+        console.log(this._fileUploaderComponent.loadedImages);
+    
         let exercisesOperation:Observable<Exercise[]>;
         const newExersices = {
             name: this.newName, 
-            description: this.newDescription //, 
-            // images: this.imagesArray
+            description: this.newDescription, 
+            images: this._fileUploaderComponent.loadedImages
         };
-        this._exercisesService.add(null, this.newName, this.newDescription, this._fileUploaderComponent.uploader.queue);
+        this._exercisesService.add(null, this.newName, this.newDescription, this._fileUploaderComponent.loadedImages);
 
         this.isUsed = this._exercisesService.isUsed;
 

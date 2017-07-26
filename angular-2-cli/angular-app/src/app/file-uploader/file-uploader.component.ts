@@ -14,11 +14,9 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 	public hasBaseDropZoneOver: boolean = false;
 	public hasAnotherDropZoneOver: boolean = false;
 
-	loadedImages: any;
+	public loadedImages: any;
 
-	constructor() {
-
-  }
+	constructor() {}
 
 	ngOnInit() {
 		this.getImages();
@@ -30,18 +28,17 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 
 	public getImages():void {
 		var loadedImagesArray = [];
-    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
-      var newImage = JSON.parse(response);
-      var newLink = newImage._links.self.href;
-      var newName = newImage.name;
-      var newImageObject = {
+		this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+			var newImage = JSON.parse(response);
+			var newLink = newImage._links.self.href;
+			var newName = newImage.name;
+			var newImageObject = {
 				name: newName, 
 				link: newLink
 			};
-      loadedImagesArray.push(newImageObject);
-      this.loadedImages = loadedImagesArray;
-      console.log(this.loadedImages);
-    };
+			loadedImagesArray.push(newImageObject);
+			this.loadedImages = loadedImagesArray;
+    	};
 	}
 
 	public fileOverBase(e:any):void {
