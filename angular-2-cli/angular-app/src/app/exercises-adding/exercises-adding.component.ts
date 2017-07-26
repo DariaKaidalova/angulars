@@ -12,7 +12,7 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
   templateUrl: './exercises-adding.component.html',
   styleUrls: ['./exercises-adding.component.css']
 })
-export class ExercisesAddingComponent implements OnInit {
+export class ExercisesAddingComponent implements OnInit, OnChanges {
 
 	@Input() newName: string = '';
 	@Input() newDescription: string = '';
@@ -22,7 +22,6 @@ export class ExercisesAddingComponent implements OnInit {
 	messageError: string = '';
 	messageSuccess: string = '';
 	isUsed: boolean = false;
-    loadedImages: object;
 
 	constructor(
 		private _exercisesService: ExercisesService, 
@@ -30,11 +29,23 @@ export class ExercisesAddingComponent implements OnInit {
 		private _router: Router) {}
 
 	ngOnInit() {
-        this.loadedImages = this._fileUploaderComponent.uploader.queue;
-        console.log(this.loadedImages);
+
+        this.getImages();
+
+    }
+
+    ngOnChanges(changes: any) {
+
+        this.getImages();
+
     }
 
     onSubmit(): void {}
+
+    getImages() {
+
+        // this._fileUploaderComponent.uploader.queue;
+    }
 
     getExerciseBlocks() {
 

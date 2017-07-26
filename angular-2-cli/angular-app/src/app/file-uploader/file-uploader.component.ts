@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 
 // const URL = '/api/';
 const URL = '/api/v1/images';
@@ -9,12 +9,40 @@ const URL = '/api/v1/images';
 	templateUrl: './file-uploader.component.html',
 	styleUrls: ['./file-uploader.component.css']
 })
-export class FileUploaderComponent {
+export class FileUploaderComponent implements OnInit, OnChanges {
 	public uploader: FileUploader = new FileUploader({url: URL});
 	public hasBaseDropZoneOver: boolean = false;
 	public hasAnotherDropZoneOver: boolean = false;
 
-	constructor() {}
+	loadedImages: any;
+
+	constructor() {
+
+  }
+
+	ngOnInit() {
+		this.getImages();
+	}
+
+	ngOnChanges(changes: any) {
+		this.getImages();
+	}
+
+	public getImages():void {
+		var loadedImagesArray = [];
+    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+      var newImage = JSON.parse(response);
+      var newLink = newImage._links.self.href;
+      var newName = newImage.name;
+      var newImageObject = {
+				name: newName, 
+				link: newLink
+			};
+      loadedImagesArray.push(newImageObject);
+      this.loadedImages = loadedImagesArray;
+      console.log(this.loadedImages);
+    };
+	}
 
 	public fileOverBase(e:any):void {
 		this.hasBaseDropZoneOver = e;
