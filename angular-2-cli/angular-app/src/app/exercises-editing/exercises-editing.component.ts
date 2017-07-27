@@ -94,12 +94,12 @@ export class ExercisesEditingComponent implements OnInit {
             const editableExersices = { id: this.editableId, name: this.editableName, description: this.editableDescription };
             exercisesOperation = this._exercisesRestService.update(editableExersices);
             exercisesOperation.subscribe(
-                exercises => {}, 
+                exercises => {
+                    this.getExerciseBlocks();
+                    this._router.navigate(['/exercises']);
+                }, 
                 err => { console.log(err); console.error('cannot UPDATE entry in the database using ID = '+this.editableId); }
             );
-
-            this._router.navigate(['/exercises']);
-            this.getExerciseBlocks();
         }
 
         this.messageEditableSuccess = this._exercisesService.messageSuccess;

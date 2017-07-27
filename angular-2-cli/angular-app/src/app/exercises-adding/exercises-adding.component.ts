@@ -63,12 +63,11 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
         if(!this.isUsed) {
             exercisesOperation = this._exercisesRestService.add(newExersices);
             exercisesOperation.subscribe(
-                exercises => {  }, 
-                err => { console.log(err); console.error('cannot ADD entry into the database using NAME = '+this.newName); });
-
-            this._router.navigate(['/exercises']);
-            
-            this.getExerciseBlocks();
+                exercises => { 
+                    this.getExerciseBlocks();
+                    this._router.navigate(['/exercises']); 
+                }, 
+                err => { console.log(err); console.error('cannot ADD entry into the database using NAME = '+newExersices.name); });
         }
 
         this.messageSuccess = this._exercisesService.messageSuccess;
