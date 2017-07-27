@@ -18,6 +18,7 @@ export class ExercisesEditingComponent implements OnInit {
 	editableId: number = 0;
     editableName: string = '';
     editableDescription: string = '';
+    editableImages: Array<{}>;
 
     messageEditableError: string = '';
     messageEditableSuccess: string = '';
@@ -54,6 +55,7 @@ export class ExercisesEditingComponent implements OnInit {
                                 this._exercisesService.find(this.editableId);
                                 this.editableName = this.exercise.name;
                                 this.editableDescription =  this.exercise.description;
+                                this.editableImages = this.exercise.images;
                             },
                 err => { console.log(err); console.error('cannot GET editable entry in the database using using ID = '+this.editableId); }
             );
