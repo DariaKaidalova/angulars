@@ -13,14 +13,18 @@
 				</div>
 				<textarea class="b-field -type_textarea" [(ngModel)]="editableDescription" name="editableDescription"></textarea>
 			</div>
-			<!-- <div class="b-form__item">
-				<div class="b-form__label">
-					<label for="" class="b-label">Фотографии</label>
+			<div class="b-blocks__imageWrap">
+				<div class="b-loadGallery" *ngIf="editableImages?.length > 0" >
+					<ul class="b-loadGallery__list">
+						<li class="b-loadGallery__item" *ngFor="let imageItem of editableImages">
+							<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}">
+						</li>
+					</ul>
 				</div>
-				<file-uploader></file-uploader>
-			</div> -->
+			</div>
 			<div class="b-form__item -type_button">
 				<button class="b-button" (click)="updateExerciseBlock()">Сохранить</button>
+				<button class="b-button" (click)="removeExerciseBlock()">Удалить</button>
 			</div>
 			<div class="b-form__item -type_message">
 				<div class="b-message -type_error" *ngIf="messageEditableError">{{messageEditableError}}</div>

@@ -70,6 +70,16 @@ export class ExercisesEditingComponent implements OnInit {
         );
     }
 
+    removeExerciseBlock() {
+
+        this._exercisesRestService.remove( String(this.editableId) ).subscribe(
+            exercises => {  }, 
+            err => { console.log(err); console.error('cannot REMOVE entry from the database using ID = '+this.editableId); }
+        );
+        this._exercisesService.remove(this.editableId);
+        this._router.navigate(['/exercises']);
+    }
+
 
 	updateExerciseBlock() {
 
