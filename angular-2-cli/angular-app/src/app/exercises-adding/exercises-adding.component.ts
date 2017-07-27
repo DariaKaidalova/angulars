@@ -48,7 +48,7 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
     
         let exercisesOperation:Observable<Exercise[]>;
         const newExersices = {
-            name: this.newName, 
+            name: (this.newName).trim(), 
             description: this.newDescription, 
             images: this._fileUploader.loadedImages
         };
