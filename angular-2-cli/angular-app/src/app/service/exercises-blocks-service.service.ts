@@ -22,10 +22,10 @@ export class ExercisesService {
 
 	constructor(private _exercisesRestService: ExercisesRestService) {}
 
-	сheckIdenticalNames(comparable_name) {
+	сheckIdenticalNames(comparableName) {
 
 		for(var i = 0; i < this.exercises.length; i++) { //this.name
-			if(this.exercises[i].name === comparable_name) {
+			if(this.exercises[i].name === comparableName) {
 				this.isUsed = true; 
 				break;
 			}
@@ -42,14 +42,20 @@ export class ExercisesService {
 
 		this.сheckIdenticalNames(this.name);
 
+		console.log('this.images from exercices-blocks-service:');
+		console.log(this.images);
+
 		if(!this.isUsed) {
-			const newExersices = {id: null, name: this.name, description: this.description , images: this.images};
+			const newExersices = {id: null, name: this.name, description: this.description, images: this.images};
 			this.exercises.push(newExersices);
 	  		this.messageError = '';
 	  		this.messageSuccess = this.messageAdded;
 	  		this.name = '';
 	  		this.description = '';
 			this.images = [];
+
+			console.log('this.exercises from exercices-blocks-service:');
+			console.log(this.exercises);
 	  	}
 	  	else {
 	  		this.messageSuccess = '';

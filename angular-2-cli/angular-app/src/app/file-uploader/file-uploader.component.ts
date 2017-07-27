@@ -43,7 +43,7 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 			loadedImagesArray.push(newImageObject);
 
 			this.loadedImages = loadedImagesArray;
-			console.log('this.loadedImages from uploader:');
+			console.log('this.loadedImages from file-uploader:');
 			console.log(this.loadedImages);
     	};
 	}

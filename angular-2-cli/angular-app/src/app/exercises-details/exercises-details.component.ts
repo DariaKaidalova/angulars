@@ -15,13 +15,10 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
 })
 export class ExercisesDetailsComponent implements OnInit {
 	exercise;
-	editableId: number = 0;
-    editableName: string = '';
-    editableDescription: string = '';
-
-    messageEditableError: string = '';
-    messageEditableSuccess: string = '';
-    isEditableUsed: boolean = false;
+	detailId: number = 0;
+    detailName: string = '';
+    detailDescription: string = '';
+    detailImages: Array<{}>;
 
 	constructor(
 		private _exercisesService: ExercisesService, 
@@ -48,13 +45,18 @@ export class ExercisesDetailsComponent implements OnInit {
             .switchMap((params: Params) => this._exercisesRestService.getById(params['id']) ) // (+) converts string 'id' to a number
             .subscribe(
                 exercise => { this.exercise = exercise; 
-                                this.editableId = this.exercise.id; 
-                                this._exercisesService.find(this.editableId);
-                                this.editableName = this.exercise.name;
-                                this.editableDescription =  this.exercise.description;
+                                this.detailId = this.exercise.id; 
+                                this._exercisesService.find(this.detailId);
+                                this.detailName = this.exercise.name;
+                                this.detailDescription =  this.exercise.description;
+                                this.detailImages = this.exercise.images;
+                                console.log('this.detailImages:');
+                                console.log(this.detailImages);
                             },
-                err => { console.log(err); console.error('cannot GET editable entry in the database using using ID = '+this.editableId); }
+                err => { console.log(err); console.error('cannot GET editable entry in the database using using ID = '+this.detailId); }
             );
+
+
                     
 	}
 

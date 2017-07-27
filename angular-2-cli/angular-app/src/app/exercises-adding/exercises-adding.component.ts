@@ -18,7 +18,7 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
 	@Input() newDescription: string = '';
     @Input() newImages: Array<{}>;
     @ViewChild(FileUploaderComponent)
-    private _fileUploaderComponent: FileUploaderComponent;
+    private _fileUploader: FileUploaderComponent;
 
 	messageError: string = '';
 	messageSuccess: string = '';
@@ -50,8 +50,11 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
         const newExersices = {
             name: this.newName, 
             description: this.newDescription, 
-            images: this._fileUploaderComponent.loadedImages
+            images: this._fileUploader.loadedImages
         };
+
+        console.log('newExersices.images from exercices-adding:');
+        console.log(newExersices.images);
 
         this._exercisesService.add(null, newExersices.name, newExersices.description, newExersices.images);
 
@@ -73,9 +76,6 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
         this.newName = this._exercisesService.name;
         this.newDescription = this._exercisesService.description;
         this.newImages = this._exercisesService.images;
-
-        console.log('this.newImages:');
-        console.log(this.newImages);
 
     }
 

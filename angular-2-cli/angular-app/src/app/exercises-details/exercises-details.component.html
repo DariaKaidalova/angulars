@@ -1,9 +1,19 @@
 <div class="b-blocks -type_details">
 	<div class="b-blocks__item">
 		<div class="b-blocks__titleWrap">
-			<h3 class="b-blocks__title">{{ editableName }}</h3>
+			<h3 class="b-blocks__title">{{ detailName }}</h3>
 		</div>
-		<div class="b-blocks__text">{{ editableDescription }}</div>
+		<div class="b-blocks__text">{{ detailDescription }}</div>
+		<div class="b-blocks__imageWrap">
+			<div class="b-loadGallery" *ngIf="detailImages?.length > 0" >
+				<ul class="b-loadGallery__list">
+					<li class="b-loadGallery__item" *ngFor="let imageItem of detailImages">
+						<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}">
+					</li>
+				</ul>
+			</div>
+		</div>
+
 		<div class="b-blocks__buttons">
 			<button class="b-button" (click)="navigateToExercises()">Вернуться к упражнениям</button>
 		</div>

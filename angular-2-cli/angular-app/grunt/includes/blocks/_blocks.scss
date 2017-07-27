@@ -64,6 +64,11 @@
 		text-align: right;
 
 		.-type_details & {
+			position: static;
+			top: auto;
+			bottom: auto;
+			left: auto;
+			right: auto;
 			text-align: left;
 		}
 	}

@@ -142,6 +142,11 @@ ul {
     right: 10px;
     text-align: right; }
     .-type_details .b-blocks__buttons {
+      position: static;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      right: auto;
       text-align: left; }
 
 /*form*/
