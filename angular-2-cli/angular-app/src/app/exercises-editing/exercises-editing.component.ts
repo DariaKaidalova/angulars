@@ -80,6 +80,10 @@ export class ExercisesEditingComponent implements OnInit {
         this._router.navigate(['/exercises']);
     }
 
+    removeImage(currentId, currentImageId):void {
+        
+    }
+
 
 	updateExerciseBlock() {
 

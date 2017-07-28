@@ -20,6 +20,7 @@
 							<div class="b-loadGallery__imageWrap">
 								<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}">
 							</div>
+							<span class="b-loadGallery__deleteImage" (click)="removeImage(editableId, imageItem.id)"></span>
 						</li>
 					</ul>
 				</div>
