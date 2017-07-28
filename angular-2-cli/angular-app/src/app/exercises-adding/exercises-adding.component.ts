@@ -35,7 +35,6 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
 
     onSubmit(): void {}
 
-
     getExerciseBlocks() {
 
         this._exercisesRestService.get().subscribe(
@@ -52,9 +51,6 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
             description: this.newDescription, 
             images: this._fileUploader.loadedImages
         };
-
-        console.log('newExersices.images from exercices-adding:');
-        console.log(newExersices.images);
 
         this._exercisesService.add(null, newExersices.name, newExersices.description, newExersices.images);
 

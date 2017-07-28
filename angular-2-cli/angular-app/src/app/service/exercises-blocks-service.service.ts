@@ -80,6 +80,20 @@ export class ExercisesService {
         this.editableImages = [];
     }
 
+    addImages(editableImagesArray, newImagesArray) {
+    	
+    	if(editableImagesArray.length === 0 && newImagesArray.length !== 0) {
+    		this.editableImages = newImagesArray;
+    	}
+		if(editableImagesArray.length !== 0 && newImagesArray.length === 0) {
+    		this.editableImages = editableImagesArray;
+    	}  
+    	else {
+    		this.editableImages = editableImagesArray.concat(newImagesArray);
+    	}
+    	
+    }
+
 	removeImage(imageId, imageArray) {
         for(var i = 0; i < imageArray.length; i++) {
             if(imageId === imageArray[i].id) {

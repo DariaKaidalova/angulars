@@ -20,10 +20,16 @@ export class ExercisesEditingComponent implements OnInit {
     editableName: string = '';
     editableDescription: string = '';
     editableImages: Array<Image>;
+    newImages: Array<Image>;
+
+    @ViewChild(FileUploaderComponent)
+    private _fileUploader: FileUploaderComponent;
 
     messageEditableError: string = '';
     messageEditableSuccess: string = '';
     isEditableUsed: boolean = false;
+
+
 
 	constructor(
 		private _exercisesService: ExercisesService, 
@@ -86,6 +92,11 @@ export class ExercisesEditingComponent implements OnInit {
 
     removeImage(currentImageId):void {
         this._exercisesService.removeImage(currentImageId, this.editableImages);
+        this.editableImages = this._exercisesService.editableImages;
+    }
+
+    addImages() {
+        this._exercisesService.addImages(this.editableImages, this._fileUploader.loadedImages);
         this.editableImages = this._exercisesService.editableImages;
     }
 
