@@ -81,7 +81,7 @@ export class ExercisesService {
     }
 
     addImages(editableImagesArray, newImagesArray) {
-    	
+
     	if(editableImagesArray.length === 0 && newImagesArray.length !== 0) {
     		this.editableImages = newImagesArray;
     	}
@@ -117,7 +117,7 @@ export class ExercisesService {
 
 	}
 
-	update(id, name, description) {
+	update(id, name, description, imagesArray) {
 
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].id === id) {
@@ -125,6 +125,7 @@ export class ExercisesService {
 				if(!this.isUsed) {
 					this.exercises[i].name = name; 
 					this.exercises[i].description = description;
+					this.exercises[i].images = imagesArray;
 					this.messageError = '';
 	  				this.messageSuccess = this.messageUpdated;
 				}

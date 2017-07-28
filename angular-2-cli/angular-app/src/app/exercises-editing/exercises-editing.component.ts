@@ -103,9 +103,9 @@ export class ExercisesEditingComponent implements OnInit {
 
 	updateExerciseBlock() {
 
-        console.log('updateExerciseBlock');
+        this.addImages();
 
-        this._exercisesService.update(this.editableId, this.editableName, this.editableDescription);
+        this._exercisesService.update(this.editableId, this.editableName, this.editableDescription, this.editableImages);
 
         this.isEditableUsed = this._exercisesService.isUsed;
 
