@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
+import { Image } from './image.interface';
 
 // const URL = '/api/';
 const URL = '/api/v1/images';
@@ -13,22 +14,19 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 	public uploader: FileUploader = new FileUploader({url: URL});
 	public hasBaseDropZoneOver: boolean = false;
 	public hasAnotherDropZoneOver: boolean = false;
-	public loadedImages: Array<{}>;
-	isUpload: boolean;
+	public loadedImages: Array<Image> = [];
+	public isUpload: boolean;
 
 	constructor() {}
 
 	ngOnInit() {
-		this.getImages();
+		this.checkLoadedImagesArray();
 	}
 
-	ngOnChanges(changes: any) {
-		this.getImages();
-	}
+	ngOnChanges(changes: any) {}
 
 	getImages():void {
 
-		var loadedImagesArray = [];
 		this.isUpload = false;
 		this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
 			var newImage = JSON.parse(response);
@@ -43,13 +41,8 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 				}
 			};
 
-			loadedImagesArray.push(newImageObject);
-
-			this.loadedImages = loadedImagesArray;
-			this.isUpload = true;
-			console.log('this.loadedImages from file-uploader:');
-			console.log(this.loadedImages);
-			console.log('this.isUpload = '+this.isUpload);
+			this.loadedImages.push(newImageObject);
+			this.checkLoadedImagesArray();
     	};
 	}
 
@@ -59,7 +52,24 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 		console.log('this.isUpload = '+this.isUpload);
 	}
 
-	removeImage():void {}
+	removeImage(currentId):void {
+		for(var i = 0; i < this.loadedImages.length; i++) {
+			if(currentId === this.loadedImages[i].id) {
+				this.loadedImages.splice(i, 1);
+			}
+			console.log(this.loadedImages[i]);
+		}
+		this.checkLoadedImagesArray();
+	}
+
+	checkLoadedImagesArray():void {
+		if(this.loadedImages.length === 0) {
+			this.isUpload = false;
+		}
+		else {
+			this.isUpload = true;
+		}
+	}
 
 	public fileOverBase(e:any):void {
 		this.hasBaseDropZoneOver = e;
