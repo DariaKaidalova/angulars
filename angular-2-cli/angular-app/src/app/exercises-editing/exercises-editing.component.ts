@@ -7,6 +7,7 @@ import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
 import { Exercise } from '../exercises-blocks/exercise.interface';
 import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
+import { Image } from '../file-uploader/image.interface';
 
 @Component({
   selector: 'app-exercises-editing',
@@ -18,7 +19,7 @@ export class ExercisesEditingComponent implements OnInit {
 	editableId: number = 0;
     editableName: string = '';
     editableDescription: string = '';
-    editableImages: Array<{}>;
+    editableImages: Array<Image>;
 
     messageEditableError: string = '';
     messageEditableSuccess: string = '';
@@ -44,8 +45,6 @@ export class ExercisesEditingComponent implements OnInit {
     }
 
 	getExerciseBlock() {
-
-        console.log('getExerciseBlock');
 
     	this._route.params
             .switchMap((params: Params) => this._exercisesRestService.getById(params['id']) ) // (+) converts string 'id' to a number
@@ -80,8 +79,14 @@ export class ExercisesEditingComponent implements OnInit {
         this._router.navigate(['/exercises']);
     }
 
-    removeImage(currentId, currentImageId):void {
-        
+    removeImages():void {
+        this._exercisesService.removeImages();
+        this.editableImages = this._exercisesService.editableImages;
+    }
+
+    removeImage(currentImageId):void {
+        this._exercisesService.removeImage(currentImageId, this.editableImages);
+        this.editableImages = this._exercisesService.editableImages;
     }
 
 
@@ -95,7 +100,7 @@ export class ExercisesEditingComponent implements OnInit {
 
         if(!this.isEditableUsed) {
             let exercisesOperation:Observable<Exercise[]>;
-            const editableExersices = { id: this.editableId, name: this.editableName, description: this.editableDescription };
+            const editableExersices = { id: this.editableId, name: this.editableName, description: this.editableDescription, images: this.editableImages};
             exercisesOperation = this._exercisesRestService.update(editableExersices);
             exercisesOperation.subscribe(
                 exercises => {

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { ExercisesRestService } from './exercises-blocks-rest-service.service';
 import { Exercise } from '../exercises-blocks/exercise.interface';
+import { Image } from '../file-uploader/image.interface';
 
 @Injectable()
 export class ExercisesService {
@@ -19,6 +20,7 @@ export class ExercisesService {
 	images: any = [];
 	editableName: string = '';
     editableDescription: string = '';
+    editableImages: Array<Image>;
 
 	constructor(private _exercisesRestService: ExercisesRestService) {}
 
@@ -72,6 +74,20 @@ export class ExercisesService {
 			}
 		}
 
+	}
+
+    removeImages():void {
+        this.editableImages = [];
+    }
+
+	removeImage(imageId, imageArray) {
+        for(var i = 0; i < imageArray.length; i++) {
+            if(imageId === imageArray[i].id) {
+                imageArray.splice(i, 1);
+                this.editableImages = imageArray;
+                break;
+            }
+        }
 	}
 
 	find(id) {

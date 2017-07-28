@@ -20,13 +20,15 @@
 							<div class="b-loadGallery__imageWrap">
 								<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}">
 							</div>
-							<span class="b-loadGallery__deleteImage" (click)="removeImage(editableId, imageItem.id)"></span>
+							<span class="b-loadGallery__deleteImage" (click)="removeImage(imageItem.id)"></span>
 						</li>
 					</ul>
 				</div>
+				<!-- <file-uploader></file-uploader> -->
 			</div>
 			<div class="b-form__item -type_button">
 				<button class="b-button" (click)="updateExerciseBlock()">Сохранить</button>
+				<button class="b-button" (click)="removeImages()">Удалить все изображения</button>
 				<button class="b-button" (click)="removeExerciseBlock()">Удалить</button>
 			</div>
 			<div class="b-form__item -type_message">
