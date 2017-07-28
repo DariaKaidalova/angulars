@@ -13,7 +13,8 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 	public uploader: FileUploader = new FileUploader({url: URL});
 	public hasBaseDropZoneOver: boolean = false;
 	public hasAnotherDropZoneOver: boolean = false;
-	public loadedImages: any;
+	public loadedImages: Array<{}>;
+	isUpload: boolean;
 
 	constructor() {}
 
@@ -25,8 +26,10 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 		this.getImages();
 	}
 
-	public getImages():void {
+	getImages():void {
+
 		var loadedImagesArray = [];
+		this.isUpload = false;
 		this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
 			var newImage = JSON.parse(response);
 
@@ -43,10 +46,20 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 			loadedImagesArray.push(newImageObject);
 
 			this.loadedImages = loadedImagesArray;
+			this.isUpload = true;
 			console.log('this.loadedImages from file-uploader:');
 			console.log(this.loadedImages);
+			console.log('this.isUpload = '+this.isUpload);
     	};
 	}
+
+	removeImages():void {
+		this.loadedImages = [];
+		this.isUpload = false;
+		console.log('this.isUpload = '+this.isUpload);
+	}
+
+	removeImage():void {}
 
 	public fileOverBase(e:any):void {
 		this.hasBaseDropZoneOver = e;
