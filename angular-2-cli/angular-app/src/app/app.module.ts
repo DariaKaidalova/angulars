@@ -17,6 +17,7 @@ import { LogoComponent } from './logo/logo.component';
 import { ExercisesDetailsComponent } from './exercises-details/exercises-details.component';
 import { ExercisesAddingComponent } from './exercises-adding/exercises-adding.component';
 import { ExercisesEditingComponent } from './exercises-editing/exercises-editing.component';
+import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-popup.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ExercisesEditingComponent } from './exercises-editing/exercises-editing
     LogoComponent,
     ExercisesDetailsComponent,
     ExercisesAddingComponent,
-    ExercisesEditingComponent
+    ExercisesEditingComponent,
+    ConfirmationPopupComponent
   ],
   imports: [
     BrowserModule,

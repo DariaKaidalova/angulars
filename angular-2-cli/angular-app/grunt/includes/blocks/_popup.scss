@@ -11,20 +11,31 @@
 }
 
 .b-popup {
+  display: flex;
+  align-items: center;
 	position: fixed;
 	top: 50%;
 	left: 50%;
   width: 340px;
-  min-height: 340px;
+  min-height: 110px;
   box-sizing: border-box;
-	margin: -180px 0 0 -170px;
+	margin: -100px 0 0 -170px;
 	border-radius: 7px;
 	border: 1px solid rgba(167, 62, 69, 0.2);
 	background: $color-white-1;
 
 	&__inner {
+		width: 100%;
 		position: relative;
 		padding: 20px;
+	}
+
+	&__text {
+		margin: 0 0 15px;
+	}
+
+	&__buttons {
+		text-align: center;
 	}
 
 	&__close {

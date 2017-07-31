@@ -230,19 +230,26 @@ ul {
   background: rgba(0, 0, 0, 0.3); }
 
 .b-popup {
+  display: flex;
+  align-items: center;
   position: fixed;
   top: 50%;
   left: 50%;
   width: 340px;
-  min-height: 340px;
+  min-height: 110px;
   box-sizing: border-box;
-  margin: -180px 0 0 -170px;
+  margin: -100px 0 0 -170px;
   border-radius: 7px;
   border: 1px solid rgba(167, 62, 69, 0.2);
   background: #fff; }
   .b-popup__inner {
+    width: 100%;
     position: relative;
     padding: 20px; }
+  .b-popup__text {
+    margin: 0 0 15px; }
+  .b-popup__buttons {
+    text-align: center; }
   .b-popup__close {
     position: absolute;
     right: -15px;
