@@ -1,6 +1,6 @@
 <input class="b-uploader" type="file" ng2FileSelect [uploader]="uploader" (onUpload)="onUpload($event)" multiple required/>
 <button class="b-button" (click)="uploader.uploadAll(); getImages()" [disabled]="!uploader.getNotUploadedItems().length">Upload</button>
-<button class="b-button" (click)="removeImages()" [disabled]="!isUpload">Clear</button> 
+<button class="b-button" (click)="removeImages()" [disabled]="!isUpload">Очистить</button> 
 
 <div class="b-loadGallery" *ngIf="loadedImages?.length > 0" >
 	<ul class="b-loadGallery__list">
