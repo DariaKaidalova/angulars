@@ -29,8 +29,6 @@ export class ExercisesEditingComponent implements OnInit {
     messageEditableSuccess: string = '';
     isEditableUsed: boolean = false;
 
-
-
 	constructor(
 		private _exercisesService: ExercisesService, 
 		private _exercisesRestService: ExercisesRestService, 
@@ -116,7 +114,9 @@ export class ExercisesEditingComponent implements OnInit {
             exercisesOperation.subscribe(
                 exercises => {
                     this.getExerciseBlocks();
-                    this._router.navigate(['/exercises']);
+                    setTimeout( 
+                        () => { this._router.navigate(['/exercises']); }, 1000
+                    );
                 }, 
                 err => { console.log(err); console.error('cannot UPDATE entry in the database using ID = '+this.editableId); }
             );
