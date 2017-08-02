@@ -19,6 +19,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     messageError: string = '';
     messageSuccess: string = '';
     isUsed: boolean = false;
+    isOpenedPopup: boolean = false;
     
     constructor(
         private _exercisesService: ExercisesService, 
@@ -78,4 +79,15 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
         this._router.navigate(['/exercise/add']);
         
     }
+
+    openConfirmPopup() {
+        this.isOpenedPopup = true;
+        console.log('callConfirmPopup, this.isOpenedPopup = '+this.isOpenedPopup);
+    }
+    
+    closeConfirmPopup() {
+        this.isOpenedPopup = false;
+        console.log('closeConfirmPopup, this.isOpenedPopup = '+this.isOpenedPopup);
+    }
+
 }

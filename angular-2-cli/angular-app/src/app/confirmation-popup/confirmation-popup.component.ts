@@ -7,10 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ConfirmationPopupComponent implements OnInit {
 	@Input() message: string;
+	@Input() isOpenedPopup: boolean;
+	@Input() closeAction;
 
 	constructor() { }
 
 	ngOnInit() {
+		this.isOpenedPopup = false;
 	}
 
 }

@@ -9,9 +9,10 @@
 		<div class="b-blocks__text">{{ exItem.description }}</div>
 		<div class="b-blocks__buttons">
 			<button class="b-button" (click)="navigateToEditing(exItem)">Редактировать</button>
-			<button class="b-button" (click)="removeExerciseBlock(exItem.id)">Удалить</button>
+			<button class="b-button" (click)="openConfirmPopup()">Удалить</button>
 		</div>
 	</li>
 </ul>
 
-<app-confirmation-popup [message]="'Вы уверены, что хотите удалить упражнение?'"></app-confirmation-popup>
+<app-confirmation-popup [message]="'Вы уверены, что хотите удалить упражнение?'" [(isOpenedPopup)]="isOpenedPopup" (closeAction) = "closeConfirmPopup()"></app-confirmation-popup>
+<!-- [(confirmAction)]="removeExerciseBlock(exItem.id)" -->
