@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
 	selector: 'app-confirmation-popup',
@@ -8,7 +8,22 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ConfirmationPopupComponent implements OnInit {
 	@Input() message: string;
 	@Input() isOpenedPopup: boolean;
-	@Input() closeAction;
+	@Output() closeAction: EventEmitter<any> = new EventEmitter();
+	@Output() confirmAction: EventEmitter<any> = new EventEmitter();
+
+    closeActionPerformed(): void {
+    	
+        this.closeAction.emit();
+        this.isOpenedPopup = false;
+    }
+
+    confirmActionPerformed(confirmEntry: SomeModel): void {
+    	
+        this.confirmAction.emit([confirmEntry]);
+
+        this.closeActionPerformed();
+        this.isOpenedPopup = false;
+    }
 
 	constructor() { }
 
