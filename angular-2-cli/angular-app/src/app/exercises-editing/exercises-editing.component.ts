@@ -89,18 +89,24 @@ export class ExercisesEditingComponent implements OnInit {
     }
 
     removeImages():void {
+
         this._exercisesService.removeImages();
         this.editableImages = this._exercisesService.editableImages;
+
     }
 
     removeImage(currentImageId):void {
+
         this._exercisesService.removeImage(currentImageId, this.editableImages);
         this.editableImages = this._exercisesService.editableImages;
+
     }
 
     addImages() {
+
         this._exercisesService.addImages(this.editableImages, this._fileUploader.loadedImages);
         this.editableImages = this._exercisesService.editableImages;
+        
     }
 
 

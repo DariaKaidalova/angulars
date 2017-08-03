@@ -49,7 +49,9 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     getExerciseBlocks() {
 
         this._exercisesRestService.get().subscribe(
-            exercises => {this._exercisesService.exercises = exercises; console.log('exercises from blocks:'); console.log(exercises);}, 
+            exercises => {
+                this._exercisesService.exercises = exercises; 
+            }, 
             err => { console.log(err); console.error('cannot GET data from the database'); }
         );
 
@@ -58,10 +60,13 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     removeExerciseBlock(id) {
 
         this._exercisesRestService.remove(id).subscribe(
-            exercises => {  }, 
+            exercises => { 
+                this._exercisesService.remove(id);
+                this.getExerciseBlocks();
+            }, 
             err => { console.log(err); console.error('cannot REMOVE entry from the database using ID = '+id); }
         );
-        this._exercisesService.remove(id);
+        
 
     }
 
