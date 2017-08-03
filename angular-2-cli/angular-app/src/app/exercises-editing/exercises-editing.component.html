@@ -37,7 +37,7 @@
 
 			<div class="b-form__item -type_button">
 				<button class="b-button" (click)="updateExerciseBlock()">Сохранить</button>
-				<button class="b-button" (click)="removeExerciseBlock()">Удалить</button>
+				<button class="b-button" (click)="openConfirmPopup()">Удалить</button>
 			</div>
 
 			<div class="b-form__item -type_message">
@@ -48,3 +48,8 @@
 	</div>
 </form>
 
+<app-confirmation-popup [message]="confirmRemoveMessage" 
+						[(isOpenedPopup)]="isOpenedPopup" 
+						(closeAction) = "closeConfirmPopup()" 
+						(confirmAction)="removeExerciseBlock(editableId)" 
+						[(parameter)]="editableId"></app-confirmation-popup>

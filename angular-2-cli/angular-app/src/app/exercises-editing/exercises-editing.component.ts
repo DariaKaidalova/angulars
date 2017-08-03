@@ -27,6 +27,8 @@ export class ExercisesEditingComponent implements OnInit {
 
     messageEditableError: string = '';
     messageEditableSuccess: string = '';
+    confirmRemoveMessage: string = '';
+    isOpenedPopup: boolean = false;
     isEditableUsed: boolean = false;
 
 	constructor(
@@ -76,11 +78,14 @@ export class ExercisesEditingComponent implements OnInit {
     removeExerciseBlock() {
 
         this._exercisesRestService.remove( String(this.editableId) ).subscribe(
-            exercises => {  }, 
+            exercises => { 
+                this._exercisesService.remove(this.editableId);
+                this.getExerciseBlocks();
+                this._router.navigate(['/exercises']);
+             }, 
             err => { console.log(err); console.error('cannot REMOVE entry from the database using ID = '+this.editableId); }
         );
-        this._exercisesService.remove(this.editableId);
-        this._router.navigate(['/exercises']);
+
     }
 
     removeImages():void {
@@ -124,5 +129,19 @@ export class ExercisesEditingComponent implements OnInit {
 
         this.messageEditableSuccess = this._exercisesService.messageSuccess;
         this.messageEditableError = this._exercisesService.messageError;
+    }
+
+    openConfirmPopup() {
+
+        this.confirmRemoveMessage = 'Вы уверены, что хотите удалить упражнение?';
+        this.isOpenedPopup = true;
+
+    }
+
+    closeConfirmPopup() {
+
+        this.isOpenedPopup = false;
+        this.confirmRemoveMessage = '';
+
     }
 }

@@ -15,12 +15,14 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
 export class ExercisesBlocksComponent implements OnInit, OnChanges {
     @Input() newName: string = '';
     @Input() newDescription: string = '';
-    @Input() removeId: number;
+    @Input() removeId: number = 0;
     
     messageError: string = '';
     messageSuccess: string = '';
-    isUsed: boolean = false;
+    confirmRemoveMessage: string = '';
     isOpenedPopup: boolean = false;
+    isUsed: boolean = false;
+    
     
     constructor(
         private _exercisesService: ExercisesService, 
@@ -83,6 +85,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
     openConfirmPopup(id) {
 
+        this.confirmRemoveMessage = 'Вы уверены, что хотите удалить упражнение?';
         this.removeId = id;
         this.isOpenedPopup = true;
 
@@ -91,6 +94,8 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     closeConfirmPopup() {
 
         this.isOpenedPopup = false;
+        this.confirmRemoveMessage = '';
+        this.removeId = 0;
 
     }
 

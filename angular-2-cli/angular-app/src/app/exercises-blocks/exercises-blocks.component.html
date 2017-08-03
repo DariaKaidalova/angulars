@@ -14,5 +14,8 @@
 	</li>
 </ul>
 
-<app-confirmation-popup [message]="'Вы уверены, что хотите удалить упражнение?'" [(isOpenedPopup)]="isOpenedPopup" (closeAction) = "closeConfirmPopup()" (confirmAction)="removeExerciseBlock(removeId)" [(parameter)]="removeId"></app-confirmation-popup>
-<!-- [(confirmAction)]="removeExerciseBlock(exItem.id)" -->
+<app-confirmation-popup [message]="confirmRemoveMessage" 
+						[(isOpenedPopup)]="isOpenedPopup" 
+						(closeAction) = "closeConfirmPopup()" 
+						(confirmAction)="removeExerciseBlock(removeId)" 
+						[(parameter)]="removeId"></app-confirmation-popup>
