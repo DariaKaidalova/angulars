@@ -7,6 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ConfirmationPopupComponent implements OnInit {
 	@Input() message: string;
+	@Input() parameter: any;
+	
 	@Input() isOpenedPopup: boolean;
 	@Output() closeAction: EventEmitter<any> = new EventEmitter();
 	@Output() confirmAction: EventEmitter<any> = new EventEmitter();
@@ -17,9 +19,10 @@ export class ConfirmationPopupComponent implements OnInit {
         this.isOpenedPopup = false;
     }
 
-    confirmActionPerformed(confirmEntry: SomeModel): void {
+    confirmActionPerformed() {
+    	console.log('confirmActionPerformed');
     	
-        this.confirmAction.emit([confirmEntry]);
+        this.confirmAction.emit(this.parameter);
 
         this.closeActionPerformed();
         this.isOpenedPopup = false;
@@ -29,6 +32,7 @@ export class ConfirmationPopupComponent implements OnInit {
 
 	ngOnInit() {
 		this.isOpenedPopup = false;
+		console.log('this.parameter = '+this.parameter);
 	}
 
 }

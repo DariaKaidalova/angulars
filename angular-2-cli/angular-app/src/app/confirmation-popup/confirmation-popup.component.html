@@ -3,8 +3,8 @@
 		<div class="b-popup__inner">
 			<div class="b-popup__text">{{message}}</div>
 			<div class="b-popup__buttons">
-				<button class="b-button">Да</button>
-				<button class="b-button">Отмена</button>
+				<button class="b-button" (click)="confirmActionPerformed()">Да</button>
+				<button class="b-button" (click)="closeActionPerformed()">Отмена</button>
 			</div>
 		</div>
 		<span class="b-popup__close" (click)="closeActionPerformed()"></span>
