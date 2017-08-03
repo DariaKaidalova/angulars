@@ -15,6 +15,7 @@ import { FileUploaderComponent } from '../file-uploader/file-uploader.component'
 export class ExercisesBlocksComponent implements OnInit, OnChanges {
     @Input() newName: string = '';
     @Input() newDescription: string = '';
+    @Input() removeId: number;
     
     messageError: string = '';
     messageSuccess: string = '';
@@ -80,14 +81,17 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
         
     }
 
-    openConfirmPopup() {
+    openConfirmPopup(id) {
+
+        this.removeId = id;
         this.isOpenedPopup = true;
-        console.log('callConfirmPopup, this.isOpenedPopup = '+this.isOpenedPopup);
+
     }
-    
+
     closeConfirmPopup() {
+
         this.isOpenedPopup = false;
-        console.log('closeConfirmPopup, this.isOpenedPopup = '+this.isOpenedPopup);
+
     }
 
 }
