@@ -286,14 +286,20 @@ ul {
 
 /*menu*/
 .b-uploader {
-  position: relative;
-  position: relative;
-  display: flex;
-  align-items: center;
-  align-content: flex-start;
-  cursor: pointer; }
+  width: 200px;
+  display: inline-block; }
+  .b-uploader__inner {
+    position: relative;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    border: 3px dotted #bbb;
+    border-radius: 7px;
+    cursor: pointer; }
   .b-uploader__text {
-    margin: 0 0 0 10px; }
+    width: 100%;
+    text-align: center; }
   .b-uploader__hiddenArea {
     width: 100%;
     opacity: 0;
