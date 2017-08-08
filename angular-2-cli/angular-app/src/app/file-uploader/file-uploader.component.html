@@ -1,4 +1,13 @@
-<input class="b-uploader" type="file" ng2FileSelect [uploader]="uploader" (onUpload)="onUpload($event)" multiple required/>
+<div class="b-uploader">
+	<button class="b-uploader__button">Загрузить</button>
+	<div class="b-uploader__text">
+		<span>Файл не выбран</span>
+<!-- 		<div class="b-uploader__names">
+			<span class="b-uploader__namesItem"></span>
+		</div> -->
+	</div>
+	<input class="b-uploader__hiddenArea" type="file" ng2FileSelect [uploader]="uploader" (onUpload)="onUpload($event)" multiple required/>
+</div>
 <button class="b-button" (click)="uploader.uploadAll(); getImages()" [disabled]="!uploader.getNotUploadedItems().length">Upload</button>
 <button class="b-button" (click)="removeImages()" [disabled]="!isUpload">Очистить</button> 
 
