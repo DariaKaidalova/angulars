@@ -15,6 +15,7 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 	public hasBaseDropZoneOver: boolean = false;
 	public hasAnotherDropZoneOver: boolean = false;
 	public loadedImages: Array<Image> = [];
+	public imagesNames: Array<string> = [];
 	public isUpload: boolean;
 
 	constructor() {}
@@ -23,7 +24,9 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 		this.checkLoadedImagesArray();
 	}
 
-	ngOnChanges(changes: any) {}
+	ngOnChanges(changes: any) {
+		console.log(this.uploader);
+	}
 
 	getImages():void {
 

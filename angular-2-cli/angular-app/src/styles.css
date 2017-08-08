@@ -310,4 +310,13 @@ ul {
     right: 0;
     cursor: pointer; }
 
+.b-uploaderFiles {
+  margin: 10px 0 0; }
+  .b-uploaderFiles__item {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background: #edd8da; }
+
 /*# sourceMappingURL=styles.css.map */

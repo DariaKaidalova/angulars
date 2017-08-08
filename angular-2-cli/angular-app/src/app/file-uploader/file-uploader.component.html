@@ -10,8 +10,13 @@
 				(fileOver)="fileOverBase($event)"/>
 	</div>
 </div>
+
 <button class="b-button" (click)="uploader.uploadAll(); getImages()" [disabled]="!uploader.getNotUploadedItems().length">Загрузить</button>
 <button class="b-button" (click)="removeImages()" [disabled]="!isUpload">Очистить</button> 
+
+<ul class="b-uploaderFiles">
+	<li class="b-uploaderFiles__item" *ngFor="let queueItem of uploader.queue">{{ queueItem?.file?.name }}</li>
+</ul>
 
 <div class="b-loadGallery" *ngIf="loadedImages?.length > 0" >
 	<ul class="b-loadGallery__list">

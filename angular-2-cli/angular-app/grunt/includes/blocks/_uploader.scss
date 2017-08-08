@@ -35,3 +35,15 @@
 		cursor: pointer;
 	}
 }
+
+.b-uploaderFiles {
+	margin: 10px 0 0;
+
+	&__item {
+		display: inline-block;
+		margin: 0 5px 0 0;
+		padding: 2px 4px;
+		border-radius: 3px;
+		background: $color-pink-2;
+	}
+}
