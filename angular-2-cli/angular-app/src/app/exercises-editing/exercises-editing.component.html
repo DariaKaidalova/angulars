@@ -17,6 +17,9 @@
 			</div>
 
 			<div class="b-form__item" *ngIf="editableImages?.length > 0">
+				<div class="b-form__label">
+					<label for="" class="b-label">Фотографии</label>
+				</div>
 				<div class="b-loadGallery">
 					<ul class="b-loadGallery__list">
 						<li class="b-loadGallery__item" *ngFor="let imageItem of editableImages">
@@ -27,12 +30,9 @@
 						</li>
 					</ul>
 				</div>
+				<button class="b-button" *ngIf="editableImages?.length > 0" (click)="removeImages()">Удалить изображения</button>
 			</div>
-
-			<div class="b-form__item -type_button" *ngIf="editableImages?.length > 0">
-				<button class="b-button" (click)="removeImages()">Удалить изображения</button>
-			</div>
-
+	
 			<file-uploader></file-uploader>
 
 			<div class="b-form__item -type_button">
