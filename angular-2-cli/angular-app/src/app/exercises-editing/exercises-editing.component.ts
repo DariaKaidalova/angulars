@@ -150,4 +150,8 @@ export class ExercisesEditingComponent implements OnInit {
         this.confirmRemoveMessage = '';
 
     }
+
+    navigateToExercises() {
+        this._router.navigate(['/exercises']);
+    }
 }

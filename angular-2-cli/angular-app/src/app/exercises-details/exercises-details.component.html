@@ -8,7 +8,9 @@
 			<div class="b-loadGallery" *ngIf="detailImages?.length > 0" >
 				<ul class="b-loadGallery__list">
 					<li class="b-loadGallery__item" *ngFor="let imageItem of detailImages">
-						<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}">
+						<div class="b-loadGallery__imageWrap">
+							<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}">
+						</div>
 					</li>
 				</ul>
 			</div>

@@ -21,6 +21,7 @@
 			</div>
 			<div class="b-form__item -type_button">
 				<button class="b-button" [disabled]="!exForm.form.valid" (click)="addExerciseBlock()">Добавить</button>
+				<button class="b-button" (click)="navigateToExercises()">Отмена</button>
 			</div>
 			<div class="b-form__item -type_message">
 				<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>
