@@ -314,9 +314,13 @@ ul {
   margin: 10px 0 0; }
   .b-uploaderFiles__item {
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 5px 5px 0; }
+  .b-uploaderFiles__itemInner {
+    display: block;
     padding: 2px 4px;
     border-radius: 3px;
     background: #edd8da; }
+    .b-uploaderFiles__itemInner.-type_loaded {
+      background-color: #c4da9b; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -46,7 +46,7 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 
 			this.loadedImages.push(newImageObject);
 			this.checkLoadedImagesArray();
-    	};
+  	};
 	}
 
 	removeImages():void {

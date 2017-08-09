@@ -41,9 +41,17 @@
 
 	&__item {
 		display: inline-block;
-		margin: 0 5px 0 0;
+		margin: 0 5px 5px 0;
+	}
+
+	&__itemInner {
+		display: block;
 		padding: 2px 4px;
 		border-radius: 3px;
 		background: $color-pink-2;
+
+		&.-type_loaded {
+			background-color: $color-green-2;
+		}
 	}
 }
