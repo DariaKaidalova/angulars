@@ -1,0 +1,14 @@
+<div class="b-loadGallery" *ngIf="images?.length > 0" >
+
+	<ul class="b-loadGallery__list">
+	
+		<li class="b-loadGallery__item" *ngFor="let imageItem of images">
+			<div class="b-loadGallery__imageWrap">
+				<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}">
+			</div>
+			<span class="b-loadGallery__deleteImage" (click)="removeActionPerformed(imageItem.id)"></span>
+		</li>
+
+	</ul>
+
+</div>

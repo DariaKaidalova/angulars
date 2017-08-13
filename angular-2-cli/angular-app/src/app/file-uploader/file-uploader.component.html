@@ -14,20 +14,11 @@
 <button class="b-button" (click)="uploader.uploadAll(); getImages()" [disabled]="!uploader.getNotUploadedItems().length">Загрузить</button>
 <button class="b-button" (click)="removeImages()" [disabled]="!isUpload">Очистить</button> 
 
-<ul class="b-uploaderFiles"> <!-- *ngIf="!isUpload" -->
+<ul class="b-uploaderFiles">
 	<li class="b-uploaderFiles__item" *ngFor="let queueItem of uploader.queue">
 		<span class="b-uploaderFiles__itemInner" [ngClass]="{'-type_loaded': queueItem.isSuccess}">{{ queueItem?.file?.name }}</span>
 	</li>
 </ul>
 
-<div class="b-loadGallery" *ngIf="loadedImages?.length > 0" >
-	<ul class="b-loadGallery__list">
-		<li class="b-loadGallery__item" *ngFor="let imageItem of loadedImages">
-			<div class="b-loadGallery__imageWrap">
-				<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}">
-			</div>
-			<span class="b-loadGallery__deleteImage" (click)="removeImage(imageItem.id)"></span>
-		</li>
-	</ul>
-</div>
+<app-images-gallery [(images)]="loadedImages" (removeAction)="removeImage()"></app-images-gallery>
 

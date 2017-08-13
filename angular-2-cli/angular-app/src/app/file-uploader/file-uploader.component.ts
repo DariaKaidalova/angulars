@@ -56,11 +56,11 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 	}
 
 	removeImage(currentId):void {
+		console.log(currentId);
 		for(var i = 0; i < this.loadedImages.length; i++) {
 			if(currentId === this.loadedImages[i].id) {
 				this.loadedImages.splice(i, 1);
 			}
-			console.log(this.loadedImages[i]);
 		}
 		this.checkLoadedImagesArray();
 	}
