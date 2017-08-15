@@ -8,7 +8,7 @@
 		<div class="b-blocks__text">{{ detailDescription }}</div>
 
 		<div class="b-blocks__imageWrap">
-			<app-images-gallery [(images)]="detailImages"></app-images-gallery>
+			<app-images-gallery [(images)]="detailImages" (removeAction)="false"></app-images-gallery>
 		</div>
 
 		<div class="b-blocks__buttons">

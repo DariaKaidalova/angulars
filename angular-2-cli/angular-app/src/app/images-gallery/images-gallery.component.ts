@@ -24,12 +24,14 @@ export class ImagesGalleryComponent implements OnInit {
     }
 
     addIndex(images) {
-        var index = 0;
-        for(var i = 0; i < images.length; i++) {
-            images[i].index = index;
-            index++;
+        if(images.length > 0) {
+            var index = 0;
+            for(var i = 0; i < images.length; i++) {
+                images[i].index = index;
+                index++;
+            }
+            console.log(images);
         }
-        console.log(images);
     }
 
     getIndex(index) {
@@ -41,7 +43,5 @@ export class ImagesGalleryComponent implements OnInit {
         this.removeAction.emit(id);
 
     }
-
-
 
 }
