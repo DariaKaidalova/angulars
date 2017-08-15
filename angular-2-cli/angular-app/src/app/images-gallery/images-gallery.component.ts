@@ -8,17 +8,22 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
 export class ImagesGalleryComponent implements OnInit {
 
 	@Input() images: Array<{}>;
+    @Input() removable: boolean;
 	@Output() removeAction: EventEmitter<any> = new EventEmitter();
-    indexArray: Array<number> = [];
+    // indexArray: Array<number> = [];
 
     constructor() {}
 
     ngOnInit() {
+
+        this.checkInputs();
         this.addIndex(this.images);
+        
     }
 
     ngOnChanges(changes:any) {
 
+        this.checkInputs();
         this.addIndex(this.images);
 
     }
@@ -30,7 +35,6 @@ export class ImagesGalleryComponent implements OnInit {
                 images[i].index = index;
                 index++;
             }
-            console.log(images);
         }
     }
 
@@ -42,6 +46,15 @@ export class ImagesGalleryComponent implements OnInit {
     	
         this.removeAction.emit(id);
 
+    }
+
+    checkInputs() {
+        if(!this.removable && this.removable !== false) {
+            this.removable = true;
+        }
+        if(!this.images) {
+           this.images = []; 
+        }
     }
 
 }
