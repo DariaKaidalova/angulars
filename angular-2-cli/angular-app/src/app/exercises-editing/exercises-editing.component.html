@@ -20,7 +20,7 @@
 				<div class="b-form__label">
 					<label for="" class="b-label">Фотографии</label>
 				</div>
-				<app-images-gallery [(images)]="editableImages"></app-images-gallery>
+				<app-images-gallery [(images)]="editableImages" (removeAction)="removeImage($event)"></app-images-gallery>
 				<button class="b-button" *ngIf="editableImages?.length > 0" (click)="removeImages()">Удалить изображения</button>
 			</div>
 	
