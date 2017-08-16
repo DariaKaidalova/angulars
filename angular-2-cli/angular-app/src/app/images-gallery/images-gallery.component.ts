@@ -12,7 +12,7 @@ export class ImagesGalleryComponent implements OnInit {
     @Input() removable: boolean;
 	@Output() removeAction: EventEmitter<any> = new EventEmitter();
     newImages: Array<{}>;
-    currentUrl;
+    currentUrl: object;
     currentName: string;
     currentIndex: number;
     isOpenedSlider: boolean = false;
@@ -61,21 +61,23 @@ export class ImagesGalleryComponent implements OnInit {
     showNextSlide() {
         this.currentIndex = ++this.currentIndex;
         this.findCurrentImage(this.currentIndex);
+
     }
 
     showPrevSlide() {
         this.currentIndex = --this.currentIndex;
         this.findCurrentImage(this.currentIndex);
+        console.log(this.currentIndex);
     }
 
     findCurrentImage(index) {
         for(var i = 0; i < this.images.length; i++) {
             if(index = this.images[i].index) {
-                //this.currentUrl = this.images[i]._links.self.href;
                 this.currentName = this.images[i].name;
+                this.currentUrl = this.images[i]._links;
+                console.log(index, this.images[i].index, this.images[i].name, this.currentName);
             }
         }
-        console.log(this.currentName);
     }
 
     removeActionPerformed(id): void {
