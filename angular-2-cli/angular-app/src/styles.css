@@ -291,7 +291,8 @@ ul {
     top: 0;
     bottom: 0;
     height: 100%;
-    z-index: 1000; }
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.3); }
   .b-loadGallery__slide {
     display: flex;
     align-items: center;

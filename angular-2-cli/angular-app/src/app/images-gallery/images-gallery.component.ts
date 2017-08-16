@@ -11,7 +11,6 @@ export class ImagesGalleryComponent implements OnInit {
 	@Input() images: Array<Image>;
     @Input() removable: boolean;
 	@Output() removeAction: EventEmitter<any> = new EventEmitter();
-    newImages: Array<{}>;
     currentUrl: object;
     currentName: string;
     currentIndex: number;
@@ -59,15 +58,32 @@ export class ImagesGalleryComponent implements OnInit {
     }
 
     showNextSlide() {
-        this.currentIndex = ++this.currentIndex;
+        this.currentIndex = this.checkSlide(this.currentIndex, 'next');
         this.findCurrentImage(this.currentIndex);
-
     }
 
     showPrevSlide() {
-        this.currentIndex = --this.currentIndex;
+        this.currentIndex = this.checkSlide(this.currentIndex, 'prev');
         this.findCurrentImage(this.currentIndex);
-        console.log(this.currentIndex);
+    }
+
+    checkSlide(index, direction) {
+        if(index === 0 && direction === 'prev') {
+            index = this.images.length -1;
+        }
+        if(index === this.images.length -1 && direction === 'next') {
+            index = 0;
+        }
+        else {
+            if(direction === 'next') {
+                index = index+1;
+            }
+            if(direction === 'prev') {
+                index = index-1;
+            }
+        }
+
+        return index;
     }
 
     findCurrentImage(index) {
@@ -75,7 +91,8 @@ export class ImagesGalleryComponent implements OnInit {
             if(index = this.images[i].index) {
                 this.currentName = this.images[i].name;
                 this.currentUrl = this.images[i]._links;
-                console.log(index, this.images[i].index, this.images[i].name, this.currentName);
+                console.log(index, this.images[i].index);
+                break;
             }
         }
     }

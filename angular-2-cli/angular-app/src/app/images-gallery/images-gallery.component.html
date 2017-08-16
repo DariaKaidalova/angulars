@@ -4,7 +4,7 @@
 	
 		<li class="b-loadGallery__item" *ngFor="let imageItem of images">
 			<div class="b-loadGallery__imageWrap">
-				<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}" (click)="getCurrentImage(imageItem.index, imageItem._links.self.href, imageItem.name)">
+				<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}" (click)="getCurrentImage(imageItem.index, imageItem._links, imageItem.name)">
 			</div>
 			<span *ngIf="removable" class="b-loadGallery__deleteImage" (click)="removeActionPerformed(imageItem.id)"></span>
 		</li>
@@ -12,8 +12,8 @@
 		<div class="b-loadGallery__slides" *ngIf="isOpenedSlider">
 			<div class="b-loadGallery__slide">
 				<div class="b-loadGallery__slideImageWrap">
-					<img src="{{currentUrl}}" alt="{{currentName}}" class="b-loadGallery__slideImage">
-					<div class="b-loadGallery__slideLeft" (click)="showNextSlide()"></div>
+					<img src="{{currentUrl.self.href}}" alt="{{currentName}}" class="b-loadGallery__slideImage">
+					<div class="b-loadGallery__slideLeft" (click)="showPrevSlide()"></div>
 					<div class="b-loadGallery__slideRight" (click)="showNextSlide()"></div> 
 					<div class="b-loadGallery__slideClose" (click)="closeSlider()"></div>
 				</div>
