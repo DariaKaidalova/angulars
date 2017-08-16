@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Image } from './image.interface';
 
 @Component({
   selector: 'app-images-gallery',
@@ -7,10 +8,15 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
 })
 export class ImagesGalleryComponent implements OnInit {
 
-	@Input() images: Array<{}>;
+	@Input() images: Array<Image>;
     @Input() removable: boolean;
 	@Output() removeAction: EventEmitter<any> = new EventEmitter();
-    // indexArray: Array<number> = [];
+    newImages: Array<{}>;
+    currentUrl;
+    currentName: string;
+    currentIndex: number;
+    isOpenedSlider: boolean = false;
+
 
     constructor() {}
 
@@ -36,10 +42,40 @@ export class ImagesGalleryComponent implements OnInit {
                 index++;
             }
         }
+        console.log(images);
+        return images;
     }
 
-    getIndex(index) {
-        console.log(index);
+    getCurrentImage(index, url, name) {
+        this.currentIndex = index;
+        this.currentUrl = url;
+        this.currentName = name;
+        this.isOpenedSlider = true;
+        console.log(this.currentIndex, this.currentUrl);
+    }
+
+    closeSlider() {
+        this.isOpenedSlider = false;
+    }
+
+    showNextSlide() {
+        this.currentIndex = ++this.currentIndex;
+        this.findCurrentImage(this.currentIndex);
+    }
+
+    showPrevSlide() {
+        this.currentIndex = --this.currentIndex;
+        this.findCurrentImage(this.currentIndex);
+    }
+
+    findCurrentImage(index) {
+        for(var i = 0; i < this.images.length; i++) {
+            if(index = this.images[i].index) {
+                //this.currentUrl = this.images[i]._links.self.href;
+                this.currentName = this.images[i].name;
+            }
+        }
+        console.log(this.currentName);
     }
 
     removeActionPerformed(id): void {

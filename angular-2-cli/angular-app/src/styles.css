@@ -272,7 +272,8 @@ ul {
     height: 50px;
     overflow: hidden; }
   .b-loadGallery__image {
-    width: 100%; }
+    width: 100%;
+    cursor: pointer; }
   .b-loadGallery__deleteImage {
     position: absolute;
     right: -5px;
@@ -281,6 +282,39 @@ ul {
     width: 12px;
     height: 12px;
     z-index: 100;
+    background: #000;
+    cursor: pointer; }
+  .b-loadGallery__slides {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 1000; }
+  .b-loadGallery__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; }
+  .b-loadGallery__slideImageWrap {
+    position: relative; }
+  .b-loadGallery__slideLeft, .b-loadGallery__slideRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    cursor: pointer; }
+  .b-loadGallery__slideLeft {
+    left: 0; }
+  .b-loadGallery__slideRight {
+    right: 0; }
+  .b-loadGallery__slideClose {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 20px;
+    height: 20px;
     background: #000;
     cursor: pointer; }
 
