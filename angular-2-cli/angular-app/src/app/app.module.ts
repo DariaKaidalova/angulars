@@ -19,6 +19,7 @@ import { ExercisesAddingComponent } from './exercises-adding/exercises-adding.co
 import { ExercisesEditingComponent } from './exercises-editing/exercises-editing.component';
 import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-popup.component';
 import { ImagesGalleryComponent } from './images-gallery/images-gallery.component';
+import { СropTextPipe } from './pipe/сrop-text-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ImagesGalleryComponent } from './images-gallery/images-gallery.componen
     ExercisesAddingComponent,
     ExercisesEditingComponent,
     ConfirmationPopupComponent,
-    ImagesGalleryComponent
+    ImagesGalleryComponent,
+    СropTextPipe
   ],
   imports: [
     BrowserModule,

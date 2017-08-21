@@ -6,11 +6,13 @@ import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
 import { Exercise } from './exercise.interface';
 import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
+import { СropTextPipe } from '../pipe/сrop-text-pipe.pipe';
 
 @Component({
   selector: 'app-exercises-blocks',
   templateUrl: './exercises-blocks.component.html',
   styleUrls: ['./exercises-blocks.component.css']
+  
 })
 export class ExercisesBlocksComponent implements OnInit, OnChanges {
     @Input() newName: string = '';
