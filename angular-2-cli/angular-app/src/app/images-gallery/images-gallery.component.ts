@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck, Input, Output, EventEmitter } from '@angular/core';
 import { Image } from './image.interface';
 
 @Component({
@@ -11,6 +11,7 @@ export class ImagesGalleryComponent implements OnInit {
 	@Input() images: Array<Image>;
     @Input() removable: boolean;
 	@Output() removeAction: EventEmitter<any> = new EventEmitter();
+    private _oldArray: Array<Image>;
     currentUrl: object;
     currentName: string;
     currentIndex: number;
@@ -26,11 +27,17 @@ export class ImagesGalleryComponent implements OnInit {
         
     }
 
-    ngOnChanges(changes:any) {
+    ngOnChanges(changes:any) {}
 
-        this.checkInputs();
-        this.addIndex(this.images);
-
+    ngDoCheck() {
+        if(this._oldArray !== this.images) {
+            this.checkInputs();
+            this.addIndex(this.images);
+            console.log(this.images);
+        }
+        else {
+           this._oldArray = this.images; 
+        }
     }
 
     addIndex(images) {
@@ -42,6 +49,7 @@ export class ImagesGalleryComponent implements OnInit {
                 index++;
             }
         }
+
         return images;
 
     }
@@ -52,7 +60,6 @@ export class ImagesGalleryComponent implements OnInit {
         this.currentUrl = url;
         this.currentName = name;
         this.isOpenedSlider = true;
-        console.log('currentIndex:'+this.currentIndex, 'currentUrl:'+this.currentUrl);
 
     }
 
@@ -72,7 +79,6 @@ export class ImagesGalleryComponent implements OnInit {
     showPrevSlide() {
 
         this.currentIndex = this.checkSlide(this.currentIndex, 'prev');
-        console.log(this.currentIndex);
         this.findCurrentImage(this.currentIndex);
 
     }
@@ -102,7 +108,6 @@ export class ImagesGalleryComponent implements OnInit {
 
         for(var i = 0; i < this.images.length; i++) {
             if(index === this.images[i].index) {
-                console.log(index, this.images[i].index);
                 this.currentName = this.images[i].name;
                 this.currentUrl = this.images[i]._links;
                 break;
