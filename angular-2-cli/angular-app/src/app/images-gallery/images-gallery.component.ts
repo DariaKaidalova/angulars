@@ -34,6 +34,7 @@ export class ImagesGalleryComponent implements OnInit {
     }
 
     addIndex(images) {
+
         if(images.length > 0) {
             var index = 0;
             for(var i = 0; i < images.length; i++) {
@@ -41,33 +42,43 @@ export class ImagesGalleryComponent implements OnInit {
                 index++;
             }
         }
-        console.log(images);
         return images;
+
     }
 
     getCurrentImage(index, url, name) {
+
         this.currentIndex = index;
         this.currentUrl = url;
         this.currentName = name;
         this.isOpenedSlider = true;
-        console.log(this.currentIndex, this.currentUrl);
+        console.log('currentIndex:'+this.currentIndex, 'currentUrl:'+this.currentUrl);
+
     }
 
     closeSlider() {
+
         this.isOpenedSlider = false;
+
     }
 
     showNextSlide() {
+
         this.currentIndex = this.checkSlide(this.currentIndex, 'next');
         this.findCurrentImage(this.currentIndex);
+
     }
 
     showPrevSlide() {
+
         this.currentIndex = this.checkSlide(this.currentIndex, 'prev');
+        console.log(this.currentIndex);
         this.findCurrentImage(this.currentIndex);
+
     }
 
     checkSlide(index, direction) {
+
         if(index === 0 && direction === 'prev') {
             index = this.images.length -1;
         }
@@ -84,17 +95,20 @@ export class ImagesGalleryComponent implements OnInit {
         }
 
         return index;
+
     }
 
     findCurrentImage(index) {
+
         for(var i = 0; i < this.images.length; i++) {
-            if(index = this.images[i].index) {
+            if(index === this.images[i].index) {
+                console.log(index, this.images[i].index);
                 this.currentName = this.images[i].name;
                 this.currentUrl = this.images[i]._links;
-                console.log(index, this.images[i].index);
                 break;
             }
         }
+
     }
 
     removeActionPerformed(id): void {
@@ -104,12 +118,14 @@ export class ImagesGalleryComponent implements OnInit {
     }
 
     checkInputs() {
+
         if(!this.removable && this.removable !== false) {
             this.removable = true;
         }
         if(!this.images) {
            this.images = []; 
         }
+
     }
 
 }

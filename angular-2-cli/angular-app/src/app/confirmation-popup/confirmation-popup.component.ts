@@ -30,7 +30,6 @@ export class ConfirmationPopupComponent implements OnInit {
 
 	ngOnInit() {
 
-		console.log('popup');
 		this.isOpenedPopup = false;
 
 	}
