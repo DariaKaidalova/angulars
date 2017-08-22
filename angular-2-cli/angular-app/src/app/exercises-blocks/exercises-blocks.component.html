@@ -4,9 +4,9 @@
 <ul class="b-blocks">
 	<li class="b-blocks__item" *ngFor="let exItem of _exercisesService.exercises">
 		<div class="b-blocks__titleWrap">
-			<h3 class="b-blocks__title" (click)="navigateToDetail(exItem)">{{ exItem.name }}</h3>
+			<h3 class="b-blocks__title" (click)="navigateToDetail(exItem)">{{ exItem.name | croptext : 30 : ''}}</h3>
 		</div>
-		<div class="b-blocks__text">{{ exItem.description | croptext : 60 : '...'}}</div> <!--| сroptext : 20 : '.'-->
+		<div class="b-blocks__text">{{ exItem.description | croptext : 60 : '...'}}</div>
 		<div class="b-blocks__buttons">
 			<button class="b-button" (click)="navigateToEditing(exItem)">Редактировать</button>
 			<button class="b-button" (click)="openConfirmPopup(exItem.id)">Удалить</button>
