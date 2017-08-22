@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class СropTextPipe implements PipeTransform {
 
-	transform(value: string, args: string[]) : string {
+	transform(value: string, args: any[]) : any {
 		var limit = 10;
 		var trail = '...';
 
@@ -16,8 +16,9 @@ export class СropTextPipe implements PipeTransform {
 			trail = args[1];
 		}
 
-		var substring = value.length > limit ? value.substring(0, limit) + trail : value;
+		var substring = (value.length > limit) ? value.substring(0, limit) + trail : value;
 
+		console.log(args);
 		console.log(limit, trail, substring);
 
 		return substring;
