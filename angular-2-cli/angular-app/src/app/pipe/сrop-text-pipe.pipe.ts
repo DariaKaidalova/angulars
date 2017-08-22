@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-	name: 'сroptext'
+	name: 'croptext'
 })
 export class СropTextPipe implements PipeTransform {
 
