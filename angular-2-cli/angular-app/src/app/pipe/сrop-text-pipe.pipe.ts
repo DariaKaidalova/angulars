@@ -6,9 +6,20 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class СropTextPipe implements PipeTransform {
 
 	transform(value: string, args: string[]) : string {
-		let limit = args.length > 0 ? parseInt(args[0], 10) : 10;
-		let trail = args.length > 1 ? args[1] : '...';
+		var limit = 10;
+		var trail = '...';
 
-		return value.length > limit ? value.substring(0, limit) + trail : value;
+		if(args.length > 0) {
+			limit = parseInt(args[0], 10);
+		}
+		if(args.length > 1) {
+			trail = args[1];
+		}
+
+		var substring = value.length > limit ? value.substring(0, limit) + trail : value;
+
+		console.log(limit, trail, substring);
+
+		return substring;
 	}
 }
