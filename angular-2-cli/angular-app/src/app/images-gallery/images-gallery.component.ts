@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, DoCheck, Input, Output, EventEmitter } from '@angular/core';
-import { Image } from './image.interface';
+import { Image } from '../interface/image-gallery.interface';
 
 @Component({
   selector: 'app-images-gallery',

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'; // Import RxJs required methods: map and catch
 import 'rxjs/add/operator/catch';
 
-import { Exercise } from '../exercises-blocks/exercise.interface';
+import { Exercise } from '../interface/exercise.interface';
 
 @Injectable()
 export class ExercisesRestService {

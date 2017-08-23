@@ -2,8 +2,8 @@ import { Injectable, OnInit} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { ExercisesRestService } from './exercises-blocks-rest-service.service';
-import { Exercise } from '../exercises-blocks/exercise.interface';
-import { Image } from '../file-uploader/image.interface';
+import { Exercise } from '../interface/exercise.interface';
+import { Image } from '../interface/image.interface';
 
 @Injectable()
 export class ExercisesService {

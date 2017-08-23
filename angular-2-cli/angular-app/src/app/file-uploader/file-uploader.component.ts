@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
-import { Image } from './image.interface';
+import { Image } from '../interface/image.interface';
 
 // const URL = '/api/';
 const URL = '/api/v1/images';

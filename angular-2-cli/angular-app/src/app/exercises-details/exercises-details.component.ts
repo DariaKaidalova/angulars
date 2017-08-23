@@ -5,7 +5,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
-import { Exercise } from '../exercises-blocks/exercise.interface';
+import { Exercise } from '../interface/exercise.interface';
 import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
 
 @Component({
