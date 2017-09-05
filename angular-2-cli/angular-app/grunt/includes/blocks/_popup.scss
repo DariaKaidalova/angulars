@@ -35,19 +35,11 @@
 	background: $color-white-1;
 
 	&.-type_opened {
-		animation: showPopupAnimation 0.5s linear 2s;
-		// top: 50%;
-		// right: 50%;
-		// margin-top: -170px;
-		// margin-right: -100px;
+		animation: showPopupAnimation 0.5s linear forwards;
 	}
 
 	&.-type_closed {
-		animation: hidePopupAnimation 0.5s linear 2s;
-		// top: 0;
-		// right: 0;
-		// margin-top: 0;
-		// margin-right: 0;
+		animation: hidePopupAnimation 0.5s linear forwards;
 	}
 
 	&__inner {
@@ -95,17 +87,17 @@
 
 @keyframes hidePopupAnimation {
 	from {
-		top: 0;
-		right: 0;
-		margin-top: 0;
-		margin-right: 0;
-	}
-
-	to {
 		top: 50%;
 		right: 50%;
 		margin-top: -170px;
 		margin-right: -100px;
+	}
+
+	to {
+		top: 0;
+		right: 0;
+		margin-top: 0;
+		margin-right: 0;
 	}
 }
 

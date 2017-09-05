@@ -10,13 +10,14 @@ export class ConfirmationPopupComponent implements OnInit {
 	@Input() parameter: number;
 	
 	@Input() isOpenedPopup: boolean;
+	@Input() isOpenedPopupMark: boolean;
 	@Output() closeAction: EventEmitter<any> = new EventEmitter();
 	@Output() confirmAction: EventEmitter<number> = new EventEmitter();
 
     closeActionPerformed(): void {
-    	
-        this.closeAction.emit();
-        this.isOpenedPopup = false;
+
+		this.closeAction.emit();
+		this.isOpenedPopup = false;   
 
     }
 
@@ -24,12 +25,15 @@ export class ConfirmationPopupComponent implements OnInit {
 
         this.confirmAction.emit(this.parameter);
         this.closeActionPerformed();
+        this.isOpenedPopup = false;  
+
     }
 
 	constructor() {}
 
 	ngOnInit() {
 
+		this.isOpenedPopupMark = false;
 		this.isOpenedPopup = false;
 
 	}

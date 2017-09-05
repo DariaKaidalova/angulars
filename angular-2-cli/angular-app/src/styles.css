@@ -248,9 +248,9 @@ ul {
   border: 1px solid rgba(167, 62, 69, 0.2);
   background: #fff; }
   .b-popup.-type_opened {
-    animation: showPopupAnimation 0.5s linear 2s; }
+    animation: showPopupAnimation 0.5s linear forwards; }
   .b-popup.-type_closed {
-    animation: hidePopupAnimation 0.5s linear 2s; }
+    animation: hidePopupAnimation 0.5s linear forwards; }
   .b-popup__inner {
     width: 100%;
     position: relative;
@@ -282,15 +282,15 @@ ul {
     margin-right: -100px; } }
 @keyframes hidePopupAnimation {
   from {
-    top: 0;
-    right: 0;
-    margin-top: 0;
-    margin-right: 0; }
-  to {
     top: 50%;
     right: 50%;
     margin-top: -170px;
-    margin-right: -100px; } }
+    margin-right: -100px; }
+  to {
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    margin-right: 0; } }
 /*load gallery css*/
 .b-loadGallery {
   margin: 10px 0 8px; }
