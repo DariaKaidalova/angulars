@@ -39,7 +39,7 @@
 	}
 
 	&.-type_closed {
-		animation: hidePopupAnimation 0.5s linear forwards;
+		animation: hidePopupAnimation 0.1s linear forwards;
 	}
 
 	&__inner {
@@ -113,13 +113,15 @@
 		right: 50%;
 		margin-top: -170px;
 		margin-right: -100px;
+		opacity: 1;
 	}
 
 	to {
-		top: 0;
-		right: 0;
-		margin-top: 0;
-		margin-right: 0;
+		top: 50%;
+		right: 50%;
+		margin-top: -170px;
+		margin-right: -100px;
+		opacity: 0;
 	}
 
 }
@@ -131,13 +133,15 @@
 		right: 50%;
 		margin-top: -170px;
 		margin-right: -100px;
+		opacity: 1;
 	}
 
 	to {
-		top: -500px;
-		right: -500px;
-		margin-top: 0;
-		margin-right: 0;
+		top: 50%;
+		right: 50%;
+		margin-top: -170px;
+		margin-right: -100px;
+		opacity: 0;
 	}
 
 }

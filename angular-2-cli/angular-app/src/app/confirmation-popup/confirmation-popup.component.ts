@@ -32,7 +32,7 @@ export class ConfirmationPopupComponent implements OnInit {
 			this.closeAction.emit();
 			this.isOpenedPopup = false;
 
-		}, 500);   
+		}, 300);   
 
     }
 
@@ -46,7 +46,7 @@ export class ConfirmationPopupComponent implements OnInit {
 	        this.closeActionPerformed();
 	        this.isOpenedPopup = false;  
 		      
-		}, 500);
+		}, 300);
 
 
     }
