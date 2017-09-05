@@ -1,5 +1,5 @@
 <div class="l-popupOverlay" *ngIf="isOpenedPopup" [ngClass]="{'-type_opened': isOpenedPopup, '-type_closed': !isOpenedPopup}" (click)="closeActionPerformed()"></div>
-<div class="b-popup" *ngIf="isOpenedPopup" [ngClass]="{'-type_opened': isOpenedPopup, '-type_closed': !isOpenedPopup}">
+<div class="b-popup" *ngIf="isOpenedPopup" [ngClass]="{'-type_opened': isOpenedPopupMark, '-type_closed': !isOpenedPopupMark}">
 	<div class="b-popup__inner">
 		<div class="b-popup__text">{{message}}</div>
 		<div class="b-popup__buttons">

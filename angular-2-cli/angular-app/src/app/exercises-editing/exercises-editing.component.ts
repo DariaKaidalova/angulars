@@ -29,6 +29,7 @@ export class ExercisesEditingComponent implements OnInit {
     messageEditableSuccess: string = '';
     confirmRemoveMessage: string = '';
     isOpenedPopup: boolean = false;
+    isOpenedPopupMark: boolean = false; 
     isEditableUsed: boolean = false;
 
 	constructor(
@@ -140,6 +141,7 @@ export class ExercisesEditingComponent implements OnInit {
     openConfirmPopup() {
 
         this.confirmRemoveMessage = 'Вы уверены, что хотите удалить упражнение?';
+        this.isOpenedPopupMark = true;
         this.isOpenedPopup = true;
 
     }
@@ -147,6 +149,7 @@ export class ExercisesEditingComponent implements OnInit {
     closeConfirmPopup() {
 
         this.isOpenedPopup = false;
+        this.isOpenedPopupMark = false;
         this.confirmRemoveMessage = '';
 
     }

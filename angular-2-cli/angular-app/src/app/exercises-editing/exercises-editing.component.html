@@ -42,6 +42,7 @@
 
 <app-confirmation-popup [message]="confirmRemoveMessage" 
 						[(isOpenedPopup)]="isOpenedPopup" 
+						[(isOpenedPopupMark)]="isOpenedPopupMark"
 						(closeAction) = "closeConfirmPopup()" 
 						(confirmAction)="removeExerciseBlock(editableId)" 
 						[(parameter)]="editableId"></app-confirmation-popup>

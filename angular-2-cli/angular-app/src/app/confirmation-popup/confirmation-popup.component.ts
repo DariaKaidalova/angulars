@@ -14,21 +14,6 @@ export class ConfirmationPopupComponent implements OnInit {
 	@Output() closeAction: EventEmitter<any> = new EventEmitter();
 	@Output() confirmAction: EventEmitter<number> = new EventEmitter();
 
-    closeActionPerformed(): void {
-
-		this.closeAction.emit();
-		this.isOpenedPopup = false;   
-
-    }
-
-    confirmActionPerformed(): void {
-
-        this.confirmAction.emit(this.parameter);
-        this.closeActionPerformed();
-        this.isOpenedPopup = false;  
-
-    }
-
 	constructor() {}
 
 	ngOnInit() {
@@ -37,5 +22,33 @@ export class ConfirmationPopupComponent implements OnInit {
 		this.isOpenedPopup = false;
 
 	}
+
+    closeActionPerformed(): void {
+
+    	this.isOpenedPopupMark = false;
+
+    	setTimeout(()=> { 
+
+			this.closeAction.emit();
+			this.isOpenedPopup = false;
+
+		}, 500);   
+
+    }
+
+    confirmActionPerformed(): void {
+
+    	this.isOpenedPopupMark = false;
+
+		setTimeout(()=> { 
+
+	        this.confirmAction.emit(this.parameter);
+	        this.closeActionPerformed();
+	        this.isOpenedPopup = false;  
+		      
+		}, 500);
+
+
+    }
 
 }

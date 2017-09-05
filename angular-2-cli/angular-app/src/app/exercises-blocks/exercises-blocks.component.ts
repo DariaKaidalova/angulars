@@ -23,6 +23,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     messageSuccess: string = '';
     confirmRemoveMessage: string = '';
     isOpenedPopup: boolean = false;
+    isOpenedPopupMark: boolean = false; 
     isUsed: boolean = false;
     
     
@@ -95,12 +96,14 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
         this.confirmRemoveMessage = 'Вы уверены, что хотите удалить упражнение?';
         this.removeId = id;
         this.isOpenedPopup = true;
+        this.isOpenedPopupMark = true;
 
     }
 
     closeConfirmPopup() {
 
         this.isOpenedPopup = false;
+        this.isOpenedPopupMark = false;
         this.confirmRemoveMessage = '';
         this.removeId = 0;
 
