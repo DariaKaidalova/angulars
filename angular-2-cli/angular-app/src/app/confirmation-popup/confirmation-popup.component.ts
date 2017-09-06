@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, DoCheck, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
 	selector: 'app-confirmation-popup',
@@ -8,47 +8,50 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ConfirmationPopupComponent implements OnInit {
 	@Input() message: string;
 	@Input() parameter: number;
-	
 	@Input() isOpenedPopup: boolean;
-	@Input() isOpenedPopupMark: boolean;
+
 	@Output() closeAction: EventEmitter<any> = new EventEmitter();
 	@Output() confirmAction: EventEmitter<number> = new EventEmitter();
+
+	isOpenedPopupMark: boolean = false;
 
 	constructor() {}
 
 	ngOnInit() {
 
-		this.isOpenedPopupMark = false;
 		this.isOpenedPopup = false;
 
 	}
 
+    ngDoCheck() {
+
+        if(this.isOpenedPopup === true) {
+			setTimeout(() => { 
+				this.isOpenedPopupMark = true;
+			}, 300); 
+        }
+
+    }
+
     closeActionPerformed(): void {
 
-    	this.isOpenedPopupMark = false;
-
-		setTimeout(()=> { 
-
-			this.closeAction.emit();
-			this.isOpenedPopup = false;
-
-		}, 300);   
-
+		this.closePopup();
+			
     }
 
     confirmActionPerformed(): void {
 
+		this.confirmAction.emit(this.parameter);
+		this.closeActionPerformed();
+		this.closePopup();
+
+    }
+
+    closePopup() {
     	this.isOpenedPopupMark = false;
-
-		setTimeout(()=> { 
-
-			this.confirmAction.emit(this.parameter);
-			this.closeActionPerformed();
-			this.isOpenedPopup = false;  
-
+    	setTimeout(()=> { 
+    		this.closeAction.emit();
 		}, 300);
-
-
     }
 
 }

@@ -81,6 +81,7 @@ export class ImagesGalleryComponent implements OnInit {
     }
 
     showNextSlide() {
+        
         this.isCurrentSlideMark = false;
 
         this.currentIndex = this.checkSlide(this.currentIndex, 'next');

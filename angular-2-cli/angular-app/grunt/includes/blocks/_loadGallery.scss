@@ -45,9 +45,17 @@
     bottom: 0;
     height: 100%;
     z-index: 1000;
-    background-color: transparent;
+	}
 
-    &.-type_opened {
+	&__overlay {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: transparent;
+
+    .-type_opened & {
     	background-color: rgba(0, 0, 0, 0.3);
 			transition: background-color 0.4s ease-out;
 			-webkit-transition: background-color 0.4s ease-out;
@@ -55,10 +63,10 @@
 	}
 
 	&__slide {
+		height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
     opacity: 0;
 
     &.-type_current {

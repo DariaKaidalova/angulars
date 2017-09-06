@@ -221,40 +221,49 @@ ul {
   color: #b9041f; }
 
 /*footer*/
-.l-popupOverlay {
+.l-popup {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  background: #000; }
-  .l-popupOverlay.-type_opened {
-    opacity: 0.3;
-    transition: opacity 1s ease-out 1s;
-    -webkit-transition: opacity 1s ease-out 1s; }
-  .l-popupOverlay.-type_closed {
-    opacity: 0;
-    transition: opacity 1s ease-out 1s;
-    -webkit-transition: opacity 1s ease-out 1s; }
+  height: 100%;
+  z-index: 1000; }
+  .l-popup__overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #000; }
+    .-type_opened .l-popup__overlay {
+      opacity: 0.3;
+      transition: opacity 0.4s ease-out;
+      -webkit-transition: opacity 0.4s ease-out; }
+    .-type_closed .l-popup__overlay {
+      opacity: 0;
+      transition: opacity 0.4s ease-out;
+      -webkit-transition: opacity 0.4s ease-out; }
 
 .b-popup {
+  height: 100%;
   display: flex;
   align-items: center;
-  position: fixed;
-  width: 340px;
-  min-height: 110px;
-  box-sizing: border-box;
-  border-radius: 7px;
-  border: 1px solid rgba(167, 62, 69, 0.2);
-  background: #fff; }
+  justify-content: center;
+  opacity: 0; }
   .b-popup.-type_opened {
-    animation: showPopupAnimation 0.5s linear forwards; }
-  .b-popup.-type_closed {
-    animation: hidePopupAnimation 0.1s linear forwards; }
+    opacity: 1;
+    transition: opacity 0.2s linear;
+    -webkit-transition: opacity 0.2s linear; }
   .b-popup__inner {
-    width: 100%;
     position: relative;
-    padding: 20px; }
+    width: 340px;
+    min-height: 110px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: 1px solid rgba(167, 62, 69, 0.2);
+    background: #fff; }
   .b-popup__text {
     margin: 0 0 15px; }
   .b-popup__buttons {
@@ -349,17 +358,23 @@ ul {
     top: 0;
     bottom: 0;
     height: 100%;
-    z-index: 1000;
+    z-index: 1000; }
+  .b-loadGallery__overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     background-color: transparent; }
-    .b-loadGallery__slides.-type_opened {
+    .-type_opened .b-loadGallery__overlay {
       background-color: rgba(0, 0, 0, 0.3);
       transition: background-color 0.4s ease-out;
       -webkit-transition: background-color 0.4s ease-out; }
   .b-loadGallery__slide {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
     opacity: 0; }
     .b-loadGallery__slide.-type_current {
       opacity: 1;
