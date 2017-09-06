@@ -270,8 +270,8 @@ ul {
     text-align: center; }
   .b-popup__close {
     position: absolute;
-    right: -15px;
-    top: -15px;
+    right: -11px;
+    top: -12px;
     width: 15px;
     height: 15px;
     overflow: hidden;
