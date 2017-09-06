@@ -100,6 +100,7 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
     closeConfirmPopup() {
 
+        this.isOpenedPopup = false;
         this.confirmRemoveMessage = '';
         this.removeId = 0;
 
