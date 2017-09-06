@@ -9,8 +9,8 @@
 			<span *ngIf="removable" class="b-loadGallery__deleteImage" (click)="removeActionPerformed(imageItem.id)"></span>
 		</li>
 
-		<div class="b-loadGallery__slides" *ngIf="isOpenedSlider">
-			<div class="b-loadGallery__slide">
+		<div class="b-loadGallery__slides" *ngIf="isOpenedSlider" [ngClass]="{'-type_opened': isOpenedSliderMark, '-type_closed': !isOpenedSliderMark}">
+			<div class="b-loadGallery__slide" [ngClass]="{ '-type_current': currentUrl.index === currentIndex }">
 				<div class="b-loadGallery__slideImageWrap">
 					<img src="{{currentUrl.self.href}}" alt="{{currentName}}" class="b-loadGallery__slideImage">
 					<div class="b-loadGallery__slideLeft" (click)="showPrevSlide()"></div>

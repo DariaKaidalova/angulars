@@ -27,7 +27,7 @@ export class ConfirmationPopupComponent implements OnInit {
 
     	this.isOpenedPopupMark = false;
 
-    	setTimeout(()=> { 
+		setTimeout(()=> { 
 
 			this.closeAction.emit();
 			this.isOpenedPopup = false;
@@ -42,10 +42,10 @@ export class ConfirmationPopupComponent implements OnInit {
 
 		setTimeout(()=> { 
 
-	        this.confirmAction.emit(this.parameter);
-	        this.closeActionPerformed();
-	        this.isOpenedPopup = false;  
-		      
+			this.confirmAction.emit(this.parameter);
+			this.closeActionPerformed();
+			this.isOpenedPopup = false;  
+
 		}, 300);
 
 

@@ -16,7 +16,7 @@ export class ImagesGalleryComponent implements OnInit {
     currentName: string;
     currentIndex: number;
     isOpenedSlider: boolean = false;
-
+    isOpenedSliderMark: boolean = false;
 
     constructor() {}
 
@@ -26,8 +26,6 @@ export class ImagesGalleryComponent implements OnInit {
         this.addIndex(this.images);
         
     }
-
-    ngOnChanges(changes:any) {}
 
     ngDoCheck() {
         if(this._oldArray !== this.images) {
@@ -39,6 +37,8 @@ export class ImagesGalleryComponent implements OnInit {
            this._oldArray = this.images; 
         }
     }
+
+    ngOnChanges(changes:any) {}
 
     addIndex(images) {
 
@@ -60,12 +60,19 @@ export class ImagesGalleryComponent implements OnInit {
         this.currentUrl = url;
         this.currentName = name;
         this.isOpenedSlider = true;
+        setTimeout(()=> { 
+            this.isOpenedSliderMark = true;
+        }, 300);
 
     }
 
     closeSlider() {
 
-        this.isOpenedSlider = false;
+        this.isOpenedSliderMark = false;
+
+        setTimeout(()=> { 
+            this.isOpenedSlider = false;
+        }, 300);
 
     }
 
