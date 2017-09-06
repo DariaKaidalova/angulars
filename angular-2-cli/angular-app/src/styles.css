@@ -350,12 +350,21 @@ ul {
     bottom: 0;
     height: 100%;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.3); }
+    background-color: transparent; }
+    .b-loadGallery__slides.-type_opened {
+      background-color: rgba(0, 0, 0, 0.3);
+      transition: background-color 0.4s ease-out;
+      -webkit-transition: background-color 0.4s ease-out; }
   .b-loadGallery__slide {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%; }
+    height: 100%;
+    opacity: 0; }
+    .b-loadGallery__slide.-type_current {
+      opacity: 1;
+      transition: opacity 0.2s linear;
+      -webkit-transition: opacity 0.2s linear; }
   .b-loadGallery__slideImageWrap {
     position: relative; }
   .b-loadGallery__slideLeft, .b-loadGallery__slideRight {

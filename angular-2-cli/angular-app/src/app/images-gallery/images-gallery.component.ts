@@ -62,42 +62,42 @@ export class ImagesGalleryComponent implements OnInit {
         this.currentName = name;
 
         this.isOpenedSlider = true;
-        setTimeout(()=> { 
-            this.isOpenedSliderMark = true;
-        }, 300);
-        setTimeout(()=> { 
-            this.isCurrentSlideMark = true; 
-        }, 300);
+        this.isOpenedSliderMark = true;
+        this.isCurrentSlideMark = true; 
 
     }
 
     closeSlider() {
 
         this.isOpenedSliderMark = false;
-
         setTimeout(()=> { 
             this.isOpenedSlider = false;
-        }, 300);
+        }, 200);
 
     }
 
     showNextSlide() {
+        this.isCurrentSlideMark = false;
 
         this.currentIndex = this.checkSlide(this.currentIndex, 'next');
         this.findCurrentImage(this.currentIndex);
+
+        setTimeout(()=> { 
+           this.isCurrentSlideMark = true;  
+        }, 200);
 
     }
 
     showPrevSlide() {
 
         this.isCurrentSlideMark = false;
-        
+
         this.currentIndex = this.checkSlide(this.currentIndex, 'prev');
         this.findCurrentImage(this.currentIndex);
 
         setTimeout(()=> { 
            this.isCurrentSlideMark = true;  
-        }, 300);
+        }, 200);
 
     }
 
