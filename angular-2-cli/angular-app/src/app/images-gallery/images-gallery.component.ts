@@ -63,13 +63,17 @@ export class ImagesGalleryComponent implements OnInit {
 
         this.isOpenedSlider = true;
         this.isOpenedSliderMark = true;
-        this.isCurrentSlideMark = true; 
-
+        setTimeout(()=> { 
+            this.isCurrentSlideMark = true; 
+        }, 200);
     }
 
     closeSlider() {
 
-        this.isOpenedSliderMark = false;
+        this.isCurrentSlideMark = false; 
+        setTimeout(()=> { 
+            this.isOpenedSliderMark = false;
+        }, 300);
         setTimeout(()=> { 
             this.isOpenedSlider = false;
         }, 200);
