@@ -17,7 +17,8 @@ export class ImagesGalleryComponent implements OnInit {
     currentIndex: number;
     isOpenedSlider: boolean = false;
     isOpenedSliderMark: boolean = false;
-
+    isCurrentSlideMark: boolean = false;
+    
     constructor() {}
 
     ngOnInit() {
@@ -59,9 +60,13 @@ export class ImagesGalleryComponent implements OnInit {
         this.currentIndex = index;
         this.currentUrl = url;
         this.currentName = name;
+
         this.isOpenedSlider = true;
         setTimeout(()=> { 
             this.isOpenedSliderMark = true;
+        }, 300);
+        setTimeout(()=> { 
+            this.isCurrentSlideMark = true; 
         }, 300);
 
     }
@@ -85,8 +90,14 @@ export class ImagesGalleryComponent implements OnInit {
 
     showPrevSlide() {
 
+        this.isCurrentSlideMark = false;
+        
         this.currentIndex = this.checkSlide(this.currentIndex, 'prev');
         this.findCurrentImage(this.currentIndex);
+
+        setTimeout(()=> { 
+           this.isCurrentSlideMark = true;  
+        }, 300);
 
     }
 

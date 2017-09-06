@@ -10,7 +10,7 @@
 		</li>
 
 		<div class="b-loadGallery__slides" *ngIf="isOpenedSlider" [ngClass]="{'-type_opened': isOpenedSliderMark, '-type_closed': !isOpenedSliderMark}">
-			<div class="b-loadGallery__slide" [ngClass]="{ '-type_current': currentUrl.index === currentIndex }">
+			<div class="b-loadGallery__slide" [ngClass]="{ '-type_current': isCurrentSlideMark }">
 				<div class="b-loadGallery__slideImageWrap">
 					<img src="{{currentUrl.self.href}}" alt="{{currentName}}" class="b-loadGallery__slideImage">
 					<div class="b-loadGallery__slideLeft" (click)="showPrevSlide()"></div>
