@@ -32,7 +32,6 @@ export class ImagesGalleryComponent implements OnInit {
         if(this._oldArray !== this.images) {
             this.checkInputs();
             this.addIndex(this.images);
-            console.log(this.images);
         }
         else {
            this._oldArray = this.images; 

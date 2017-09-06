@@ -29,7 +29,6 @@ export class ExercisesEditingComponent implements OnInit {
     messageEditableSuccess: string = '';
     confirmRemoveMessage: string = '';
     isOpenedPopup: boolean = false;
-    isOpenedPopupMark: boolean = false; 
     isEditableUsed: boolean = false;
 
 	constructor(
