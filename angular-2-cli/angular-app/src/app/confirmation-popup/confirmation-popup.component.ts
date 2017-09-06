@@ -55,9 +55,9 @@ export class ConfirmationPopupComponent implements OnInit {
     closePopup() {
 
 		this.isOpenedPopupMark = false;
-		//setTimeout(()=> {
+		setTimeout(()=> {
 			this.isOpenedPopup = false;
-		//}, 200);
+		}, 100);
 
     }
 
