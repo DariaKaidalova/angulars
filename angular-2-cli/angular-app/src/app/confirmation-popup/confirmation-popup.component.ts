@@ -1,4 +1,5 @@
 import { Component, OnInit, DoCheck, Input, Output, EventEmitter } from '@angular/core';
+import { Globals } from '../globals.vars';
 
 @Component({
 	selector: 'app-confirmation-popup',
@@ -15,17 +16,19 @@ export class ConfirmationPopupComponent implements OnInit {
 
 	isOpenedPopupMark: boolean = false;
 
-	constructor() {}
+	constructor(private _globals: Globals) {}
 
 	ngOnInit() {
 
 		this.isOpenedPopup = false;
+		console.log(this._globals);
 
 	}
 
     ngDoCheck() {
 
         if(this.isOpenedPopup === true) {
+        	this.showScroll()
         	this.showPopup();
         }
 
@@ -34,6 +37,7 @@ export class ConfirmationPopupComponent implements OnInit {
     closeActionPerformed(): void {
 
     	this.hidePopup();
+    	this.hideScroll();
 		this.closeAction.emit();
 		
     }
@@ -41,6 +45,7 @@ export class ConfirmationPopupComponent implements OnInit {
     confirmActionPerformed(): void {
 
     	this.hidePopup();
+    	this.hideScroll();
 		this.confirmAction.emit(this.parameter);
 		this.closeActionPerformed(); //do NOT remove again!!!!!!!!!
 
@@ -60,6 +65,14 @@ export class ConfirmationPopupComponent implements OnInit {
 			this.isOpenedPopupMark = true;
 		}, 200);
 		
+    }
+
+    hideScroll() {
+    	this._globals.isHideScroll = false;
+    }
+
+    showScroll() {
+    	this._globals.isHideScroll = true;
     }
 
 }

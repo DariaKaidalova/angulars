@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Globals } from './globals.vars';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
@@ -44,7 +45,7 @@ import { СropTextPipe } from './pipe/сrop-text-pipe.pipe';
     JsonpModule,
     FileUploadModule
   ],
-  providers: [ExercisesService, ExercisesRestService],
+  providers: [ExercisesService, ExercisesRestService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
