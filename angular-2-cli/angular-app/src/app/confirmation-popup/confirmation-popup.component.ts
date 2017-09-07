@@ -14,51 +14,52 @@ export class ConfirmationPopupComponent implements OnInit {
 	@Output() confirmAction: EventEmitter<number> = new EventEmitter();
 
 	isOpenedPopupMark: boolean = false;
-	wasPopupClosed: boolean = false;
 
 	constructor() {}
 
 	ngOnInit() {
 
-		console.log(this.isOpenedPopup);
+		this.isOpenedPopup = false;
 
 	}
 
     ngDoCheck() {
 
-        if(this.isOpenedPopup === true && !this.wasPopupClosed) {
-    		setTimeout(()=> {
-				this.isOpenedPopupMark = true;
-			}, 200);
+        if(this.isOpenedPopup === true) {
+        	this.showPopup();
         }
 
     }
 
     closeActionPerformed(): void {
 
-    	this.closePopup();
-    	setTimeout(()=> {
-			this.closeAction.emit();
-		}, 200);
+    	this.hidePopup();
+		this.closeAction.emit();
 		
     }
 
     confirmActionPerformed(): void {
 
-    	this.closePopup();
-    	setTimeout(()=> {
-			this.confirmAction.emit(this.parameter);
-		}, 200);
-		
+    	this.hidePopup();
+		this.confirmAction.emit(this.parameter);
+		this.closeActionPerformed(); //do NOT remove again!!!!!!!!!
+
     }
 
-    closePopup() {
+    hidePopup() {
 
-		this.isOpenedPopupMark = false;
+    	setTimeout(()=> {
+			this.isOpenedPopupMark = false;
+		}, 200);
+
+    }
+
+    showPopup() {
+
 		setTimeout(()=> {
-			this.isOpenedPopup = false;
-		}, 100);
-
+			this.isOpenedPopupMark = true;
+		}, 200);
+		
     }
 
 }
