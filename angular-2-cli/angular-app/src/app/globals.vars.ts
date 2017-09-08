@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
-Injectable()
+
+@Injectable()
 
 export class Globals {
 
-	isHideScroll = false;
-	
+	public isHideScroll: boolean = false;
+
 }

@@ -1,24 +1,24 @@
-<body class="l-body" [ngClass]="{'-scroll_hidden': _globals.isHideScroll}">
-	<div class="l-wrapper">
-		<header class="b-header">
-			<div class="b-header__inner">
-				<div class="b-header__block -type_left">
-					<app-logo></app-logo>
-				</div>
-				<div class="b-header__block -type_right">
-					<app-navigation></app-navigation>
-				</div>
-			</div>
-		</header>
 
-		<main class="b-content">
-			<div class="b-content__inner">
-				<router-outlet></router-outlet>
+<div class="l-wrapper">
+	<header class="b-header">
+		<div class="b-header__inner">
+			<div class="b-header__block -type_left">
+				<app-logo></app-logo>
 			</div>
-		</main>
-	</div>
+			<div class="b-header__block -type_right">
+				<app-navigation></app-navigation>
+			</div>
+		</div>
+	</header>
 
-	<footer class="b-footer">
-		<div class="b-footer__inner"></div>
-	</footer>
-</body>
+	<main class="b-content">
+		<div class="b-content__inner">
+			<router-outlet></router-outlet>
+		</div>
+	</main>
+</div>
+
+<footer class="b-footer">
+	<div class="b-footer__inner"></div>
+</footer>
+

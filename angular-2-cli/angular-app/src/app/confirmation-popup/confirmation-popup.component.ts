@@ -1,4 +1,5 @@
-import { Component, OnInit, DoCheck, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, DoCheck, Input, Output, EventEmitter, SimpleChange, OnChanges } from '@angular/core';
+import * as jQuery from 'jquery';
 import { Globals } from '../globals.vars';
 
 @Component({
@@ -6,7 +7,7 @@ import { Globals } from '../globals.vars';
 	templateUrl: './confirmation-popup.component.html',
 	styleUrls: ['./confirmation-popup.component.css']
 })
-export class ConfirmationPopupComponent implements OnInit {
+export class ConfirmationPopupComponent implements OnInit, OnChanges {
 	@Input() message: string;
 	@Input() parameter: number;
 	@Input() isOpenedPopup: boolean;
@@ -21,15 +22,14 @@ export class ConfirmationPopupComponent implements OnInit {
 	ngOnInit() {
 
 		this.isOpenedPopup = false;
-		console.log(this._globals);
+		console.log('isHideScroll = '+this._globals.isHideScroll);
 
 	}
 
-    ngDoCheck() {
+    ngOnChanges(changes: { [propName: string]: SimpleChange }) {
 
-        if(this.isOpenedPopup === true) {
-        	this.showScroll()
-        	this.showPopup();
+        if (changes['isOpenedPopup']) {
+            this.showPopup();
         }
 
     }
@@ -37,7 +37,7 @@ export class ConfirmationPopupComponent implements OnInit {
     closeActionPerformed(): void {
 
     	this.hidePopup();
-    	this.hideScroll();
+    	this.showScroll();
 		this.closeAction.emit();
 		
     }
@@ -45,7 +45,7 @@ export class ConfirmationPopupComponent implements OnInit {
     confirmActionPerformed(): void {
 
     	this.hidePopup();
-    	this.hideScroll();
+    	this.showScroll();
 		this.confirmAction.emit(this.parameter);
 		this.closeActionPerformed(); //do NOT remove again!!!!!!!!!
 
@@ -67,12 +67,20 @@ export class ConfirmationPopupComponent implements OnInit {
 		
     }
 
+    toggleScroll() {
+
+        jQuery('.l-body').toggleClass('-scroll_hidden');
+    }
+
     hideScroll() {
-    	this._globals.isHideScroll = false;
+
+        jQuery('.l-body').addClass('-scroll_hidden');
     }
 
     showScroll() {
-    	this._globals.isHideScroll = true;
+
+        jQuery('.l-body').removeClass('-scroll_hidden');
+       
     }
 
 }
