@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Globals } from './globals.vars';
+import { Component, OnInit, } from '@angular/core';
+import { Global } from './global';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,12 @@ import { Globals } from './globals.vars';
 })
 export class AppComponent {
 
-   constructor(private _globals: Globals) {}
+	constructor(private _global: Global) {}
+
+	ngOnInit() {
+
+		this._global.isShowSpinner = true;
+		
+	}
 
 }

@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Globals } from './globals.vars';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
+import { Global } from './global';
 import { RoutingModule } from './module/routing/routing.module';
 import { ExercisesBlocksComponent } from './exercises-blocks/exercises-blocks.component';
 import { ExercisesService } from './service/exercises-blocks-service.service';
@@ -21,6 +21,8 @@ import { ExercisesEditingComponent } from './exercises-editing/exercises-editing
 import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-popup.component';
 import { ImagesGalleryComponent } from './images-gallery/images-gallery.component';
 import { СropTextPipe } from './pipe/сrop-text-pipe.pipe';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { СropTextPipe } from './pipe/сrop-text-pipe.pipe';
     ExercisesEditingComponent,
     ConfirmationPopupComponent,
     ImagesGalleryComponent,
-    СropTextPipe
+    СropTextPipe,
+    SpinnerComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,13 @@ import { СropTextPipe } from './pipe/сrop-text-pipe.pipe';
     JsonpModule,
     FileUploadModule
   ],
-  providers: [ExercisesService, ExercisesRestService, Globals],
-  bootstrap: [AppComponent]
+  providers: [
+    ExercisesService, 
+    ExercisesRestService,
+    Global
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

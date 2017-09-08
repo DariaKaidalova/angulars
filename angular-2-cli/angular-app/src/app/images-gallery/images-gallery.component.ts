@@ -1,5 +1,6 @@
-import { Component, OnInit, OnChanges, DoCheck, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck, Input, Output, EventEmitter, SimpleChange, } from '@angular/core';
 import { Image } from '../interface/image-gallery.interface';
+import * as jQuery from 'jquery';
 
 @Component({
   selector: 'app-images-gallery',
@@ -28,17 +29,19 @@ export class ImagesGalleryComponent implements OnInit {
         
     }
 
-    ngDoCheck() {
-        if(this._oldArray !== this.images) {
-            this.checkInputs();
-            this.addIndex(this.images);
-        }
-        else {
-           this._oldArray = this.images; 
-        }
-    }
+    ngOnChanges(changes: { [propName: string]: SimpleChange }) {
 
-    ngOnChanges(changes:any) {}
+        if (changes['images']) {
+            if(this._oldArray !== this.images) {
+                this.checkInputs();
+                this.addIndex(this.images);
+            }
+            else {
+               this._oldArray = this.images; 
+            }
+        }
+
+    }
 
     addIndex(images) {
 
@@ -55,7 +58,7 @@ export class ImagesGalleryComponent implements OnInit {
     }
 
     getCurrentImage(index, url, name) {
-
+        this.hideScroll();
         this.currentIndex = index;
         this.currentUrl = url;
         this.currentName = name;
@@ -76,6 +79,7 @@ export class ImagesGalleryComponent implements OnInit {
         setTimeout(()=> { 
             this.isOpenedSlider = false;
         }, 200);
+        this.showScroll();
 
     }
 
@@ -154,5 +158,18 @@ export class ImagesGalleryComponent implements OnInit {
         }
 
     }
+
+    hideScroll() {
+
+        jQuery('.l-body').addClass('-scroll_hidden');
+
+    }
+
+    showScroll() {
+
+        jQuery('.l-body').removeClass('-scroll_hidden');
+
+    }
+
 
 }

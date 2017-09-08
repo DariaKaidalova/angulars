@@ -1,6 +1,5 @@
 import { Component, OnInit, DoCheck, Input, Output, EventEmitter, SimpleChange, OnChanges } from '@angular/core';
 import * as jQuery from 'jquery';
-import { Globals } from '../globals.vars';
 
 @Component({
 	selector: 'app-confirmation-popup',
@@ -17,19 +16,21 @@ export class ConfirmationPopupComponent implements OnInit, OnChanges {
 
 	isOpenedPopupMark: boolean = false;
 
-	constructor(private _globals: Globals) {}
+	constructor() {}
 
 	ngOnInit() {
 
 		this.isOpenedPopup = false;
-		console.log('isHideScroll = '+this._globals.isHideScroll);
 
 	}
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
 
         if (changes['isOpenedPopup']) {
-            this.showPopup();
+            if(this.isOpenedPopup) {
+                this.showPopup();
+                this.hideScroll();
+            }
         }
 
     }
@@ -61,26 +62,22 @@ export class ConfirmationPopupComponent implements OnInit, OnChanges {
 
     showPopup() {
 
-		setTimeout(()=> {
-			this.isOpenedPopupMark = true;
-		}, 200);
-		
-    }
+        setTimeout(()=> {
+            this.isOpenedPopupMark = true;
+        }, 200);
 
-    toggleScroll() {
-
-        jQuery('.l-body').toggleClass('-scroll_hidden');
     }
 
     hideScroll() {
 
         jQuery('.l-body').addClass('-scroll_hidden');
+
     }
 
     showScroll() {
 
         jQuery('.l-body').removeClass('-scroll_hidden');
-       
+
     }
 
 }
