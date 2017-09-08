@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Global } from '../global'
 
 @Component({
@@ -10,10 +10,17 @@ export class MainComponent implements OnInit {
 
   constructor(private _global: Global) {}
 
+  @Input() isShowSpinner: boolean;
+
   ngOnInit() {
 
   	//this._global.isShowSpinner = false;
+  	//this.isShowSpinner = false;
 
+  }
+
+  ngAfterContentInit() {
+  	this.isShowSpinner = false;
   }
 
 }

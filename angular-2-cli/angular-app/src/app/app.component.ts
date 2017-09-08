@@ -8,12 +8,16 @@ import { Global } from './global';
 })
 export class AppComponent {
 
+	isShowSpinner: boolean = false;
+
 	constructor(private _global: Global) {}
 
 	ngOnInit() {
 
 		this._global.isShowSpinner = true;
-		
+
+		this.isShowSpinner = true;
+
 	}
 
 }
