@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
 import { Global } from '../global'
+import { MainService } from '../service/main-service.service'
 
 @Component({
   selector: 'app-main',
@@ -8,19 +9,15 @@ import { Global } from '../global'
 })
 export class MainComponent implements OnInit {
 
-  constructor(private _global: Global) {}
-
-  @Input() isShowSpinner: boolean;
+  constructor(private _mainService: MainService) {}
 
   ngOnInit() {
 
-  	//this._global.isShowSpinner = false;
-  	//this.isShowSpinner = false;
+    //setTimeout(()=> { 
+      this._mainService.isShowSpinner = false; 
+    //}, 1000);
 
-  }
-
-  ngAfterContentInit() {
-  	this.isShowSpinner = false;
+    console.log('main', this._mainService.isShowSpinner);
   }
 
 }

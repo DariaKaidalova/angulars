@@ -1,22 +1,24 @@
-<div class="l-wrapper">
-	<header class="b-header">
-		<div class="b-header__inner">
-			<div class="b-header__block -type_left">
-				<app-logo></app-logo>
+<div *ngIf="!_mainService.isShowSpinner"> 
+	<div class="l-wrapper">
+		<header class="b-header">
+			<div class="b-header__inner">
+				<div class="b-header__block -type_left">
+					<app-logo></app-logo>
+				</div>
+				<div class="b-header__block -type_right">
+					<app-navigation></app-navigation>
+				</div>
 			</div>
-			<div class="b-header__block -type_right">
-				<app-navigation></app-navigation>
-			</div>
-		</div>
-	</header>
+		</header>
 
-	<main class="b-content">
-		<div class="b-content__inner">
-			<router-outlet></router-outlet>
-		</div>
-	</main>
+		<main class="b-content">
+			<div class="b-content__inner">
+				<router-outlet></router-outlet>
+			</div>
+		</main>
+	</div>
+
+	<footer class="b-footer">
+		<div class="b-footer__inner"></div>
+	</footer>
 </div>
-
-<footer class="b-footer">
-	<div class="b-footer__inner"></div>
-</footer>

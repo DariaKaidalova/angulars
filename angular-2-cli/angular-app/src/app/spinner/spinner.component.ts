@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChange, OnChanges } from '@angular/core';
+import { MainService } from '../service/main-service.service'
 
 @Component({
   selector: 'app-spinner',
@@ -7,10 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SpinnerComponent implements OnInit {
 
-	@Input() isShowSpinner: boolean = true;
+	constructor(private _mainService: MainService) {}
 
-	constructor() {}
-
-	ngOnInit() {}
+	ngOnInit() {
+		console.log('spinner', this._mainService.isShowSpinner);
+	}
 
 }

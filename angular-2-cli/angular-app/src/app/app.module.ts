@@ -11,6 +11,7 @@ import { RoutingModule } from './module/routing/routing.module';
 import { ExercisesBlocksComponent } from './exercises-blocks/exercises-blocks.component';
 import { ExercisesService } from './service/exercises-blocks-service.service';
 import { ExercisesRestService } from './service/exercises-blocks-rest-service.service';
+import { MainService } from './service/main-service.service'
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { TypesBlocksComponent } from './types-blocks/types-blocks.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -52,6 +53,7 @@ import { MainComponent } from './main/main.component';
   providers: [
     ExercisesService, 
     ExercisesRestService,
+    MainService,
     Global
   ],
   bootstrap: [

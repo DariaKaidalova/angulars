@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Global } from './global';
 
 @Component({
@@ -8,16 +8,8 @@ import { Global } from './global';
 })
 export class AppComponent {
 
-	isShowSpinner: boolean = false;
+	constructor() {}
 
-	constructor(private _global: Global) {}
-
-	ngOnInit() {
-
-		this._global.isShowSpinner = true;
-
-		this.isShowSpinner = true;
-
-	}
+	ngOnInit() {}
 
 }
