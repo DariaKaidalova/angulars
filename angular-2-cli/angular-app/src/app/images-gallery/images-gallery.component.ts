@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, DoCheck, Input, Output, EventEmitter, SimpleChange, } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck, Input, Output, EventEmitter, SimpleChange, HostListener } from '@angular/core';
 import { Image } from '../interface/image-gallery.interface';
 import * as jQuery from 'jquery';
 import { WindowService } from '../service/window.service';
@@ -27,12 +27,20 @@ export class ImagesGalleryComponent implements OnInit {
     
     constructor(private _windowService: WindowService) {}
 
+    
+
     ngOnInit() {
 
         this.checkInputs();
         this.addIndex(this.images);
-        this.calculateWindowSize();
+        this.calculateSizes();
            
+    }
+
+    @HostListener('window:resize', [])
+    onResize() {
+        console.log('onResize');
+        this.calculateSizes();
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
@@ -165,14 +173,14 @@ export class ImagesGalleryComponent implements OnInit {
 
     }
 
-    calculateWindowSize() {
-        this.WW = this._windowService.nativeWindow.screen.availWidth;
-        this.WH = this._windowService.nativeWindow.screen.availHeight;
-        this.maxIW = this.WW - 200;
-        this.maxIH = this.WH - 200;
-        console.log(this._windowService.nativeWindow.screen);
+    calculateSizes() {
+        this.WW = this._windowService.nativeWindow.window.innerWidth;
+        this.WH = this._windowService.nativeWindow.window.innerHeight;
+        this.maxIW = this.WW - 50;
+        this.maxIH = this.WH - 50;
+        //console.log(this._windowService.nativeWindow.window.innerWidth);
         console.log('ww = '+this.WW, 'wh = '+this.WH);
-        console.log('iw = '+this.maxIW, 'ih = '+this.maxIH);
+        //console.log('iw = '+this.maxIW, 'ih = '+this.maxIH);
     }
 
     hideScroll() {
