@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, DoCheck, Input, Output, EventEmitter, SimpleChange, } from '@angular/core';
 import { Image } from '../interface/image-gallery.interface';
 import * as jQuery from 'jquery';
+import { WindowService } from '../service/window.service';
 
 @Component({
   selector: 'app-images-gallery',
@@ -19,14 +20,19 @@ export class ImagesGalleryComponent implements OnInit {
     isOpenedSlider: boolean = false;
     isOpenedSliderMark: boolean = false;
     isCurrentSlideMark: boolean = false;
+    WW: number;
+    WH: number;
+    maxIW: number;
+    maxIH: number;
     
-    constructor() {}
+    constructor(private _windowService: WindowService) {}
 
     ngOnInit() {
 
         this.checkInputs();
         this.addIndex(this.images);
-        
+        this.calculateWindowSize();
+           
     }
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
@@ -157,6 +163,16 @@ export class ImagesGalleryComponent implements OnInit {
            this.images = []; 
         }
 
+    }
+
+    calculateWindowSize() {
+        this.WW = this._windowService.nativeWindow.screen.availWidth;
+        this.WH = this._windowService.nativeWindow.screen.availHeight;
+        this.maxIW = this.WW - 200;
+        this.maxIH = this.WH - 200;
+        console.log(this._windowService.nativeWindow.screen);
+        console.log('ww = '+this.WW, 'wh = '+this.WH);
+        console.log('iw = '+this.maxIW, 'ih = '+this.maxIH);
     }
 
     hideScroll() {

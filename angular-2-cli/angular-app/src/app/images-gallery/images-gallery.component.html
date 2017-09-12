@@ -13,7 +13,7 @@
 			<div class="b-gallery__overlay" (click)="closeSlider()"></div>
 			<div class="b-gallery__slide" [ngClass]="{ '-type_current': isCurrentSlideMark }">
 				<div class="b-gallery__slideImageWrap">
-					<img src="{{currentUrl.self.href}}" alt="{{currentName}}" class="b-gallery__slideImage">
+					<img src="{{currentUrl.self.href}}" alt="{{currentName}}" class="b-gallery__slideImage" [ngStyle]="{'max-width.px': maxIW, 'max-height.px': maxIH}">
 					<div class="b-gallery__slideLeft" (click)="showPrevSlide()"></div>
 					<div class="b-gallery__slideRight" (click)="showNextSlide()"></div> 
 					<div class="b-gallery__slideClose" (click)="closeSlider()"></div>

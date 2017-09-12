@@ -8,10 +8,15 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { AppComponent } from './app.component';
 import { Global } from './global';
 import { RoutingModule } from './module/routing/routing.module';
-import { ExercisesBlocksComponent } from './exercises-blocks/exercises-blocks.component';
+
+/* services */
 import { ExercisesService } from './service/exercises-blocks-service.service';
 import { ExercisesRestService } from './service/exercises-blocks-rest-service.service';
-import { MainService } from './service/main-service.service'
+import { MainService } from './service/main-service.service';
+import { WindowService } from './service/window.service';
+
+/* components */
+import { ExercisesBlocksComponent } from './exercises-blocks/exercises-blocks.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { TypesBlocksComponent } from './types-blocks/types-blocks.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -54,6 +59,7 @@ import { MainComponent } from './main/main.component';
     ExercisesService, 
     ExercisesRestService,
     MainService,
+    WindowService,
     Global
   ],
   bootstrap: [
