@@ -19,7 +19,7 @@ ul {
   min-width: 600px;
   margin: 0 auto; }
 
-.g-clearfix:after, .b-header__block:after, .b-menu:after, .b-blocks:after, .b-loadGallery__list:after {
+.g-clearfix:after, .b-header__block:after, .b-menu:after, .b-blocks:after, .b-gallery__list:after {
   content: "";
   display: table;
   clear: both; }
@@ -330,20 +330,20 @@ ul {
     margin-right: -100px;
     opacity: 0; } }
 /*load gallery css*/
-.b-loadGallery {
+.b-gallery {
   margin: 10px 0 8px; }
-  .b-loadGallery__item {
+  .b-gallery__item {
     position: relative;
     margin: 0 2px 2px 0;
     float: left; }
-  .b-loadGallery__imageWrap {
+  .b-gallery__imageWrap {
     width: 50px;
     height: 50px;
     overflow: hidden; }
-  .b-loadGallery__image {
+  .b-gallery__image {
     width: 100%;
     cursor: pointer; }
-  .b-loadGallery__deleteImage {
+  .b-gallery__deleteImage {
     position: absolute;
     right: -5px;
     top: -5px;
@@ -353,7 +353,7 @@ ul {
     z-index: 100;
     background: #000;
     cursor: pointer; }
-  .b-loadGallery__slides {
+  .b-gallery__slides {
     position: fixed;
     left: 0;
     right: 0;
@@ -361,40 +361,40 @@ ul {
     bottom: 0;
     height: 100%;
     z-index: 1000; }
-  .b-loadGallery__overlay {
+  .b-gallery__overlay {
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     background-color: transparent; }
-    .-type_opened .b-loadGallery__overlay {
+    .-type_opened .b-gallery__overlay {
       background-color: rgba(0, 0, 0, 0.3);
       transition: background-color 0.4s ease-out;
       -webkit-transition: background-color 0.4s ease-out; }
-  .b-loadGallery__slide {
+  .b-gallery__slide {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0; }
-    .b-loadGallery__slide.-type_current {
+    .b-gallery__slide.-type_current {
       opacity: 1;
       transition: opacity 0.2s linear;
       -webkit-transition: opacity 0.2s linear; }
-  .b-loadGallery__slideImageWrap {
+  .b-gallery__slideImageWrap {
     position: relative; }
-  .b-loadGallery__slideLeft, .b-loadGallery__slideRight {
+  .b-gallery__slideLeft, .b-gallery__slideRight {
     position: absolute;
     top: 0;
     bottom: 0;
     width: 50%;
     cursor: pointer; }
-  .b-loadGallery__slideLeft {
+  .b-gallery__slideLeft {
     left: 0; }
-  .b-loadGallery__slideRight {
+  .b-gallery__slideRight {
     right: 0; }
-  .b-loadGallery__slideClose {
+  .b-gallery__slideClose {
     position: absolute;
     right: -10px;
     top: -10px;

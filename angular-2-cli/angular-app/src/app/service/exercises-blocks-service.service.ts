@@ -44,9 +44,6 @@ export class ExercisesService {
 
 		this.сheckIdenticalNames(this.name);
 
-		console.log('this.images from exercices-blocks-service:');
-		console.log(this.images);
-
 		if(!this.isUsed) {
 			const newExersices = {id: null, name: this.name, description: this.description, images: this.images};
 			this.exercises.push(newExersices);
@@ -55,9 +52,6 @@ export class ExercisesService {
 	  		this.name = '';
 	  		this.description = '';
 			this.images = [];
-
-			console.log('this.exercises from exercices-blocks-service:');
-			console.log(this.exercises);
 	  	}
 	  	else {
 	  		this.messageSuccess = '';
@@ -110,7 +104,6 @@ export class ExercisesService {
 			if(this.exercises[i].id === id) {
 				this.editableName = this.exercises[i].name; 
 				this.editableDescription = this.exercises[i].description;
-				console.log(this.editableName, this.editableDescription);
 				break;
 			}
 		}

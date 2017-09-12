@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
       this._mainService.isShowSpinner = false; 
     //}, 1000);
 
-    console.log('main', this._mainService.isShowSpinner);
+    //console.log('main', this._mainService.isShowSpinner);
   }
 
 }

@@ -1,22 +1,22 @@
-<div class="b-loadGallery" *ngIf="images?.length > 0" >
+<div class="b-gallery" *ngIf="images?.length > 0" >
 
-	<ul class="b-loadGallery__list">
+	<ul class="b-gallery__list">
 	
-		<li class="b-loadGallery__item" *ngFor="let imageItem of images">
-			<div class="b-loadGallery__imageWrap">
-				<img class="b-loadGallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}" (click)="getCurrentImage(imageItem.index, imageItem._links, imageItem.name)">
+		<li class="b-gallery__item" *ngFor="let imageItem of images">
+			<div class="b-gallery__imageWrap">
+				<img class="b-gallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}" (click)="getCurrentImage(imageItem.index, imageItem._links, imageItem.name)">
 			</div>
-			<span *ngIf="removable" class="b-loadGallery__deleteImage" (click)="removeActionPerformed(imageItem.id)"></span>
+			<span *ngIf="removable" class="b-gallery__deleteImage" (click)="removeActionPerformed(imageItem.id)"></span>
 		</li>
 
-		<div class="b-loadGallery__slides" *ngIf="isOpenedSlider" [ngClass]="{'-type_opened': isOpenedSliderMark, '-type_closed': !isOpenedSliderMark}">
-			<div class="b-loadGallery__overlay" (click)="closeSlider()"></div>
-			<div class="b-loadGallery__slide" [ngClass]="{ '-type_current': isCurrentSlideMark }">
-				<div class="b-loadGallery__slideImageWrap">
-					<img src="{{currentUrl.self.href}}" alt="{{currentName}}" class="b-loadGallery__slideImage">
-					<div class="b-loadGallery__slideLeft" (click)="showPrevSlide()"></div>
-					<div class="b-loadGallery__slideRight" (click)="showNextSlide()"></div> 
-					<div class="b-loadGallery__slideClose" (click)="closeSlider()"></div>
+		<div class="b-gallery__slides" *ngIf="isOpenedSlider" [ngClass]="{'-type_opened': isOpenedSliderMark, '-type_closed': !isOpenedSliderMark}">
+			<div class="b-gallery__overlay" (click)="closeSlider()"></div>
+			<div class="b-gallery__slide" [ngClass]="{ '-type_current': isCurrentSlideMark }">
+				<div class="b-gallery__slideImageWrap">
+					<img src="{{currentUrl.self.href}}" alt="{{currentName}}" class="b-gallery__slideImage">
+					<div class="b-gallery__slideLeft" (click)="showPrevSlide()"></div>
+					<div class="b-gallery__slideRight" (click)="showNextSlide()"></div> 
+					<div class="b-gallery__slideClose" (click)="closeSlider()"></div>
 				</div>
 			</div>
 		</div>
