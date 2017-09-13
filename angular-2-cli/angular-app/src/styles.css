@@ -334,14 +334,17 @@ ul {
   margin: 10px 0 8px; }
   .b-gallery__item {
     position: relative;
-    margin: 0 2px 2px 0;
+    margin: 0 10px 10px 0;
     float: left; }
   .b-gallery__imageWrap {
-    width: 50px;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
     overflow: hidden; }
   .b-gallery__image {
-    width: 100%;
+    width: 200%;
     cursor: pointer; }
   .b-gallery__deleteImage {
     position: absolute;
