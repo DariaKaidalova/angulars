@@ -345,6 +345,7 @@ ul {
     overflow: hidden; }
   .b-gallery__image {
     width: 200%;
+    display: block;
     cursor: pointer; }
   .b-gallery__deleteImage {
     position: absolute;
