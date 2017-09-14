@@ -20,8 +20,12 @@
 				<file-uploader></file-uploader>
 			</div>
 			<div class="b-form__item -type_button">
-				<button class="b-button" [disabled]="!exForm.form.valid" (click)="addExerciseBlock()">Добавить</button>
-				<button class="b-button" (click)="navigateToExercises()">Отмена</button>
+				<button class="b-button" [disabled]="!exForm.form.valid" (click)="addExerciseBlock()">
+					<span class="b-button__icon icon-plus"></span> <span class="b-button__text">Добавить</span>
+				</button>
+				<button class="b-button" (click)="navigateToExercises()">
+					<span class="b-button__icon icon-action-undo"></span> <span class="b-button__text">Отмена</span>
+				</button>
 			</div>
 			<div class="b-form__item -type_message">
 				<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>

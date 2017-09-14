@@ -11,8 +11,12 @@
 	</div>
 </div>
 
-<button class="b-button" (click)="uploader.uploadAll(); getImages()" [disabled]="!uploader.getNotUploadedItems().length">Загрузить</button>
-<button class="b-button" (click)="removeImages()" [disabled]="!isUpload">Очистить</button> 
+<button class="b-button" (click)="uploader.uploadAll(); getImages()" [disabled]="!uploader.getNotUploadedItems().length">
+	<span class="b-button__icon icon-cloud-upload"></span> <span class="b-button__text">Загрузить</span>
+</button>
+<button class="b-button" (click)="removeImages()" [disabled]="!isUpload">	
+	<span class="b-button__icon icon-trash"></span> <span class="b-button__text">Очистить</span>
+</button> 
 
 <ul class="b-uploaderFiles">
 	<li class="b-uploaderFiles__item" *ngFor="let queueItem of uploader.queue">

@@ -21,15 +21,21 @@
 					<label for="" class="b-label">Фотографии</label>
 				</div>
 				<app-images-gallery [(images)]="editableImages" (removeAction)="removeImage($event)"></app-images-gallery>
-				<button class="b-button" *ngIf="editableImages?.length > 0" (click)="removeImages()">Удалить изображения</button>
+				<button class="b-button" *ngIf="editableImages?.length > 0" (click)="removeImages()"><span class="b-button__icon icon-trash"></span> <span class="b-button__text">Удалить</span> изображения</button>
 			</div>
 	
 			<file-uploader></file-uploader>
 
 			<div class="b-form__item -type_button">
-				<button class="b-button" (click)="updateExerciseBlock()">Сохранить</button>
-				<button class="b-button" (click)="openConfirmPopup()">Удалить</button>
-				<button class="b-button" (click)="navigateToExercises()">Отмена</button>
+				<button class="b-button" (click)="updateExerciseBlock()">
+					<span class="b-button__icon icon-check"></span> <span class="b-button__text">Сохранить</span> 
+				</button>
+				<button class="b-button" (click)="openConfirmPopup()">
+					<span class="b-button__icon icon-trash"></span> <span class="b-button__text">Удалить</span> 
+				</button>
+				<button class="b-button" (click)="navigateToExercises()">
+					<span class="b-button__icon icon-action-undo"></span> <span class="b-button__text">Отмена</span>
+				</button> 
 			</div>
 
 			<div class="b-form__item -type_message">

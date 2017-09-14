@@ -187,6 +187,11 @@ ul {
   font-size: 12px;
   font-weight: 700;
   cursor: pointer; }
+  .b-button__icon, .b-button__text {
+    display: inline-block;
+    vertical-align: middle; }
+  .b-button__icon {
+    font-weight: 700; }
 
 /*field*/
 .b-label {
@@ -272,13 +277,16 @@ ul {
     text-align: center; }
   .b-popup__close {
     position: absolute;
-    right: -11px;
-    top: -12px;
-    width: 15px;
-    height: 15px;
-    overflow: hidden;
-    text-indent: 100px;
-    background: #000; }
+    right: -10px;
+    top: -10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 23px;
+    line-height: 1;
+    font-weight: 700;
+    cursor: pointer; }
 
 /* keyframes */
 @keyframes showPopupAnimation {
@@ -348,15 +356,21 @@ ul {
     display: block;
     cursor: pointer; }
   .b-gallery__deleteImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    right: -5px;
-    top: -5px;
-    display: block;
-    width: 12px;
-    height: 12px;
+    right: -8px;
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
     z-index: 100;
-    background: #000;
-    cursor: pointer; }
+    cursor: pointer;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 700; }
   .b-gallery__slides {
     position: fixed;
     left: 0;
@@ -402,9 +416,13 @@ ul {
     position: absolute;
     right: -10px;
     top: -10px;
-    width: 20px;
-    height: 20px;
-    background: #000;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 23px;
+    line-height: 1;
+    font-weight: 700;
     cursor: pointer; }
 
 /*menu*/

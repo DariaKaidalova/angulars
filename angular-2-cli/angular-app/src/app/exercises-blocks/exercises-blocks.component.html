@@ -1,5 +1,7 @@
 
-<button class="b-button" (click)="navigateToAdding()">Добавить упражнение</button>
+<button class="b-button" (click)="navigateToAdding()">
+	<span class="b-button__icon icon-plus"></span> <span class="b-button__text">Добавить упражнения</span>
+</button>
 
 <ul class="b-blocks">
 	<li class="b-blocks__item" *ngFor="let exItem of _exercisesService.exercises">
@@ -8,8 +10,12 @@
 		</div>
 		<div class="b-blocks__text">{{ exItem.description | croptext : 60 : '...'}}</div>
 		<div class="b-blocks__buttons">
-			<button class="b-button" (click)="navigateToEditing(exItem)">Редактировать</button>
-			<button class="b-button" (click)="openConfirmPopup(exItem.id)">Удалить</button>
+			<button class="b-button" (click)="navigateToEditing(exItem)">
+				<span class="b-button__icon icon-pencil"></span> <span class="b-button__text">Редактировать</span>
+			</button>
+			<button class="b-button" (click)="openConfirmPopup(exItem.id)">
+				<span class="b-button__icon icon-trash"></span> <span class="b-button__text">Удалить</span>
+			</button>
 		</div>
 	</li>
 </ul>

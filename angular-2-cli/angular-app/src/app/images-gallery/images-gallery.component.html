@@ -6,7 +6,9 @@
 			<div class="b-gallery__imageWrap">
 				<img class="b-gallery__image"  src="{{imageItem._links.self.href}}" alt="{{imageItem.name}}" (click)="getCurrentImage(imageItem.index, imageItem._links, imageItem.name)">
 			</div>
-			<span *ngIf="removable" class="b-gallery__deleteImage" (click)="removeActionPerformed(imageItem.id)"></span>
+			<div *ngIf="removable" class="b-gallery__deleteImage" (click)="removeActionPerformed(imageItem.id)">
+				<span class="icon-trash"></span>
+			</div>
 		</li>
 
 		<div class="b-gallery__slides" *ngIf="isOpenedSlider" [ngClass]="{'-type_opened': isOpenedSliderMark, '-type_closed': !isOpenedSliderMark}">
@@ -16,7 +18,9 @@
 					<img src="{{currentUrl.self.href}}" alt="{{currentName}}" class="b-gallery__slideImage" [ngStyle]="{'max-width.px': maxIW, 'max-height.px': maxIH}">
 					<div class="b-gallery__slideLeft" (click)="showPrevSlide()"></div>
 					<div class="b-gallery__slideRight" (click)="showNextSlide()"></div> 
-					<div class="b-gallery__slideClose" (click)="closeSlider()"></div>
+					<div class="b-gallery__slideClose" (click)="closeSlider()">
+						<span class="icon-close"></span>
+					</div>
 				</div>
 			</div>
 		</div>

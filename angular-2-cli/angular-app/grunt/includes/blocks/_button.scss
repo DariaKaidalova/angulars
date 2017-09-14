@@ -15,5 +15,15 @@
 	font-size: 12px;
   font-weight: 700;
 	cursor: pointer;
+
+	&__icon, &__text {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&__icon {
+		font-weight: 700;
+	}
+
 }
 
