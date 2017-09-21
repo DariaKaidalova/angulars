@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 import { Global } from './global';
 
 @Component({
@@ -8,7 +9,14 @@ import { Global } from './global';
 })
 export class AppComponent {
 
-	constructor() {}
+  constructor(private translate: TranslateService) {
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('en');
+    translate.use('en');
+  }
+  changeLang(lang: string) {
+    this.translate.use(lang);
+  }
 
 	ngOnInit() {}
 

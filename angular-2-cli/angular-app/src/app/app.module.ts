@@ -4,9 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FileUploadModule } from 'ng2-file-upload';
+import {TranslateModule} from '@ngx-translate/core';
 
+/*app component*/
 import { AppComponent } from './app.component';
+/*file for global thinfs*/
 import { Global } from './global';
+/*routing*/
 import { RoutingModule } from './module/routing/routing.module';
 
 /* services */
@@ -30,9 +34,14 @@ import { СropTextPipe } from './pipe/сrop-text-pipe.pipe';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { MainComponent } from './main/main.component';
 
+// export function createTranslateLoader(http: HttpClient) {
+//     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+// }
+
 @NgModule({
   declarations: [
     AppComponent,
+    MainComponent,
     ExercisesBlocksComponent,
     FileUploaderComponent,
     TypesBlocksComponent,
@@ -44,8 +53,7 @@ import { MainComponent } from './main/main.component';
     ConfirmationPopupComponent,
     ImagesGalleryComponent,
     СropTextPipe,
-    SpinnerComponent,
-    MainComponent
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,8 @@ import { MainComponent } from './main/main.component';
     FormsModule,
     HttpModule,
     JsonpModule,
-    FileUploadModule
+    FileUploadModule,
+    TranslateModule.forRoot()
   ],
   providers: [
     ExercisesService, 
