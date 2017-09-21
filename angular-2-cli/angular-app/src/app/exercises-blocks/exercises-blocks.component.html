@@ -1,6 +1,6 @@
 
 <button class="b-button" (click)="navigateToAdding()">
-	<span class="b-button__icon icon-plus"></span> <span class="b-button__text">Добавить упражнения</span>
+	<span class="b-button__icon icon-plus"></span> <span class="b-button__text">{{ "add_exercises" | translate }}</span><!--  Добавить упражнения -->
 </button>
 
 <ul class="b-blocks">
@@ -11,10 +11,10 @@
 		<div class="b-blocks__text">{{ exItem.description | croptext : 60 : '...'}}</div>
 		<div class="b-blocks__buttons">
 			<button class="b-button" (click)="navigateToEditing(exItem)">
-				<span class="b-button__icon icon-pencil"></span> <span class="b-button__text">Редактировать</span>
+				<span class="b-button__icon icon-pencil"></span> <span class="b-button__text">{{ "edit" | translate }}</span>
 			</button>
 			<button class="b-button" (click)="openConfirmPopup(exItem.id)">
-				<span class="b-button__icon icon-trash"></span> <span class="b-button__text">Удалить</span>
+				<span class="b-button__icon icon-trash"></span> <span class="b-button__text">{{ "delete" | translate }}</span>
 			</button>
 		</div>
 	</li>

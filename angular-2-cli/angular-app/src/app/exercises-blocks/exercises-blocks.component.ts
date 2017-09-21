@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, ViewChild, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { RouterModule, Routes, Router }  from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 
 import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
