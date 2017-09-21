@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FileUploadModule } from 'ng2-file-upload';
-import {TranslateModule} from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 /*app component*/
 import { AppComponent } from './app.component';
@@ -33,10 +33,6 @@ import { ImagesGalleryComponent } from './images-gallery/images-gallery.componen
 import { СropTextPipe } from './pipe/сrop-text-pipe.pipe';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { MainComponent } from './main/main.component';
-
-// export function createTranslateLoader(http: HttpClient) {
-//     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-// }
 
 @NgModule({
   declarations: [
