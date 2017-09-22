@@ -9,21 +9,20 @@ import { Global } from './global';
 })
 export class AppComponent {
 
-	constructor(private _translateService: TranslateService, private _global: Global) {
+	constructor(private _translateService: TranslateService, private _global: Global) {}
+
+	ngOnInit() {
 		this._translateService.addLangs(['en', 'ru']);
 		this._translateService.setDefaultLang('en');
 		this._translateService.use('en');
-		if(localStorage.getItem('currentLanguage') === 'ru') {
-			console.log(localStorage.getItem('currentLanguage'));
-			this._translateService.setTranslation('ru', this._global.ruTitles);
-		}
-		else {
-			this._translateService.setTranslation('en', this._global.enTitles);
-		}
-	}
-
-	ngOnInit() {
-
+		// if(localStorage.getItem('currentLanguage') === 'ru') {
+		// 	this._translateService.setTranslation('ru', this._global.ruTitles);
+		// 	console.log(localStorage.getItem('currentLanguage'));
+		// }
+		// else {
+		// 	this._translateService.setTranslation('en', this._global.enTitles);
+		// }
+		this._translateService.setTranslation('en', this._global.enTitles);
 	}
 
 }
