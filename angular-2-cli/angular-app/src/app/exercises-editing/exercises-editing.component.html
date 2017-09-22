@@ -21,20 +21,20 @@
 					<label for="" class="b-label">Фотографии</label>
 				</div>
 				<app-images-gallery [(images)]="editableImages" (removeAction)="removeImage($event)"></app-images-gallery>
-				<button class="b-button" *ngIf="editableImages?.length > 0" (click)="removeImages()"><span class="b-button__icon icon-trash"></span> <span class="b-button__text">Удалить</span> изображения</button>
+				<button class="b-button" *ngIf="editableImages?.length > 0" (click)="removeImages()"><span class="b-button__icon icon-trash"></span> <span class="b-button__text">{{ "delete_all_images" | translate }}</span></button>
 			</div>
 	
 			<file-uploader></file-uploader>
 
 			<div class="b-form__item -type_button">
 				<button class="b-button" (click)="updateExerciseBlock()">
-					<span class="b-button__icon icon-check"></span> <span class="b-button__text">Сохранить</span> 
+					<span class="b-button__icon icon-check"></span> <span class="b-button__text">{{ "save" | translate }}</span> 
 				</button>
 				<button class="b-button" (click)="openConfirmPopup()">
-					<span class="b-button__icon icon-trash"></span> <span class="b-button__text">Удалить</span> 
+					<span class="b-button__icon icon-trash"></span> <span class="b-button__text">{{ "delete" | translate }}</span> 
 				</button>
 				<button class="b-button" (click)="navigateToExercises()">
-					<span class="b-button__icon icon-action-undo"></span> <span class="b-button__text">Отмена</span>
+					<span class="b-button__icon icon-action-undo"></span> <span class="b-button__text">{{ "cancel" | translate }}</span>
 				</button> 
 			</div>
 

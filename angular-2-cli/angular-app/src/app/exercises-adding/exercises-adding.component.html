@@ -21,10 +21,10 @@
 			</div>
 			<div class="b-form__item -type_button">
 				<button class="b-button" [disabled]="!exForm.form.valid" (click)="addExerciseBlock()">
-					<span class="b-button__icon icon-plus"></span> <span class="b-button__text">Добавить</span>
+					<span class="b-button__icon icon-plus"></span> <span class="b-button__text">{{ "add" | translate }}</span>
 				</button>
 				<button class="b-button" (click)="navigateToExercises()">
-					<span class="b-button__icon icon-action-undo"></span> <span class="b-button__text">Отмена</span>
+					<span class="b-button__icon icon-action-undo"></span> <span class="b-button__text">{{ "cancel" | translate }}</span>
 				</button>
 			</div>
 			<div class="b-form__item -type_message">

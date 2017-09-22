@@ -12,10 +12,10 @@
 </div>
 
 <button class="b-button" (click)="uploader.uploadAll(); getImages()" [disabled]="!uploader.getNotUploadedItems().length">
-	<span class="b-button__icon icon-cloud-upload"></span> <span class="b-button__text">Загрузить</span>
+	<span class="b-button__icon icon-cloud-upload"></span> <span class="b-button__text">{{ "upload" | translate }}</span>
 </button>
 <button class="b-button" (click)="removeImages()" [disabled]="!isUpload">	
-	<span class="b-button__icon icon-trash"></span> <span class="b-button__text">Очистить</span>
+	<span class="b-button__icon icon-trash"></span> <span class="b-button__text">{{ "clear" | translate }}</span>
 </button> 
 
 <ul class="b-uploaderFiles">

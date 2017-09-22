@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Global } from './global';
-//import {  } from './languages';
 
 @Component({
   selector: 'app-root',
@@ -10,20 +9,20 @@ import { Global } from './global';
 })
 export class AppComponent {
 
-  constructor(private translate: TranslateService) {
-    this.translate.addLangs(['en', 'ru']);
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
-    console.log(this.translate);
-	translate.setTranslation('en', {
-		add_exercises : "Add exercises",
-		edit : "Edit",
-		delete : "Delete"
-	});
-  }
-  changeLang(lang: string) {
-    this.translate.use(lang);
-  }
+	constructor(
+		private _translateService: TranslateService,
+		private _global: Global) {
+			this._translateService.addLangs(['en', 'ru']);
+			this._translateService.setDefaultLang('en');
+			this._translateService.use('en');
+			this._translateService.setTranslation('en', this._global.enTitles);
+		}
+
+	changeLang(lang: string) {
+
+		this._translateService.use(lang);
+		
+	}
 
 	ngOnInit() {}
 
