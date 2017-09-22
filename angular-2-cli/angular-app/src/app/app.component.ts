@@ -16,6 +16,8 @@ export class AppComponent {
 		this._translateService.setTranslation('en', this._global.enTitles);
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		//localStorage.setItem('currentLanguage', 'en');
+	}
 
 }
