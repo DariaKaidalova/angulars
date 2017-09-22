@@ -12,9 +12,7 @@ export class LanguagesBarComponent implements OnInit {
 	isEn: boolean = true;
 	isRu: boolean = false;
 
-  	constructor(
-		private _translateService: TranslateService,
-		private _global: Global) {}
+  	constructor(private _translateService: TranslateService, private _global: Global) {}
 
 	ngOnInit() {}
 
@@ -22,18 +20,18 @@ export class LanguagesBarComponent implements OnInit {
 
 		if(lang === 'en' && !this.isEn) {
 			this._translateService.use(lang);
-			//this._translateService.setTranslation('en', this._global.enTitles);
+			this._translateService.setTranslation('en', this._global.enTitles);
 			this.isEn = true;
 			this.isRu = false;
 		}
 		if(lang === 'ru' && !this.isRu) {
 			this._translateService.use(lang);
-			//this._translateService.setTranslation('en', this._global.ruTitles);
+			this._translateService.setTranslation('ru', this._global.ruTitles);
 			this.isRu = true;
 			this.isEn = false;
+			console.log(lang);
 		}
 		
 	}
-
 
 }
