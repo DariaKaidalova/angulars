@@ -19,7 +19,7 @@ ul {
   min-width: 600px;
   margin: 0 auto; }
 
-.g-clearfix:after, .b-header__block:after, .b-menu:after, .b-blocks:after, .b-gallery__list:after {
+.g-clearfix:after, .b-header__block:after, .b-menu:after, .b-blocks:after, .b-gallery__list:after, .b-languagesBar:after {
   content: "";
   display: table;
   clear: both; }
@@ -478,5 +478,27 @@ ul {
     width: 160px;
     height: 20px;
     background: url(assets/images/spinner/spinner.gif) no-repeat center center; }
+
+/*menu*/
+.b-languagesBar {
+  height: 100%; }
+  .b-languagesBar__item {
+    float: left;
+    height: inherit;
+    vertical-align: middle;
+    font: 15px/1.3 'Lobster', cursive; }
+    .b-languagesBar__item.-state_current {
+      background: #edd8da; }
+  .b-languagesBar__link {
+    display: flex;
+    padding: 0 7px;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer; }
+    .-state_current .b-languagesBar__link {
+      cursor: default; }
 
 /*# sourceMappingURL=styles.css.map */

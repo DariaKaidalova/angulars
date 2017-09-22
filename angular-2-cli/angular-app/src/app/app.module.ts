@@ -33,6 +33,7 @@ import { ImagesGalleryComponent } from './images-gallery/images-gallery.componen
 import { СropTextPipe } from './pipe/сrop-text-pipe.pipe';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { MainComponent } from './main/main.component';
+import { LanguagesBarComponent } from './languages-bar/languages-bar.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { MainComponent } from './main/main.component';
     ConfirmationPopupComponent,
     ImagesGalleryComponent,
     СropTextPipe,
-    SpinnerComponent
+    SpinnerComponent,
+    LanguagesBarComponent
   ],
   imports: [
     BrowserModule,

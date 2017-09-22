@@ -1,0 +1,35 @@
+/*menu*/
+
+.b-languagesBar {
+	@extend .g-clearfix;
+	height: 100%;
+
+	&__item {
+		float: left;
+		height: inherit;
+		vertical-align: middle;
+		font: 15px/1.3 'Lobster', cursive;
+
+		&.-state_current {
+			background: $color-pink-2;	
+		}
+	}
+
+	&__link {
+		display: flex;
+	    padding: 0 7px;
+		justify-content: center;
+		align-items: center;
+		height: inherit;
+		color: inherit;
+		text-decoration: none;
+		cursor: pointer;
+
+		.-state_current & {
+			cursor: default;	
+		}
+	}
+
+	&__text {}
+}
+
