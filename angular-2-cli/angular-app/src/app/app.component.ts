@@ -18,12 +18,6 @@ export class AppComponent {
 			this._translateService.setTranslation('en', this._global.enTitles);
 		}
 
-	changeLang(lang: string) {
-
-		this._translateService.use(lang);
-		
-	}
-
 	ngOnInit() {}
 
 }

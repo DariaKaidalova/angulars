@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Global } from '../global';
 
 @Component({
   selector: 'app-languages-bar',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguagesBarComponent implements OnInit {
 
-  constructor() { }
+	isEn: boolean = true;
+	isRu: boolean = false;
 
-  ngOnInit() {
-  }
+  	constructor(
+		private _translateService: TranslateService,
+		private _global: Global) {}
+
+	ngOnInit() {}
+
+	changeLanguage(lang: string) {
+
+		if(lang === 'en' && !this.isEn) {
+			this._translateService.use(lang);
+			//this._translateService.setTranslation('en', this._global.enTitles);
+			this.isEn = true;
+			this.isRu = false;
+		}
+		if(lang === 'ru' && !this.isRu) {
+			this._translateService.use(lang);
+			//this._translateService.setTranslation('en', this._global.ruTitles);
+			this.isRu = true;
+			this.isEn = false;
+		}
+		
+	}
+
 
 }
