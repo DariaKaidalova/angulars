@@ -23,13 +23,14 @@ export class LanguagesBarComponent implements OnInit {
 			this._translateService.setTranslation('en', this._global.enTitles);
 			this.isEn = true;
 			this.isRu = false;
+			localStorage.setItem('currentLanguage', 'en');
 		}
 		if(lang === 'ru' && !this.isRu) {
 			this._translateService.use(lang);
 			this._translateService.setTranslation('ru', this._global.ruTitles);
 			this.isRu = true;
 			this.isEn = false;
-			console.log(lang);
+			localStorage.setItem('currentLanguage', 'ru');
 		}
 		
 	}

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 export class Global {
 
-	public isShowSpinner: boolean = false;
+	public currentLanguage;
 	public enTitles = {
 		add_exercise: "Add exercise",
 		edit: "Edit",
@@ -28,6 +28,11 @@ export class Global {
 		add: "Добавить",
 		delete_all_images: 'Удалить все изображения',
 		back_to_exercises: "Вернуться к упражнениям"
+	}
+
+	ngOnInit() {
+		//this.currentLanguage = localStorage.getItem('currentLanguage');
+		console.log(localStorage.getItem('currentLanguage'));
 	}
 
 }
