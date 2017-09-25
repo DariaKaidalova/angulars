@@ -12,7 +12,6 @@ export class AppComponent {
 
 	ngOnInit() {
 
-		console.log('app.comp');
 		this._languagesService.determineLanguage();
 
 	}

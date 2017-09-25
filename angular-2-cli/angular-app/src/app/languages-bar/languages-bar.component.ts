@@ -11,8 +11,6 @@ export class LanguagesBarComponent implements OnInit {
 
   	constructor(private _translateService: TranslateService, private _languagesService: LanguagesService) {}
 
-	ngOnInit() {
-		console.log('languages');
-	}
+	ngOnInit() {}
 
 }
