@@ -48,9 +48,7 @@ export class LanguagesService {
 
 	constructor(private _translateService: TranslateService) {}
 
-	ngOnInit() {
-		console.log('lang.serv');
-	}
+	ngOnInit() {}
 
 	determineLanguage() {
 
@@ -97,11 +95,11 @@ export class LanguagesService {
 		
 	}
 
-	setLanguage(currentLanguage, languageArray, isEn, isRu, isPl) {
+	setLanguage(currentLanguage: string, languageObject, isEn:boolean, isRu:boolean, isPl:boolean) {
 
 		this._translateService.setDefaultLang(currentLanguage);
 		this._translateService.use(currentLanguage);
-		this._translateService.setTranslation(currentLanguage, languageArray);
+		this._translateService.setTranslation(currentLanguage, languageObject);
 		this.isEn = isEn;
 		this.isRu = isRu;
 		this.isPl = isPl;
