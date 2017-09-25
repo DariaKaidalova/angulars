@@ -15,23 +15,4 @@ export class LanguagesBarComponent implements OnInit {
 		console.log('languages');
 	}
 
-	changeLanguage(lang: string) {
-
-		if(lang === 'en' && !this._languagesService.isEn) {
-			this._translateService.use(lang);
-			this._translateService.setTranslation('en', this._languagesService.enTitles);
-			this._languagesService.isEn = true;
-			this._languagesService.isRu = false;
-			localStorage.setItem('currentLanguage', 'en');
-		}
-		if(lang === 'ru' && !this._languagesService.isRu) {
-			this._translateService.use(lang);
-			this._translateService.setTranslation('ru', this._languagesService.ruTitles);
-			this._languagesService.isRu = true;
-			this._languagesService.isEn = false;
-			localStorage.setItem('currentLanguage', 'ru');
-		}
-		
-	}
-
 }
