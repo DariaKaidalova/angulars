@@ -64,4 +64,10 @@ export class ExercisesDetailsComponent implements OnInit {
         this._router.navigate(['/exercises']);
     }
 
+    navigateToEditing(id) {
+
+        this._router.navigate(['/exercise/update', id]);
+
+    }
+
 }
