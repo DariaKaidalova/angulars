@@ -483,12 +483,16 @@ ul {
 .b-languagesBar {
   height: 100%; }
   .b-languagesBar__item {
+    min-width: 35px;
     float: left;
     height: inherit;
+    border-right: 1px solid #f1ede5;
     background: #f9f7f3;
     transition: background 0.5s ease;
     vertical-align: middle;
     font: 15px/1.3 'Lobster', cursive; }
+    .b-languagesBar__item:first-child {
+      border-left: 1px solid #f1ede5; }
     .b-languagesBar__item.-state_current {
       background: #edd8da; }
   .b-languagesBar__link {

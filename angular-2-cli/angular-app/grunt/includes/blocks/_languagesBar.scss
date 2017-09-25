@@ -5,12 +5,18 @@
 	height: 100%;
 
 	&__item {
+    min-width: 35px;
 		float: left;
 		height: inherit;
+		border-right: 1px solid #f1ede5;
 		background: $color-gray-4;
 		transition: background 0.5s ease;
 		vertical-align: middle;
 		font: 15px/1.3 'Lobster', cursive;
+
+		&:first-child {
+			border-left: 1px solid #f1ede5;
+		}
 
 		&.-state_current {
 			background: $color-pink-2;	
