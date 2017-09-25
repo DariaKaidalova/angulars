@@ -53,24 +53,26 @@ export class LanguagesService {
 	}
 
 	determineLanguage() {
-		console.log('determineLanguage');
+
 		var en = 'en', ru = 'ru', pl = 'pl';
+		var currentLanguage = localStorage.getItem('currentLanguage');
 
 		this._translateService.addLangs([en, ru, pl]);
-		
-		if(localStorage.getItem('currentLanguage') === ru) {
 
-			this.setLanguage(ru, this.ruTitles, false, true, false);
+		if(currentLanguage !== en) {
 
-		}
-		if(localStorage.getItem('currentLanguage') === pl) {
-
-			this.setLanguage(pl, this.plTitles, false, false, true);
+			if(currentLanguage === ru) {
+				this.setLanguage(ru, this.ruTitles, false, true, false);
+			}
+			if(currentLanguage === pl) {
+				this.setLanguage(pl, this.plTitles, false, false, true);
+			}
 
 		}
 		else {
 
 			this.setLanguage(en, this.enTitles, true, false, false);
+			localStorage.setItem('currentLanguage', en);
 
 		}
 
