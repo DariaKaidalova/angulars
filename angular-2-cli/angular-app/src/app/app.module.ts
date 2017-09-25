@@ -8,12 +8,12 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 /*app component*/
 import { AppComponent } from './app.component';
-/*file for global thinfs*/
-import { Global } from './global';
+
 /*routing*/
 import { RoutingModule } from './module/routing/routing.module';
 
 /* services */
+import { LanguagesService } from './service/languages.service';
 import { ExercisesService } from './service/exercises-blocks-service.service';
 import { ExercisesRestService } from './service/exercises-blocks-rest-service.service';
 import { MainService } from './service/main-service.service';
@@ -67,7 +67,7 @@ import { LanguagesBarComponent } from './languages-bar/languages-bar.component';
     ExercisesRestService,
     MainService,
     WindowService,
-    Global
+    LanguagesService
   ],
   bootstrap: [
     AppComponent

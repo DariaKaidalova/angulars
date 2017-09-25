@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Global } from '../global';
+import { LanguagesService } from '../service/languages.service';
 
 @Component({
   selector: 'app-languages-bar',
@@ -9,27 +9,26 @@ import { Global } from '../global';
 })
 export class LanguagesBarComponent implements OnInit {
 
-	isEn: boolean = true;
-	isRu: boolean = false;
+  	constructor(private _translateService: TranslateService, private _languagesService: LanguagesService) {}
 
-  	constructor(private _translateService: TranslateService, private _global: Global) {}
-
-	ngOnInit() {}
+	ngOnInit() {
+		console.log('languages');
+	}
 
 	changeLanguage(lang: string) {
 
-		if(lang === 'en' && !this.isEn) {
+		if(lang === 'en' && !this._languagesService.isEn) {
 			this._translateService.use(lang);
-			this._translateService.setTranslation('en', this._global.enTitles);
-			this.isEn = true;
-			this.isRu = false;
+			this._translateService.setTranslation('en', this._languagesService.enTitles);
+			this._languagesService.isEn = true;
+			this._languagesService.isRu = false;
 			localStorage.setItem('currentLanguage', 'en');
 		}
-		if(lang === 'ru' && !this.isRu) {
+		if(lang === 'ru' && !this._languagesService.isRu) {
 			this._translateService.use(lang);
-			this._translateService.setTranslation('ru', this._global.ruTitles);
-			this.isRu = true;
-			this.isEn = false;
+			this._translateService.setTranslation('ru', this._languagesService.ruTitles);
+			this._languagesService.isRu = true;
+			this._languagesService.isEn = false;
 			localStorage.setItem('currentLanguage', 'ru');
 		}
 		

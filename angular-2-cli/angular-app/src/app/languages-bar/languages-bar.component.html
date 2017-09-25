@@ -1,10 +1,10 @@
 <ul class="b-languagesBar">
-	<li class="b-languagesBar__item" [ngClass]="{'-state_current': isEn}">
+	<li class="b-languagesBar__item" [ngClass]="{'-state_current': _languagesService.isEn}">
 		<span href="" class="b-languagesBar__link" (click)="changeLanguage('en')">
 			<span class="b-languagesBar__text">EN</span>
 		</span>
 	</li>
-	<li class="b-languagesBar__item -language_ru" [ngClass]="{'-state_current': isRu}">
+	<li class="b-languagesBar__item -language_ru" [ngClass]="{'-state_current': _languagesService.isRu}">
 		<span href="" class="b-languagesBar__link" (click)="changeLanguage('ru')">
 			<span class="b-languagesBar__text">RU</span>
 		</span>
