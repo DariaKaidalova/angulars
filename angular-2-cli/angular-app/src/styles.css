@@ -392,6 +392,7 @@ ul {
       -webkit-transition: background-color 0.4s ease-out; }
   .b-gallery__slide {
     height: 100%;
+    padding: 0 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -420,10 +421,24 @@ ul {
     height: 22px;
     border-radius: 50%;
     background: #fff;
-    font-size: 23px;
+    font-size: 24px;
     line-height: 1;
     font-weight: 700;
     cursor: pointer; }
+  .b-gallery__slideArrow {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    margin: -20px 0 0 0;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer; }
+    .b-gallery__slideArrow.-direction_right {
+      right: 30px; }
+    .b-gallery__slideArrow.-direction_left {
+      left: 30px; }
 
 /*menu*/
 .b-uploader {
