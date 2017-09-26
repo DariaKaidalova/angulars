@@ -1,0 +1,14 @@
+/*button*/
+
+.b-title {
+	font: 23px/1.3 'Lobster', cursive;
+
+	&.-type_first {
+		margin-top: 0
+	}
+
+	&.-type_subtitle {
+		font-size: 20px;
+	}
+}
+

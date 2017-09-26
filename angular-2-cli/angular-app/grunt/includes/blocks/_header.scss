@@ -1,8 +1,13 @@
 /*header*/
 
 .b-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
 	min-height: 70px;
 	padding: 0 7px 0;
+    z-index: 100;
 	background: $color-white-1;
 	box-shadow: 1px -7px 26px #ccc;
 	border-top: 1px solid rgba(167, 62, 69, 0.2);
