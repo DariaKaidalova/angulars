@@ -19,7 +19,9 @@ export class LanguagesService {
 		upload: "Upload",
 		add: "Add",
 		delete_all_images: 'Delete all images',
-		back_to_exercises: "Back to exercises"
+		back_to_exercises: "Back to exercises",
+		menu_main: "Home",
+		menu_yoga_types: "Yoga types"
 	}
 	public ruTitles = {
 		add_exercise: "Добавить упражнение",
@@ -31,7 +33,9 @@ export class LanguagesService {
 		pload: "Загрузить",
 		add: "Добавить",
 		delete_all_images: 'Удалить все изображения',
-		back_to_exercises: "Вернуться к упражнениям"
+		back_to_exercises: "Вернуться к упражнениям",
+		menu_main: "Главная",
+		menu_yoga_types: "Виды йоги"
 	}
 	public plTitles = {
 		add_exercise: "Dodaj ćwiczenie",
@@ -43,7 +47,9 @@ export class LanguagesService {
 		pload: "Załaduj",
 		add: "Dodaj",
 		delete_all_images: 'Usuń wszystkie obrazki',
-		back_to_exercises: "Cofnij do ćwiczeń"
+		back_to_exercises: "Cofnij do ćwiczeń",
+		menu_main: "Strona główna",
+		menu_yoga_types: "Rodzaje jogi"
 	}
 
 	constructor(private _translateService: TranslateService) {}
