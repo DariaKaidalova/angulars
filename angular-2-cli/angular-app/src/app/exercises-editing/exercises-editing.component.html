@@ -4,21 +4,21 @@
 
 			<div class="b-form__item">
 				<div class="b-form__label">
-					<label for="" class="b-label -type_required">Название упражнения</label>
+					<label for="" class="b-label -type_required">{{ "exercise_name" | translate }}</label>
 				</div>
 				<input type="text" class="b-field" [(ngModel)]="editableName" name="editableName">
 			</div>
 
 			<div class="b-form__item">
 				<div class="b-form__label">
-					<label for="" class="b-label -type_required">Описание упражнения</label>
+					<label for="" class="b-label -type_required">{{ "exercise_description" | translate }}</label>
 				</div>
 				<textarea class="b-field -type_textarea" [(ngModel)]="editableDescription" name="editableDescription"></textarea>
 			</div>
 
 			<div class="b-form__item" *ngIf="editableImages?.length > 0">
 				<div class="b-form__label">
-					<label for="" class="b-label">Фотографии</label>
+					<label for="" class="b-label">{{ "exercise_images" | translate }}</label>
 				</div>
 				<app-images-gallery [(images)]="editableImages" (removeAction)="removeImage($event)"></app-images-gallery>
 				<button class="b-button" *ngIf="editableImages?.length > 0" (click)="removeImages()"><span class="b-button__icon icon-trash"></span> <span class="b-button__text">{{ "delete_all_images" | translate }}</span></button>

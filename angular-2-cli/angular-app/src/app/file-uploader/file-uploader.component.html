@@ -1,7 +1,7 @@
 <div class="b-uploader">
 	<div class="b-uploader__inner">
 		<div class="b-uploader__text">
-			<div>Загрузить изображения</div>
+			<div>{{ "upload_images" | translate }}</div>
 		</div>
 		<input class="b-uploader__hiddenArea" type="file" ng2FileSelect 
 				[uploader]="uploader" (onUpload)="onUpload($event)" 
