@@ -25,7 +25,10 @@ export class LanguagesService {
 		exercise_name: "Name of the exercise",
 		exercise_description: "Description of the exercise",
 		exercise_images: "Photos",
-		upload_images: "Upload images"
+		upload_images: "Upload images",
+		messageIsUsed: 'Exercise with this name has already been added!',
+		messageAdded: 'Exercise added!',
+		messageUpdated: 'The exercise has been updated!'
 	}
 	public ruTitles = {
 		add_exercise: "Добавить упражнение",
@@ -43,7 +46,10 @@ export class LanguagesService {
 		exercise_name: "Название упражнения",
 		exercise_description: "Описание упражнения",
 		exercise_images: "Фотографии",
-		upload_images: "Загрузить изображения"
+		upload_images: "Загрузить изображения",
+		messageIsUsed: 'Упражнение c данным названием уже добавлено!',
+		messageAdded: 'Упражнение добавлено!',
+		messageUpdated: 'Упражнение обновлено!'
 	}
 	public plTitles = {
 		add_exercise: "Dodaj ćwiczenie",
@@ -61,7 +67,10 @@ export class LanguagesService {
 		exercise_name: "Nazwa ćwiczenia",
 		exercise_description: "Opis ćwiczenia",
 		exercise_images: "Zdięcia",
-		upload_images: " Załaduj obrazki"
+		upload_images: " Załaduj obrazki",
+		messageIsUsed: 'Ćwiczenie z tą nazwą zostało już dodane!',
+		messageAdded: 'Ćwiczenie dodane!',
+		messageUpdated: 'Ćwiczenie zostało zaktualizowane!'
 	}
 
 	constructor(private _translateService: TranslateService) {}

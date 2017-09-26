@@ -3,14 +3,15 @@ import { Observable } from 'rxjs/Observable';
 
 import { ExercisesRestService } from './exercises-blocks-rest-service.service';
 import { Exercise } from '../interface/exercise.interface';
+import { LanguagesService } from './languages.service';
 import { Image } from '../interface/image.interface';
 
 @Injectable()
 export class ExercisesService {
 	exercises: Array<Exercise> = [];
-	messageIsUsed: string = 'Упражнение c данным названием уже добавлено!';
-	messageAdded: string = 'Упражнение добавлено!';
-	messageUpdated: string = 'Упражнение обновлено!';
+	messageIsUsed: string = '';
+	messageAdded: string = '';
+	messageUpdated: string = '';
 	messageSuccess: string = '';
 	messageError: string = ''; 
 	isUsed: boolean = false;
@@ -22,7 +23,7 @@ export class ExercisesService {
     editableDescription: string = '';
     editableImages: Array<Image>;
 
-	constructor(private _exercisesRestService: ExercisesRestService) {}
+	constructor(private _exercisesRestService: ExercisesRestService, private _languagesService: LanguagesService) {}
 
 	сheckIdenticalNames(comparableName) {
 
@@ -89,6 +90,9 @@ export class ExercisesService {
     }
 
 	removeImage(imageId, imageArray) {
+		
+		this.checkLanguage();
+
         for(var i = 0; i < imageArray.length; i++) {
             if(imageId === imageArray[i].id) {
                 imageArray.splice(i, 1);
@@ -112,6 +116,8 @@ export class ExercisesService {
 
 	update(id, name, description, imagesArray) {
 
+		this.checkLanguage();
+
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].id === id) {
 				if(this.exercises[i].name != name.trim()) this.сheckIdenticalNames(name);
@@ -129,6 +135,26 @@ export class ExercisesService {
 				break;
 			}
 		}
+	}
+
+	checkLanguage() {
+
+		if(this._languagesService.isEn) {
+			this.messageIsUsed = this._languagesService.enTitles.messageIsUsed;
+			this.messageAdded = this._languagesService.enTitles.messageAdded;
+			this.messageUpdated = this._languagesService.enTitles.messageUpdated;
+		}
+		if(this._languagesService.isRu) {
+			this.messageIsUsed = this._languagesService.ruTitles.messageIsUsed;
+			this.messageAdded = this._languagesService.ruTitles.messageAdded;
+			this.messageUpdated = this._languagesService.ruTitles.messageUpdated;
+		}
+		if(this._languagesService.isPl) {
+			this.messageIsUsed = this._languagesService.plTitles.messageIsUsed;
+			this.messageAdded = this._languagesService.plTitles.messageAdded;
+			this.messageUpdated = this._languagesService.plTitles.messageUpdated;
+		}
+
 	}
 
 }
