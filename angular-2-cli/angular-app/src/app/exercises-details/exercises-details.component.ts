@@ -50,8 +50,6 @@ export class ExercisesDetailsComponent implements OnInit {
                                 this.detailName = this.exercise.name;
                                 this.detailDescription =  this.exercise.description;
                                 this.detailImages = this.exercise.images;
-                                console.log('this.detailImages:');
-                                console.log(this.detailImages);
                             },
                 err => { console.log(err); console.error('cannot GET editable entry in the database using using ID = '+this.detailId); }
             );

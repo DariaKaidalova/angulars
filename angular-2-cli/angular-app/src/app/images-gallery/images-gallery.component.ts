@@ -39,7 +39,6 @@ export class ImagesGalleryComponent implements OnInit {
 
     @HostListener('window:resize', [])
     onResize() {
-        console.log('onResize');
         this.calculateSizes();
     }
 
@@ -178,9 +177,6 @@ export class ImagesGalleryComponent implements OnInit {
         this.WH = this._windowService.nativeWindow.window.innerHeight;
         this.maxIW = this.WW - 50;
         this.maxIH = this.WH - 50;
-        //console.log(this._windowService.nativeWindow.window.innerWidth);
-        console.log('ww = '+this.WW, 'wh = '+this.WH);
-        //console.log('iw = '+this.maxIW, 'ih = '+this.maxIH);
     }
 
     hideScroll() {

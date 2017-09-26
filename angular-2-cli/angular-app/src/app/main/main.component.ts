@@ -1,5 +1,4 @@
 import { Component, OnInit,  Input, Output, EventEmitter } from '@angular/core';
-import { Global } from '../global'
 import { MainService } from '../service/main-service.service'
 
 @Component({
@@ -13,11 +12,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
 
-    //setTimeout(()=> { 
-      this._mainService.isShowSpinner = false; 
-    //}, 1000);
-
-    //console.log('main', this._mainService.isShowSpinner);
+    this._mainService.isShowSpinner = false; 
+    
   }
 
 }
