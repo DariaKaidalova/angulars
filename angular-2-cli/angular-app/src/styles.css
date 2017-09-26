@@ -110,7 +110,7 @@ ul {
   .b-blocks__item {
     position: relative;
     width: 48%;
-    min-height: 190px;
+    min-height: 100px;
     box-sizing: border-box;
     float: left;
     margin: 0 1% 15px;
@@ -130,7 +130,8 @@ ul {
     font: 19px/1.3 'Lobster', cursive;
     cursor: pointer; }
   .b-blocks__text {
-    line-height: 1.5; }
+    line-height: 1.5;
+    white-space: pre-wrap; }
   .b-blocks__link {
     color: inherit;
     text-decoration: none; }
