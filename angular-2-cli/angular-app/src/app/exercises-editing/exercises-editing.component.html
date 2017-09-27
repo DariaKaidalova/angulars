@@ -1,4 +1,4 @@
-<form class="b-form">
+<form (ngSubmit)="onSubmit()" #exForm="ngForm" class="b-form">
 	<div class="b-form__inner">
 		<div class="b-form__row">
 
@@ -6,14 +6,14 @@
 				<div class="b-form__label">
 					<label for="" class="b-label -type_required">{{ "exercise_name" | translate }}</label>
 				</div>
-				<input type="text" class="b-field" [(ngModel)]="editableName" name="editableName">
+				<input type="text" class="b-field" [(ngModel)]="editableName" name="editableName" required>
 			</div>
 
 			<div class="b-form__item">
 				<div class="b-form__label">
 					<label for="" class="b-label -type_required">{{ "exercise_description" | translate }}</label>
 				</div>
-				<textarea class="b-field -type_textarea" [(ngModel)]="editableDescription" name="editableDescription"></textarea>
+				<textarea class="b-field -type_textarea" [(ngModel)]="editableDescription" name="editableDescription" required></textarea>
 			</div>
 
 			<div class="b-form__item" *ngIf="editableImages?.length > 0">
@@ -27,7 +27,7 @@
 			<file-uploader></file-uploader>
 
 			<div class="b-form__item -type_button">
-				<button class="b-button" (click)="updateExerciseBlock()">
+				<button class="b-button" (click)="updateExerciseBlock()" [disabled]="!exForm.form.valid">
 					<span class="b-button__icon icon-check"></span> <span class="b-button__text">{{ "save" | translate }}</span> 
 				</button>
 				<button class="b-button" (click)="openConfirmPopup()">

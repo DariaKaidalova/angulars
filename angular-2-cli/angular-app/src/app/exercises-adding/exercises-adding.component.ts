@@ -77,7 +77,9 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
     }
 
     navigateToExercises() {
+
         this._router.navigate(['/exercises']);
+        
     }
 
 }

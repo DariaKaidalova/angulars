@@ -90,7 +90,7 @@ export class ExercisesService {
     }
 
 	removeImage(imageId, imageArray) {
-		
+
 		this.checkLanguage();
 
         for(var i = 0; i < imageArray.length; i++) {
@@ -139,20 +139,24 @@ export class ExercisesService {
 
 	checkLanguage() {
 
+
 		if(this._languagesService.isEn) {
 			this.messageIsUsed = this._languagesService.enTitles.messageIsUsed;
 			this.messageAdded = this._languagesService.enTitles.messageAdded;
 			this.messageUpdated = this._languagesService.enTitles.messageUpdated;
+			console.log('isEn = '+this._languagesService.isEn);
 		}
 		if(this._languagesService.isRu) {
 			this.messageIsUsed = this._languagesService.ruTitles.messageIsUsed;
 			this.messageAdded = this._languagesService.ruTitles.messageAdded;
 			this.messageUpdated = this._languagesService.ruTitles.messageUpdated;
+			console.log('isRu = '+this._languagesService.isRu);
 		}
 		if(this._languagesService.isPl) {
 			this.messageIsUsed = this._languagesService.plTitles.messageIsUsed;
 			this.messageAdded = this._languagesService.plTitles.messageAdded;
 			this.messageUpdated = this._languagesService.plTitles.messageUpdated;
+			console.log('isPl = '+this._languagesService.isPl);
 		}
 
 	}
