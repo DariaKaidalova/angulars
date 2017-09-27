@@ -39,8 +39,9 @@
 			</div>
 
 			<div class="b-form__item -type_message">
-				<div class="b-message -type_error" *ngIf="messageEditableError">{{messageEditableError}}</div>
-				<div class="b-message -type_success" *ngIf="messageEditableSuccess">{{messageEditableSuccess}}</div>
+				<div class="b-message -type_error" *ngIf="!exForm.form.valid">{{ "messageRequired" | translate }}</div> <!-- *ngIf="messageEditableError" -->
+				<div class="b-message -type_error" >{{ "messageIsUsed" | translate }}</div>
+				<div class="b-message -type_success">{{ "messageUpdated" | translate }}</div> <!-- *ngIf="messageEditableSuccess" -->
 			</div> 	
 		</div>
 	</div>

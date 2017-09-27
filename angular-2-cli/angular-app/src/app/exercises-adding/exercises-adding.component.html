@@ -28,8 +28,9 @@
 				</button>
 			</div>
 			<div class="b-form__item -type_message">
-				<div class="b-message -type_error" *ngIf="messageError">{{messageError}}</div>
-				<div class="b-message -type_success" *ngIf="messageSuccess">{{messageSuccess}}</div>
+				<div class="b-message -type_error" *ngIf="!exForm.form.valid">{{ "messageRequired" | translate }}</div> <!-- *ngIf="messageError" -->
+				<div class="b-message -type_error">{{ "messageIsUsed" | translate }}</div>
+				<div class="b-message -type_success" >{{ "messageAdded" | translate }}</div> <!-- *ngIf="messageSuccess" -->
 			</div> 	
 		</div>
 	</div>
