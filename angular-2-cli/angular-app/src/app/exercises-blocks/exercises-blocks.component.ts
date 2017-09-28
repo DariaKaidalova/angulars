@@ -1,13 +1,14 @@
 import { Component, OnInit, OnChanges, ViewChild, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { RouterModule, Routes, Router }  from '@angular/router';
-import {TranslateService} from '@ngx-translate/core';
 
 import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
+import { LanguagesService } from '../service/languages.service';
 import { Exercise } from '../interface/exercise.interface';
 import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
 import { СropTextPipe } from '../pipe/сrop-text-pipe.pipe';
+
 
 @Component({
   selector: 'app-exercises-blocks',
@@ -30,7 +31,8 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
     constructor(
         private _exercisesService: ExercisesService, 
         private _exercisesRestService: ExercisesRestService, 
-        private _router: Router) {}
+        private _router: Router,
+        private _languagesService: LanguagesService) {}
 
     ngOnInit() {
 
@@ -93,10 +95,19 @@ export class ExercisesBlocksComponent implements OnInit, OnChanges {
 
     openConfirmPopup(id) {
 
-        this.confirmRemoveMessage = 'Вы уверены, что хотите удалить упражнение?';
+        if(!this._languagesService.isEn) {
+            if(this._languagesService.isRu) {
+                this.confirmRemoveMessage = this._languagesService.ruTitles.message_delete_exercise;
+            }
+            if(this._languagesService.isPl) {
+                this.confirmRemoveMessage = this._languagesService.plTitles.message_delete_exercise;
+            }
+        }
+        else {
+            this.confirmRemoveMessage = this._languagesService.enTitles.message_delete_exercise;
+        }
         this.removeId = id;
         this.isOpenedPopup = true;
-
     }
 
     closeConfirmPopup() {

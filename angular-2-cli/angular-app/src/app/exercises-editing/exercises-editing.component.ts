@@ -5,6 +5,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
+import { LanguagesService } from '../service/languages.service';
 import { Exercise } from '../interface/exercise.interface';
 import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
 import { Image } from '../interface/image.interface';
@@ -37,7 +38,8 @@ export class ExercisesEditingComponent implements OnInit {
 		private _exercisesService: ExercisesService, 
 		private _exercisesRestService: ExercisesRestService, 
 		private _route: ActivatedRoute,
-		private _router: Router
+		private _router: Router,
+        private _languagesService: LanguagesService
 	) {}
 
 	ngOnInit() {
@@ -139,7 +141,17 @@ export class ExercisesEditingComponent implements OnInit {
 
     openConfirmPopup() {
 
-        this.confirmRemoveMessage = 'Вы уверены, что хотите удалить упражнение?';
+        if(!this._languagesService.isEn) {
+            if(this._languagesService.isRu) {
+            this.confirmRemoveMessage = this._languagesService.ruTitles.message_delete_exercise;
+            }
+            if(this._languagesService.isPl) {
+            this.confirmRemoveMessage = this._languagesService.plTitles.message_delete_exercise;
+            }
+        }
+        else {
+            this.confirmRemoveMessage = this._languagesService.enTitles.message_delete_exercise;
+        }
         this.isOpenedPopup = true;
 
     }

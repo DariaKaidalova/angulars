@@ -278,7 +278,8 @@ ul {
     border: 1px solid rgba(167, 62, 69, 0.2);
     background: #fff; }
   .b-popup__text {
-    margin: 0 0 15px; }
+    margin: 0 0 15px;
+    text-align: center; }
   .b-popup__buttons {
     text-align: center; }
   .b-popup__close {
