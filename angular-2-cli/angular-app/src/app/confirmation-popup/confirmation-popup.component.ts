@@ -7,7 +7,7 @@ import * as jQuery from 'jquery';
 	styleUrls: ['./confirmation-popup.component.css']
 })
 export class ConfirmationPopupComponent implements OnInit, OnChanges {
-	@Input() message: string;
+	@Input() message: any;
 	@Input() parameter: number;
 	@Input() isOpenedPopup: boolean;
 

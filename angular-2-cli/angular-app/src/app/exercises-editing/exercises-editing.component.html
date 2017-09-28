@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" #exForm="ngForm" class="b-form">
+<form #exForm="ngForm" class="b-form">
 	<div class="b-form__inner">
 		<div class="b-form__row">
 
@@ -39,9 +39,9 @@
 			</div>
 
 			<div class="b-form__item -type_message">
-				<div class="b-message -type_error">{{ "messageRequired" | translate }}</div> <!-- *ngIf="messageEditableError" -->
-				<div class="b-message -type_error">{{ "messageIsUsed" | translate }}</div>
-				<div class="b-message -type_success">{{ "messageUpdated" | translate }}</div> <!-- *ngIf="messageEditableSuccess" -->
+				<div class="b-message -type_error" *ngIf="!exForm.form.valid">{{ "message_required" | translate }}</div>
+				<div class="b-message -type_error" *ngIf="isUsed">{{ "message_is_used" | translate }}</div>
+				<div class="b-message -type_success" *ngIf="isUpdated">{{ "message_updated" | translate }}</div>
 			</div> 	
 		</div>
 	</div>

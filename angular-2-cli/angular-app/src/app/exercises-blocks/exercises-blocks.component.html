@@ -19,8 +19,8 @@
 		</div>
 	</li>
 </ul>
-
-<app-confirmation-popup [message]="confirmRemoveMessage" 
+<!-- {{ 'message_delete_exercise' | translate }} -->
+<app-confirmation-popup [(message)]="confirmRemoveMessage" 
 						[(isOpenedPopup)]="isOpenedPopup"
 						(closeAction) = "closeConfirmPopup()" 
 						(confirmAction)="removeExerciseBlock(removeId)" 

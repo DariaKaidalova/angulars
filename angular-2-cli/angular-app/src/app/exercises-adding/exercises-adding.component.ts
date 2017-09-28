@@ -20,16 +20,17 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
     @ViewChild(FileUploaderComponent)
     private _fileUploader: FileUploaderComponent;
 
-	messageError: string = '';
-	messageSuccess: string = '';
-	isUsed: boolean = false;
+    isUsed: boolean = false;
+    isAdded: boolean = false;
 
 	constructor(
 		private _exercisesService: ExercisesService, 
 		private _exercisesRestService: ExercisesRestService, 
 		private _router: Router) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+        console.log('add');
+    }
 
     ngOnChanges(changes: any) {}
 
@@ -62,18 +63,17 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
             exercisesOperation = this._exercisesRestService.add(newExersices);
             exercisesOperation.subscribe(
                 exercises => { 
+                    this.newName = this._exercisesService.name;
+                    this.newDescription = this._exercisesService.description;
+                    this.newImages = this._exercisesService.images;
+                    this.isAdded = this._exercisesService.isAdded;
                     this.getExerciseBlocks();
-                    this._router.navigate(['/exercises']); 
+                    setTimeout( 
+                        () => { this.navigateToExercises(); }, 1000
+                    );
                 }, 
                 err => { console.log(err); console.error('cannot ADD entry into the database using NAME = '+newExersices.name); });
         }
-
-        this.messageSuccess = this._exercisesService.messageSuccess;
-        this.messageError = this._exercisesService.messageError;
-        this.newName = this._exercisesService.name;
-        this.newDescription = this._exercisesService.description;
-        this.newImages = this._exercisesService.images;
-
     }
 
     navigateToExercises() {

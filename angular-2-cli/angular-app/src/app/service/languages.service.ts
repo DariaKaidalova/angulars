@@ -26,10 +26,11 @@ export class LanguagesService {
 		exercise_description: "Description of the exercise",
 		exercise_images: "Photos",
 		upload_images: "Upload images",
-		messageIsUsed: 'The exercise with this name has already been added!',
-		messageAdded: 'The exercise has been added!',
-		messageUpdated: 'The exercise has been updated!',
-		messageRequired: 'Please fill in all required fields!'
+		message_is_used: 'The exercise with this name has already been added!',
+		message_added: 'The exercise has been added!',
+		message_updated: 'The exercise has been updated!',
+		message_required: 'Please fill in all required fields!',
+		message_delete_exercise: 'Are you sure you want to delete the exercise?'
 	}
 	public ruTitles = {
 		add_exercise: "Добавить упражнение",
@@ -48,10 +49,11 @@ export class LanguagesService {
 		exercise_description: "Описание упражнения",
 		exercise_images: "Фотографии",
 		upload_images: "Загрузить изображения",
-		messageIsUsed: 'Упражнение c данным названием уже добавлено!',
-		messageAdded: 'Упражнение добавлено!',
-		messageUpdated: 'Упражнение обновлено!',
-		messageRequired: 'Пожалуйста заполните все обязательные поля'
+		message_is_used: 'Упражнение c данным названием уже добавлено!',
+		message_added: 'Упражнение добавлено!',
+		message_updated: 'Упражнение обновлено!',
+		message_required: 'Пожалуйста заполните все обязательные поля',
+		message_delete_exercise: 'Вы уверены, что хотите удалить упражнение?'
 	}
 	public plTitles = {
 		add_exercise: "Dodaj ćwiczenie",
@@ -70,10 +72,11 @@ export class LanguagesService {
 		exercise_description: "Opis ćwiczenia",
 		exercise_images: "Zdięcia",
 		upload_images: " Załaduj obrazki",
-		messageIsUsed: 'Ćwiczenie z tą nazwą zostało już dodane!',
-		messageAdded: 'Ćwiczenie dodane!',
-		messageUpdated: 'Ćwiczenie zostało zaktualizowane!',
-		messageRequired: 'Proszę wypełnić wszystkie wymagane pola!'
+		message_is_used: 'Ćwiczenie z tą nazwą zostało już dodane!',
+		message_added: 'Ćwiczenie dodane!',
+		message_updated: 'Ćwiczenie zostało zaktualizowane!',
+		message_required: 'Proszę wypełnić wszystkie wymagane pola!',
+		message_delete_exercise: 'Czy na pewno chcesz usunąć ćwiczenie?'
 	}
 
 	constructor(private _translateService: TranslateService) {}

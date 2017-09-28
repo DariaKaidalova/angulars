@@ -22,14 +22,16 @@ export class ExercisesEditingComponent implements OnInit {
     editableImages: Array<Image>;
     newImages: Array<Image>;
 
+    isUsed: boolean = false;
+    isUpdated: boolean = false;
+
+    confirmRemoveMessage: string = '';
+    isOpenedPopup: boolean = false;
+
     @ViewChild(FileUploaderComponent)
     private _fileUploader: FileUploaderComponent;
 
-    messageEditableError: string = '';
-    messageEditableSuccess: string = '';
-    confirmRemoveMessage: string = '';
-    isOpenedPopup: boolean = false;
-    isEditableUsed: boolean = false;
+
 
 	constructor(
 		private _exercisesService: ExercisesService, 
@@ -81,7 +83,7 @@ export class ExercisesEditingComponent implements OnInit {
             exercises => { 
                 this._exercisesService.remove(this.editableId);
                 this.getExerciseBlocks();
-                this._router.navigate(['/exercises']);
+                this.navigateToExercises();
              }, 
             err => { console.log(err); console.error('cannot REMOVE entry from the database using ID = '+this.editableId); }
         );
@@ -116,25 +118,23 @@ export class ExercisesEditingComponent implements OnInit {
 
         this._exercisesService.update(this.editableId, this.editableName, this.editableDescription, this.editableImages);
 
-        this.isEditableUsed = this._exercisesService.isUsed;
+        this.isUsed = this._exercisesService.isUsed;
 
-        if(!this.isEditableUsed) {
+        if(!this.isUsed) {
             let exercisesOperation:Observable<Exercise[]>;
             const editableExersices = { id: this.editableId, name: this.editableName, description: this.editableDescription, images: this.editableImages};
             exercisesOperation = this._exercisesRestService.update(editableExersices);
             exercisesOperation.subscribe(
                 exercises => {
                     this.getExerciseBlocks();
+                    this.isUpdated = this._exercisesService.isUpdated;
                     setTimeout( 
-                        () => { this._router.navigate(['/exercises']); }, 1000
+                        () => { this.navigateToExercises(); }, 1000
                     );
                 }, 
                 err => { console.log(err); console.error('cannot UPDATE entry in the database using ID = '+this.editableId); }
             );
         }
-
-        this.messageEditableSuccess = this._exercisesService.messageSuccess;
-        this.messageEditableError = this._exercisesService.messageError;
     }
 
     openConfirmPopup() {

@@ -9,12 +9,6 @@ import { Image } from '../interface/image.interface';
 @Injectable()
 export class ExercisesService {
 	exercises: Array<Exercise> = [];
-	messageIsUsed: string = '';
-	messageAdded: string = '';
-	messageUpdated: string = '';
-	messageSuccess: string = '';
-	messageError: string = ''; 
-	isUsed: boolean = false;
 	id: number = 0;
 	name: string = '';
 	description: string = '';
@@ -22,6 +16,10 @@ export class ExercisesService {
 	editableName: string = '';
     editableDescription: string = '';
     editableImages: Array<Image>;
+
+    isUsed: boolean = false;
+    isAdded: boolean = false;
+    isUpdated: boolean = false;
 
 	constructor(private _exercisesRestService: ExercisesRestService, private _languagesService: LanguagesService) {}
 
@@ -48,15 +46,13 @@ export class ExercisesService {
 		if(!this.isUsed) {
 			const newExersices = {id: null, name: this.name, description: this.description, images: this.images};
 			this.exercises.push(newExersices);
-	  		this.messageError = '';
-	  		this.messageSuccess = this.messageAdded;
+			this.isAdded = true;
 	  		this.name = '';
 	  		this.description = '';
 			this.images = [];
 	  	}
 	  	else {
-	  		this.messageSuccess = '';
-	  		this.messageError = this.messageIsUsed;
+			this.isAdded = false;
 	  	}
 	}
 
@@ -91,7 +87,6 @@ export class ExercisesService {
 
 	removeImage(imageId, imageArray) {
 
-		this.checkLanguage();
 
         for(var i = 0; i < imageArray.length; i++) {
             if(imageId === imageArray[i].id) {
@@ -116,8 +111,6 @@ export class ExercisesService {
 
 	update(id, name, description, imagesArray) {
 
-		this.checkLanguage();
-
 		for(var i = 0; i < this.exercises.length; i++) {
 			if(this.exercises[i].id === id) {
 				if(this.exercises[i].name != name.trim()) this.сheckIdenticalNames(name);
@@ -125,40 +118,14 @@ export class ExercisesService {
 					this.exercises[i].name = name; 
 					this.exercises[i].description = description;
 					this.exercises[i].images = imagesArray;
-					this.messageError = '';
-	  				this.messageSuccess = this.messageUpdated;
+					this.isUpdated = true;
 				}
 				else {
-					this.messageSuccess = '';
-	  				this.messageError = this.messageIsUsed;
+					this.isUpdated = false;
 				}
 				break;
 			}
 		}
-	}
-
-	checkLanguage() {
-
-
-		if(this._languagesService.isEn) {
-			this.messageIsUsed = this._languagesService.enTitles.messageIsUsed;
-			this.messageAdded = this._languagesService.enTitles.messageAdded;
-			this.messageUpdated = this._languagesService.enTitles.messageUpdated;
-			console.log('isEn = '+this._languagesService.isEn);
-		}
-		if(this._languagesService.isRu) {
-			this.messageIsUsed = this._languagesService.ruTitles.messageIsUsed;
-			this.messageAdded = this._languagesService.ruTitles.messageAdded;
-			this.messageUpdated = this._languagesService.ruTitles.messageUpdated;
-			console.log('isRu = '+this._languagesService.isRu);
-		}
-		if(this._languagesService.isPl) {
-			this.messageIsUsed = this._languagesService.plTitles.messageIsUsed;
-			this.messageAdded = this._languagesService.plTitles.messageAdded;
-			this.messageUpdated = this._languagesService.plTitles.messageUpdated;
-			console.log('isPl = '+this._languagesService.isPl);
-		}
-
 	}
 
 }
