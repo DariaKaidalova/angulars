@@ -30,7 +30,9 @@ export class LanguagesService {
 		message_added: 'The exercise has been added!',
 		message_updated: 'The exercise has been updated!',
 		message_required: 'Please fill in all required fields!',
-		message_delete_exercise: 'Are you sure you want to delete the exercise?'
+		message_delete_exercise: 'Are you sure you want to delete the exercise?',
+		yes: 'Yes',
+		no: 'No'
 	}
 	public ruTitles = {
 		add_exercise: "Добавить упражнение",
@@ -39,7 +41,7 @@ export class LanguagesService {
 		cancel: "Отмена",
 		save: "Сохранить",
 		clear: "Очистить",
-		pload: "Загрузить",
+		upload: "Загрузить",
 		add: "Добавить",
 		delete_all_images: 'Удалить все изображения',
 		back_to_exercises: "Вернуться к упражнениям",
@@ -53,7 +55,9 @@ export class LanguagesService {
 		message_added: 'Упражнение добавлено!',
 		message_updated: 'Упражнение обновлено!',
 		message_required: 'Пожалуйста заполните все обязательные поля',
-		message_delete_exercise: 'Вы уверены, что хотите удалить упражнение?'
+		message_delete_exercise: 'Вы уверены, что хотите удалить упражнение?',
+		yes: 'Да',
+		no: 'Нет'
 	}
 	public plTitles = {
 		add_exercise: "Dodaj ćwiczenie",
@@ -62,7 +66,7 @@ export class LanguagesService {
 		cancel: "Anuluj",
 		save: "Zapisz",
 		clear: "Wyczyść",
-		pload: "Załaduj",
+		upload: "Załaduj",
 		add: "Dodaj",
 		delete_all_images: 'Usuń wszystkie obrazki',
 		back_to_exercises: "Cofnij do ćwiczeń",
@@ -76,7 +80,9 @@ export class LanguagesService {
 		message_added: 'Ćwiczenie dodane!',
 		message_updated: 'Ćwiczenie zostało zaktualizowane!',
 		message_required: 'Proszę wypełnić wszystkie wymagane pola!',
-		message_delete_exercise: 'Czy na pewno chcesz usunąć ćwiczenie?'
+		message_delete_exercise: 'Czy na pewno chcesz usunąć ćwiczenie?',
+		yes: 'Tak',
+		no: 'Nie'
 	}
 
 	constructor(private _translateService: TranslateService) {}
