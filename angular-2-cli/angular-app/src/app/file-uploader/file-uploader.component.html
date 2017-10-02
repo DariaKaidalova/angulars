@@ -19,8 +19,8 @@
 </button> 
 
 <ul class="b-uploaderFiles">
-	<li class="b-uploaderFiles__item" *ngFor="let queueItem of uploader.queue">
-		<span class="b-uploaderFiles__itemInner" [ngClass]="{'-type_loaded': queueItem.isSuccess}">{{ queueItem?.file?.name }}</span>
+	<li class="b-uploaderFiles__item" *ngFor="let queueItem of uploader.queue" [ngClass]="{'-type_loaded': queueItem.isSuccess}">
+		<span class="b-uploaderFiles__itemInner">{{ queueItem?.file?.name }}</span>
 	</li>
 </ul>
 

@@ -3,6 +3,11 @@ import { Image } from '../interface/image-gallery.interface';
 import * as jQuery from 'jquery';
 import { WindowService } from '../service/window.service';
 
+export enum KEY_CODE {
+  RIGHT_ARROW = 39,
+  LEFT_ARROW = 37
+}
+
 @Component({
   selector: 'app-images-gallery',
   templateUrl: './images-gallery.component.html',
@@ -26,8 +31,6 @@ export class ImagesGalleryComponent implements OnInit {
     maxIH: number;
     
     constructor(private _windowService: WindowService) {}
-
-    
 
     ngOnInit() {
 
@@ -94,6 +97,19 @@ export class ImagesGalleryComponent implements OnInit {
         }, 200);
         this.showScroll();
 
+    }
+
+    @HostListener('window:keyup', ['$event'])
+    keyboardSlideSwitch(event: KeyboardEvent) {
+        console.log(event);
+
+        if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
+            this.showNextSlide();
+        }
+
+        if (event.keyCode === KEY_CODE.LEFT_ARROW) {
+            this.showPrevSlide();
+        }
     }
 
     showNextSlide() {

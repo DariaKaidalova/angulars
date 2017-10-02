@@ -193,6 +193,8 @@ ul {
   font-size: 12px;
   font-weight: 700;
   cursor: pointer; }
+  .b-button:disabled, .b-uploader__button:disabled {
+    cursor: default; }
   .b-button__icon, .b-button__text {
     display: inline-block;
     vertical-align: middle; }
@@ -478,13 +480,13 @@ ul {
   .b-uploaderFiles__item {
     display: inline-block;
     margin: 0 5px 5px 0; }
+    .b-uploaderFiles__item.-type_loaded {
+      display: none; }
   .b-uploaderFiles__itemInner {
     display: block;
     padding: 2px 4px;
     border-radius: 3px;
-    background: #edd8da; }
-    .b-uploaderFiles__itemInner.-type_loaded {
-      background-color: #c4da9b; }
+    background-color: #c4da9b; }
 
 /*spinner*/
 .b-spinner {
