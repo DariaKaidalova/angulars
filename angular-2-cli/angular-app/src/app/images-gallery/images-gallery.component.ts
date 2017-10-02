@@ -101,7 +101,6 @@ export class ImagesGalleryComponent implements OnInit {
 
     @HostListener('window:keyup', ['$event'])
     keyboardSlideSwitch(event: KeyboardEvent) {
-        console.log(event);
 
         if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
             this.showNextSlide();
@@ -110,6 +109,7 @@ export class ImagesGalleryComponent implements OnInit {
         if (event.keyCode === KEY_CODE.LEFT_ARROW) {
             this.showPrevSlide();
         }
+        
     }
 
     showNextSlide() {
