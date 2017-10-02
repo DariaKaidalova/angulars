@@ -87,10 +87,17 @@ export class LanguagesService {
 
 		var en = 'en', ru = 'ru', pl = 'pl';
 		var currentLanguage = localStorage.getItem('currentLanguage');
+		console.log('currentLanguage = '+currentLanguage);
 
 		this._translateService.addLangs([en, ru, pl]);
 
-		if(currentLanguage !== en) {
+		if(!currentLanguage || currentLanguage === en) {
+
+			this.setLanguage(en, this.enTitles, true, false, false);
+			localStorage.setItem('currentLanguage', en);
+
+		}
+		else {
 
 			if(currentLanguage === ru) {
 				this.setLanguage(ru, this.ruTitles, false, true, false);
@@ -98,12 +105,6 @@ export class LanguagesService {
 			if(currentLanguage === pl) {
 				this.setLanguage(pl, this.plTitles, false, false, true);
 			}
-
-		}
-		else {
-
-			this.setLanguage(en, this.enTitles, true, false, false);
-			localStorage.setItem('currentLanguage', en);
 
 		}
 
