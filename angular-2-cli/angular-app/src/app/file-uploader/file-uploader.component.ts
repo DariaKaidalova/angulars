@@ -17,6 +17,7 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 	public loadedImages: Array<Image> = [];
 	public imagesNames: Array<{}> = [];
 	public isUpload: boolean;
+	public is400: boolean = false;
 	public is400EmptyFile: boolean = false;
 	public is400UploadError: boolean = false;
 	public is400TooLargeSize: boolean = false;
@@ -40,37 +41,38 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 
 			if(status === 400) {
 
+				this.is400 = true;
+
 				if(newImage.code === 'EMPTY_FILE') {
 					this.is400EmptyFile = true;
-					console.log(newImage);
 				}
 				if(newImage.code === 'UPLOAD_ERROR') {
 					this.is400UploadError = true;
-					console.log(newImage);
 				}
 				if(newImage.code === 'UPLOAD_FILE_TOO_LARGE') {
 					this.is400TooLargeSize = true;
-					console.log(newImage);
 				}
 				else {
 					this.is400UnknownError = true;
-					console.log(newImage);
 				}
 				
 			}
 
-			var newImageObject = {
-				id: newImage.id,
-				name: newImage.name,
-				_links: {
-					self: {
-						href: newImage._links.self.href
-					}
-				}
-			};
+			else {
 
-			this.loadedImages.push(newImageObject);
-			this.checkLoadedImagesArray();
+				var newImageObject = {
+					id: newImage.id,
+					name: newImage.name,
+					_links: {
+						self: {
+							href: newImage._links.self.href
+						}
+					}
+				};
+
+				this.loadedImages.push(newImageObject);
+				this.checkLoadedImagesArray();
+			}
   		};
 	}
 

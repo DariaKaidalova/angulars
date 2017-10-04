@@ -160,8 +160,6 @@ ul {
   margin: 0 0 20px; }
   .b-popup .b-form {
     margin-bottom: 0; }
-  .b-form__inner {
-    display: inline-block; }
   .b-form__row {
     margin: 0 0 10px; }
     .b-form__row:last-child {
