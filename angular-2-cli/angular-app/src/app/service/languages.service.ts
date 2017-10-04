@@ -31,6 +31,10 @@ export class LanguagesService {
 		message_updated: 'The exercise has been updated!',
 		message_required: 'Please fill in all required fields!',
 		message_delete_exercise: 'Are you sure you want to delete the exercise?',
+		message_is_400_empty_file: 'Upload error: an empty file was uploaded!',
+		message_is_400_upload_error: 'Upload error!',
+		message_is_400_too_large_size: 'Upload error: too large file was uploaded!',
+		message_is_400_unknown_error: 'Unknown upload error!',
 		yes: 'Yes',
 		no: 'No'
 	}
@@ -54,8 +58,12 @@ export class LanguagesService {
 		message_is_used: 'Упражнение c данным названием уже добавлено!',
 		message_added: 'Упражнение добавлено!',
 		message_updated: 'Упражнение обновлено!',
-		message_required: 'Пожалуйста заполните все обязательные поля',
+		message_required: 'Пожалуйста заполните все обязательные поля!',
 		message_delete_exercise: 'Вы уверены, что хотите удалить упражнение?',
+		message_is_400_empty_file: 'Ошибка загрузки: был загружен пустой файл!',
+		message_is_400_upload_error: 'Ошибка загрузки!',
+		message_is_400_too_large_size: 'Ошибка загрузки: был загружен файл слишком большого размера!',
+		message_is_400_unknown_error: 'Неизвестная ошибка загрузки!',
 		yes: 'Да',
 		no: 'Нет'
 	}
@@ -81,6 +89,10 @@ export class LanguagesService {
 		message_updated: 'Ćwiczenie zostało zaktualizowane!',
 		message_required: 'Proszę wypełnić wszystkie wymagane pola!',
 		message_delete_exercise: 'Czy na pewno chcesz usunąć ćwiczenie?',
+		message_is_400_empty_file: '',
+		message_is_400_upload_error: '',
+		message_is_400_too_large_size: '',
+		message_is_400_unknown_error: '',
 		yes: 'Tak',
 		no: 'Nie'
 	}
@@ -93,7 +105,6 @@ export class LanguagesService {
 
 		var en = 'en', ru = 'ru', pl = 'pl';
 		var currentLanguage = localStorage.getItem('currentLanguage');
-		console.log('currentLanguage = '+currentLanguage);
 
 		this._translateService.addLangs([en, ru, pl]);
 

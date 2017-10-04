@@ -26,3 +26,8 @@
 
 <app-images-gallery [(images)]="loadedImages" (removeAction)="removeImage($event)"></app-images-gallery>
 
+<div class="b-message -type_error" *ngIf="is400EmptyFile">{{ "message_is_400_empty_file" | translate }}</div>
+<div class="b-message -type_error" *ngIf="is400UploadError">{{ "message_is_400_upload_error" | translate }}</div>
+<div class="b-message -type_error" *ngIf="is400TooLargeSize">{{ "message_is_400_too_large_size" | translate }}</div>
+<div class="b-message -type_error" *ngIf="is400UnknownError">{{ "message_is_400_unknown_error" | translate }}</div>
+

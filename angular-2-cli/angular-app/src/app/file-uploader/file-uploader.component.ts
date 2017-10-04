@@ -17,6 +17,10 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 	public loadedImages: Array<Image> = [];
 	public imagesNames: Array<{}> = [];
 	public isUpload: boolean;
+	public is400EmptyFile: boolean = false;
+	public is400UploadError: boolean = false;
+	public is400TooLargeSize: boolean = false;
+	public is400UnknownError: boolean = false;
 
 	constructor() {}
 
@@ -34,6 +38,27 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 		this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
 			var newImage = JSON.parse(response);
 
+			if(status === 400) {
+
+				if(newImage.code === 'EMPTY_FILE') {
+					this.is400EmptyFile = true;
+					console.log(newImage);
+				}
+				if(newImage.code === 'UPLOAD_ERROR') {
+					this.is400UploadError = true;
+					console.log(newImage);
+				}
+				if(newImage.code === 'UPLOAD_FILE_TOO_LARGE') {
+					this.is400TooLargeSize = true;
+					console.log(newImage);
+				}
+				else {
+					this.is400UnknownError = true;
+					console.log(newImage);
+				}
+				
+			}
+
 			var newImageObject = {
 				id: newImage.id,
 				name: newImage.name,
@@ -46,7 +71,7 @@ export class FileUploaderComponent implements OnInit, OnChanges {
 
 			this.loadedImages.push(newImageObject);
 			this.checkLoadedImagesArray();
-  	};
+  		};
 	}
 
 	removeImages():void {
