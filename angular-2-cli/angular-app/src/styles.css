@@ -232,6 +232,8 @@ ul {
   color: #FF9900; }
 .b-message.-type_error {
   color: #b9041f; }
+.b-message.-align_center {
+  text-align: center; }
 
 /*footer*/
 .l-popup {
