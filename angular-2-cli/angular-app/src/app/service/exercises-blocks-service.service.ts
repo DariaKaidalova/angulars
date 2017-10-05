@@ -21,6 +21,11 @@ export class ExercisesService {
     isAdded: boolean = false;
     isUpdated: boolean = false;
 
+    is400NameLengthError: boolean = false;
+    is400DescriptionLengthError: boolean = false;
+    is400: boolean = false;
+    isUnknownServerError = false;
+
 	constructor(private _exercisesRestService: ExercisesRestService, private _languagesService: LanguagesService) {}
 
 	сheckIdenticalNames(comparableName) {
@@ -125,6 +130,32 @@ export class ExercisesService {
 				}
 				break;
 			}
+		}
+	}
+
+	checkServerErrors(errorObject) {
+		console.log(errorObject);
+		this.is400NameLengthError = false;
+		this.is400DescriptionLengthError = false;
+		this.is400 = false;
+		this.isUnknownServerError = false;
+		console.log('this.is400NameLengthError', this.is400NameLengthError);
+		console.log('this.is400DescriptionLengthError',this.is400DescriptionLengthError); 
+		if(errorObject.status === 400) {
+			if(errorObject.errors[0].code === 'Length') {
+				if(errorObject.errors[0].field === 'name') {
+					this.is400NameLengthError = true;
+				}
+				if(errorObject.errors[0].field === 'description') {
+					this.is400DescriptionLengthError = true;
+				}
+			}
+			else {
+				this.is400 = true;
+			}
+		}
+		else {
+			this.isUnknownServerError = true;
 		}
 	}
 

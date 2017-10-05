@@ -28,6 +28,11 @@
 			text-align: center;
 		}
 
+		&.-type_fieldMessage {
+			margin-bottom: 5px;
+			font-size: 12px;
+		}
+
 		&:last-child {
 			margin-bottom: 0;
 		}

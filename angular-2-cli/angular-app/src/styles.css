@@ -170,6 +170,9 @@ ul {
       margin-top: 15px; }
     .b-form__item.-type_message {
       text-align: center; }
+    .b-form__item.-type_fieldMessage {
+      margin-bottom: 5px;
+      font-size: 12px; }
     .b-form__item:last-child {
       margin-bottom: 0; }
 
@@ -228,8 +231,12 @@ ul {
   color: #74A811; }
 .b-message.-type_warning {
   color: #FF9900; }
-.b-message.-type_error {
+.b-message.-type_error, .b-message.-type_fieldError {
   color: #b9041f; }
+.b-message.-type_fieldError {
+  margin-top: 5px;
+  padding-left: 10px;
+  font-size: 12px; }
 .b-message.-align_center {
   text-align: center; }
 
