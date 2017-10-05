@@ -36,8 +36,8 @@ export class LanguagesService {
 		message_is_400_too_large_size: 'Upload error: file is too large',
 		message_is_400_unknown_error: 'Unknown error',
 		message_is_400: 'Error: Bad Request',
-		message_is_400_name_length_error: 'The value must be no more than 255 characters',
-		message_is_400_description_length_error: 'The value must be no more than 1000 characters',
+		message_is_400_name_length_error: 'Cannot enter more than 255 characters',
+		message_is_400_description_length_error: 'Cannot enter more than 5000 characters',
 		yes: 'Yes',
 		no: 'No'
 	}
@@ -68,8 +68,8 @@ export class LanguagesService {
 		message_is_400_too_large_size: 'Ошибка загрузки: файл слишком большого размера',
 		message_is_400_unknown_error: 'Неизвестная ошибка',
 		message_is_400: 'Ошибка: неправильный запрос',
-		message_is_400_name_length_error: 'Значение должно быть не более 255 символов',
-		message_is_400_description_length_error: 'Значение должно быть не более 5000 символов',
+		message_is_400_name_length_error: 'Нельзя ввести более 255 символов',
+		message_is_400_description_length_error: 'Нельзя ввести более 5000 символов',
 		yes: 'Да',
 		no: 'Нет'
 	}
@@ -99,9 +99,9 @@ export class LanguagesService {
 		message_is_400_upload_error: 'Błąd ładowania',
 		message_is_400_too_large_size: 'Błąd ładowania: zbyt duży plik',
 		message_is_400_unknown_error: 'Nieznany błąd',
-		message_is_400: '',
-		message_is_400_name_length_error: '',
-		message_is_400_description_length_error: '',
+		message_is_400: 'Błąd: nieprawidłowe zapytanie',
+		message_is_400_name_length_error: 'Nie można wprowadzić więcej niż 255 znaków',
+		message_is_400_description_length_error: 'Nie można wprowadzić więcej niż 5000 znaków',
 		yes: 'Tak',
 		no: 'Nie'
 	}
