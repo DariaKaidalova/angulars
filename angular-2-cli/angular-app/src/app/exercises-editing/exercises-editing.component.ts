@@ -134,7 +134,10 @@ export class ExercisesEditingComponent implements OnInit {
                         () => { this.navigateToExercises(); }, 1000
                     );
                 }, 
-                err => { console.log(err); console.error('cannot UPDATE entry in the database using ID = '+this.editableId); }
+                err => { 
+                    console.log(err); 
+                    console.error('cannot UPDATE entry in the database using ID = '+this.editableId); 
+                }
             );
         }
     }

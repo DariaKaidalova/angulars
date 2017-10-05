@@ -49,6 +49,6 @@ export class ExercisesRestService {
 
         return this._http.put(`${this._exerciseUrl}/${data['id']}`, dataString, options)
 			.map((res:Response) => res.json()) 
-			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+			.catch((error:any) => Observable.throw(error.json() || 'Server error'));
     }
 }
