@@ -17,10 +17,10 @@ export class ExercisesService {
     editableDescription: string = '';
     editableImages: Array<Image>;
 
-    isUsed: boolean = false;
     isAdded: boolean = false;
     isUpdated: boolean = false;
 
+    isUsed: boolean = false;
     is400NameLengthError: boolean = false;
     is400DescriptionLengthError: boolean = false;
     is400: boolean = false;
@@ -29,8 +29,6 @@ export class ExercisesService {
 	constructor(private _exercisesRestService: ExercisesRestService, private _languagesService: LanguagesService) {}
 
 	сheckIdenticalNames(comparableName) {
-
-		console.log(this.exercises);
 
 		for(var i = 0; i < this.exercises.length; i++) { //this.name
 			if(this.exercises[i].name === comparableName) {
@@ -143,7 +141,9 @@ export class ExercisesService {
 		this.isUnknownServerError = false;
 
 		if(errorObject.status === 400) {
+			this.clearExerciseArray();
 			for(var i = 0; i < errorObject.errors.length; i++) {
+
 				if(errorObject.errors[i].code === 'Length') {
 
 					/*check field 'name'*/
@@ -163,8 +163,14 @@ export class ExercisesService {
 			}
 		}
 		else {
+			this.clearExerciseArray();
 			this.isUnknownServerError = true;
 		}
+	}
+
+	clearExerciseArray() {
+
+		this.exercises.splice(0, this.exercises.length);
 	}
 
 }
