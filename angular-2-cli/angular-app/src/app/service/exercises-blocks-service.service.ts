@@ -142,16 +142,23 @@ export class ExercisesService {
 		console.log('this.is400NameLengthError', this.is400NameLengthError);
 		console.log('this.is400DescriptionLengthError',this.is400DescriptionLengthError); 
 		if(errorObject.status === 400) {
-			if(errorObject.errors[0].code === 'Length') {
-				if(errorObject.errors[0].field === 'name') {
-					this.is400NameLengthError = true;
+			for(var i = 0; i < errorObject.errors.length; i++) {
+				if(errorObject.errors[i].code === 'Length') {
+
+					/*check field 'name'*/
+					if(errorObject.errors[i].field === 'name') { 
+						this.is400NameLengthError = true;
+					}
+
+					/*check field 'description'*/
+					if(errorObject.errors[i].field === 'description') {
+						this.is400DescriptionLengthError = true;
+					}
+					
 				}
-				if(errorObject.errors[0].field === 'description') {
-					this.is400DescriptionLengthError = true;
+				else {
+					this.is400 = true;
 				}
-			}
-			else {
-				this.is400 = true;
 			}
 		}
 		else {
