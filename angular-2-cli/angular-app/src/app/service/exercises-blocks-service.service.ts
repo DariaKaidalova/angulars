@@ -30,6 +30,8 @@ export class ExercisesService {
 
 	сheckIdenticalNames(comparableName) {
 
+		console.log(this.exercises);
+
 		for(var i = 0; i < this.exercises.length; i++) { //this.name
 			if(this.exercises[i].name === comparableName) {
 				this.isUsed = true; 

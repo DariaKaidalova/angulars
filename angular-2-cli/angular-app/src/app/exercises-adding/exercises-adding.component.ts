@@ -32,9 +32,7 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
 		private _exercisesRestService: ExercisesRestService, 
 		private _router: Router) {}
 
-	ngOnInit() {
-        console.log('add');
-    }
+	ngOnInit() {}
 
     ngOnChanges(changes: any) {}
 
