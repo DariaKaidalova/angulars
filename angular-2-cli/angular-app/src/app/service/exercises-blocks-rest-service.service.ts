@@ -33,7 +33,7 @@ export class ExercisesRestService {
 
 		return this._http.post(this._exerciseUrl, dataString, options) 
 			.map((res:Response) => { res.json() }) 
-			.catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
+			.catch((error:any) => Observable.throw(error.json() || 'Server error')); 
 	}
 
 	remove(id:string): Observable<Exercise[]> {

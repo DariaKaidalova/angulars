@@ -6,12 +6,14 @@
 					<label for="" class="b-label -type_required">Название упражнения</label>
 				</div>
 				<input type="text" class="b-field" [(ngModel)]="newName" name="newName" required>
+				<div class="b-message -type_fieldError" *ngIf="is400NameLengthError">{{ "message_is_400_name_length_error" | translate }}</div>
 			</div>
 			<div class="b-form__item">
 				<div class="b-form__label">
 					<label for="" class="b-label -type_required">Описание упражнения</label>
 				</div>
 				<textarea class="b-field -type_textarea" [(ngModel)]="newDescription" name="newDescription" required>></textarea>
+				<div class="b-message -type_fieldError" *ngIf="is400DescriptionLengthError">{{ "message_is_400_description_length_error" | translate }}</div>
 			</div>
 			<div class="b-form__item">
 				<div class="b-form__label">
@@ -28,7 +30,12 @@
 				</button>
 			</div>
 			<div class="b-form__item -type_message">
+				<!-- errors -->
+				<div class="b-message -type_error" *ngIf="is400">{{ "message_is_400" | translate }}</div>
+				<div class="b-message -type_error" *ngIf="isUnknownServerError">{{ "message_is_400_unknown_error" | translate }}</div>
 				<div class="b-message -type_error" *ngIf="isUsed">{{ "message_is_used" | translate }}</div>
+				
+				<!-- success -->
 				<div class="b-message -type_success" *ngIf="isAdded">{{ "message_added" | translate }}</div> 
 			</div> 	
 		</div>

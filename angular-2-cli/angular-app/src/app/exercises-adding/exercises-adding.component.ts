@@ -19,9 +19,13 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
     @Input() newImages: Array<{}>;
     @ViewChild(FileUploaderComponent)
     private _fileUploader: FileUploaderComponent;
-
-    isUsed: boolean = false;
+   
     isAdded: boolean = false;
+    isUsed: boolean = false;
+    is400: boolean = false;
+    is400NameLengthError: boolean = false;
+    is400DescriptionLengthError: boolean = false;
+    isUnknownServerError = false;
 
 	constructor(
 		private _exercisesService: ExercisesService, 
@@ -72,7 +76,17 @@ export class ExercisesAddingComponent implements OnInit, OnChanges {
                         () => { this.navigateToExercises(); }, 1000
                     );
                 }, 
-                err => { console.log(err); console.error('cannot ADD entry into the database using NAME = '+newExersices.name); });
+                err => { 
+                    console.log(err); 
+                    console.error('cannot ADD entry into the database using NAME = '+newExersices.name+', '+err.error);
+                    this._exercisesService.checkServerErrors(err);
+                    this.is400NameLengthError = this._exercisesService.is400NameLengthError;
+                    this.is400DescriptionLengthError = this._exercisesService.is400DescriptionLengthError;
+                    this.is400 = this._exercisesService.is400;
+                    this.isUnknownServerError = this._exercisesService.isUnknownServerError;
+
+                }
+            );
         }
     }
 

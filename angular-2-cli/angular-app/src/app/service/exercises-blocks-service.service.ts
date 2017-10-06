@@ -134,13 +134,12 @@ export class ExercisesService {
 	}
 
 	checkServerErrors(errorObject) {
-		console.log(errorObject);
+		
 		this.is400NameLengthError = false;
 		this.is400DescriptionLengthError = false;
 		this.is400 = false;
 		this.isUnknownServerError = false;
-		console.log('this.is400NameLengthError', this.is400NameLengthError);
-		console.log('this.is400DescriptionLengthError',this.is400DescriptionLengthError); 
+
 		if(errorObject.status === 400) {
 			for(var i = 0; i < errorObject.errors.length; i++) {
 				if(errorObject.errors[i].code === 'Length') {
