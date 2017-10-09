@@ -6,6 +6,11 @@
 
 	&__inner {
 		@extend .g-block__center;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
 	}
 }
 

@@ -69,6 +69,11 @@ ul {
 .b-footer {
   height: 60px;
   box-sizing: border-box; }
+  .b-footer__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; }
 
 /*logo*/
 .b-logo__link {
@@ -543,5 +548,10 @@ ul {
     margin-top: 0; }
   .b-title.-type_subtitle {
     font-size: 20px; }
+
+/*field*/
+.b-copyright__link {
+  color: inherit;
+  text-decoration: none; }
 
 /*# sourceMappingURL=styles.css.map */
