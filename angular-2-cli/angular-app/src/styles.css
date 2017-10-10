@@ -134,10 +134,12 @@ ul {
       float: none;
       background: transparent; }
   .b-blocks__title {
+    overflow: hidden;
     margin: 0 0 5px;
     font: 19px/1.3 'Lobster', cursive;
     cursor: pointer; }
   .b-blocks__text {
+    overflow: hidden;
     line-height: 1.5;
     white-space: pre-wrap; }
   .b-blocks__link {
@@ -490,13 +492,13 @@ ul {
   .b-uploaderFiles__item {
     display: inline-block;
     margin: 0 5px 5px 0; }
-    .b-uploaderFiles__item.-type_loaded {
-      display: none; }
   .b-uploaderFiles__itemInner {
     display: block;
     padding: 2px 4px;
     border-radius: 3px;
-    background-color: #c4da9b; }
+    background: #edd8da; }
+    .-type_loaded .b-uploaderFiles__itemInner {
+      background-color: #c4da9b; }
 
 /*spinner*/
 .b-spinner {

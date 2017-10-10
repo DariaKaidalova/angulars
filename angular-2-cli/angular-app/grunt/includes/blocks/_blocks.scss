@@ -37,12 +37,14 @@
 	&__titleWrap {}
 
 	&__title {
+		overflow: hidden;
 		margin: 0 0 5px;
   	font: 19px/1.3 'Lobster', cursive;
   	cursor: pointer;
 	}
 
 	&__text {
+		overflow: hidden;
     line-height: 1.5;
     white-space: pre-wrap;
 	}

@@ -3,21 +3,21 @@
 		<div class="b-form__row">
 			<div class="b-form__item">
 				<div class="b-form__label">
-					<label for="" class="b-label -type_required">Название упражнения</label>
+					<label for="" class="b-label -type_required">{{ "exercise_name" | translate }}</label>
 				</div>
 				<input type="text" class="b-field" [(ngModel)]="newName" name="newName" required>
 				<div class="b-message -type_fieldError" *ngIf="is400NameLengthError">{{ "message_is_400_name_length_error" | translate }}</div>
 			</div>
 			<div class="b-form__item">
 				<div class="b-form__label">
-					<label for="" class="b-label -type_required">Описание упражнения</label>
+					<label for="" class="b-label -type_required">{{ "exercise_description" | translate }}</label>
 				</div>
 				<textarea class="b-field -type_textarea" [(ngModel)]="newDescription" name="newDescription" required>></textarea>
 				<div class="b-message -type_fieldError" *ngIf="is400DescriptionLengthError">{{ "message_is_400_description_length_error" | translate }}</div>
 			</div>
 			<div class="b-form__item">
 				<div class="b-form__label">
-					<label for="" class="b-label">Фотографии</label>
+					<label for="" class="b-label">{{ "exercise_images" | translate }}</label>
 				</div>
 				<file-uploader></file-uploader>
 			</div>

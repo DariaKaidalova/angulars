@@ -18,7 +18,7 @@
 	<span class="b-button__icon icon-trash"></span> <span class="b-button__text">{{ "clear" | translate }}</span>
 </button> 
 
-<ul class="b-uploaderFiles" *ngIf="!is400">
+<ul class="b-uploaderFiles">
 	<li class="b-uploaderFiles__item" *ngFor="let queueItem of uploader.queue" [ngClass]="{'-type_loaded': queueItem.isSuccess}">
 		<span class="b-uploaderFiles__itemInner">{{ queueItem?.file?.name }}</span>
 	</li>

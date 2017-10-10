@@ -42,21 +42,16 @@
 	&__item {
 		display: inline-block;
 		margin: 0 5px 5px 0;
-
-		&.-type_loaded {
-			display: none;
-		}
 	}
 
 	&__itemInner {
 		display: block;
 		padding: 2px 4px;
 		border-radius: 3px;
-		background-color: $color-green-2;
-		//background: $color-pink-2;
+		background: $color-pink-2;
 
 		.-type_loaded & {
-			//background-color: $color-green-2;
+			background-color: $color-green-2;
 		}
 	}
 }
