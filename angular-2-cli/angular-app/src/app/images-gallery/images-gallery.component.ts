@@ -13,7 +13,7 @@ export enum KEY_CODE {
   templateUrl: './images-gallery.component.html',
   styleUrls: ['./images-gallery.component.css']
 })
-export class ImagesGalleryComponent implements OnInit {
+export class ImagesGalleryComponent implements OnInit, OnChanges {
 
 	@Input() images: Array<Image>;
     @Input() removable: boolean;
@@ -33,7 +33,7 @@ export class ImagesGalleryComponent implements OnInit {
     constructor(private _windowService: WindowService) {}
 
     ngOnInit() {
-
+        this._oldArray = this.images;
         this.checkInputs();
         this.addIndex(this.images);
         this.calculateSizes();
@@ -47,20 +47,38 @@ export class ImagesGalleryComponent implements OnInit {
 
     ngOnChanges(changes: { [propName: string]: SimpleChange }) {
 
-        if (changes['images']) {
-            if(this._oldArray !== this.images) {
+        //check changes of array with images: this works on init.
+        this._oldArray = changes['images'].previousValue;
+        this.images = changes['images'].currentValue;
+        if (changes['images'].firstChange) {
+            if(this._oldArray !== this.images && this._oldArray !== undefined) {
                 this.checkInputs();
                 this.addIndex(this.images);
             }
             else {
-               this._oldArray = this.images; 
+                this.addIndex(this.images);
             }
         }
 
     }
 
-    addIndex(images) {
+    ngDoCheck() {
+        
+        //check changes of array with images: this works on changes.
+        if(this._oldArray !== this.images) {
+            this.checkInputs();
+            this.addIndex(this.images);
+        }
+        else {
+            this._oldArray = this.images;
+            this.addIndex(this.images);
+        }
 
+    }
+
+
+    addIndex(images) {
+        
         if(images.length > 0) {
             var index = 0;
             for(var i = 0; i < images.length; i++) {
@@ -73,7 +91,7 @@ export class ImagesGalleryComponent implements OnInit {
 
     }
 
-    getCurrentImage(index, url, name) {
+    getCurrentImage(index, url, name) {;
         this.hideScroll();
         this.currentIndex = index;
         this.currentUrl = url;
