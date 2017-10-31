@@ -6,6 +6,7 @@ import 'rxjs/add/operator/switchMap';
 import { ExercisesService } from '../service/exercises-blocks-service.service';
 import { ExercisesRestService } from '../service/exercises-blocks-rest-service.service';
 import { Exercise } from '../interface/exercise.interface';
+import { Image } from '../interface/image.interface';
 import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
 
 @Component({
@@ -18,7 +19,7 @@ export class ExercisesDetailsComponent implements OnInit {
 	detailId: number = 0;
     detailName: string = '';
     detailDescription: string = '';
-    detailImages: Array<{}>;
+    detailImages: Array<Image>;
 
 	constructor(
 		private _exercisesService: ExercisesService, 
@@ -44,7 +45,8 @@ export class ExercisesDetailsComponent implements OnInit {
     	this._route.params
             .switchMap((params: Params) => this._exercisesRestService.getById(params['id']) ) // (+) converts string 'id' to a number
             .subscribe(
-                exercise => { this.exercise = exercise; 
+                exercise => { 
+                                this.exercise = exercise; 
                                 this.detailId = this.exercise.id; 
                                 this._exercisesService.find(this.detailId);
                                 this.detailName = this.exercise.name;
