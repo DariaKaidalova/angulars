@@ -7,8 +7,8 @@
 
 		<div class="b-blocks__text">{{ detailDescription }}</div>
 
-		<div class="b-blocks__imageWrap">
-			<app-images-gallery [(images)]="detailImages" [removable]="false"></app-images-gallery>
+		<div class="b-blocks__imageWrap" *ngIf="detailImages?.length > 0">
+			<app-images-gallery [(images)]="detailImages" [removable]="false" (removeAction)="test($event)"></app-images-gallery>
 		</div>
 
 		<div class="b-blocks__buttons">

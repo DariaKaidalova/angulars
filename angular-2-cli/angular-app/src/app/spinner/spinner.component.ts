@@ -10,8 +10,6 @@ export class SpinnerComponent implements OnInit {
 
 	constructor(private _mainService: MainService) {}
 
-	ngOnInit() {
-		//console.log('spinner this._mainService.isShowSpinner = ', this._mainService.isShowSpinner);
-	}
+	ngOnInit() {}
 
 }

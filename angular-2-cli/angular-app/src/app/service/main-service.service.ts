@@ -5,8 +5,6 @@ export class MainService {
 
 	isShowSpinner: boolean = true;
 
-	constructor() {
-		//console.log('main-serv');
-	}
+	constructor() {}
 
 }

@@ -32,11 +32,12 @@ export class ImagesGalleryComponent implements OnInit, OnChanges {
     
     constructor(private _windowService: WindowService) {}
 
-    ngOnInit() {
+    ngOnInit() { 
+
         this._oldArray = this.images;
         this.checkInputs();
         this.addIndex(this.images);
-        this.calculateSizes();      
+        this.calculateSizes(); 
     }
 
     @HostListener('window:resize', [])
@@ -195,7 +196,6 @@ export class ImagesGalleryComponent implements OnInit, OnChanges {
     }
 
     checkInputs() {
-        console.log(this.removable);
         if(!this.removable && this.removable !== false) {
             this.removable = true;
         }
