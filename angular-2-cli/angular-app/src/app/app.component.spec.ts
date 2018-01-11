@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 describe('AppComponent: ', () => {
 
   let spinner: SpinnerComponent, main: MainComponent;
+  var fixture, app, spinnerComponent, mainComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -16,20 +17,20 @@ describe('AppComponent: ', () => {
         SpinnerComponent,
         MainComponent
       ],
+      imports: [Component]
+      
     }).compileComponents();
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.debugElement.componentInstance;
 
-    const spinnerComponent = TestBed.createComponent(SpinnerComponent);
+    spinnerComponent = TestBed.createComponent(SpinnerComponent);
     spinner = spinnerComponent.componentInstance;
-    
-    const mainComponent = TestBed.createComponent(MainComponent);
+
+    mainComponent = TestBed.createComponent(MainComponent);
     main = mainComponent.componentInstance;
   }));
 
   it('Should create the App', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 
